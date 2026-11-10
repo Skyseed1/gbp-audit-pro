@@ -1,29 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>GBP Audit Pro - For Any Business</title>
+  <title>GBP Audit Pro | Powered by Skyseed Global Concept</title>
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Google Fonts: Inter -->
+  <!-- Google Fonts: Plus Jakarta Sans -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
   <script>
     tailwind.config = {
       theme: {
         extend: {
-          fontFamily: { sans: ['Inter', 'sans-serif'] },
+          fontFamily: { sans: ['"Plus Jakarta Sans"', 'sans-serif'] },
           colors: {
             brand: {
-              50: '#eff6ff',
-              100: '#dbeafe',
-              500: '#3b82f6',
-              600: '#2563eb',
-              700: '#1d4ed8',
-              800: '#1e40af',
-              900: '#1e3a8a',
+              cyan: '#0ea5e9',
+              gold: '#f59e0b',
+              navy: '#0b1329',
+              dark: '#070b14',
             }
           }
         }
@@ -31,62 +29,145 @@
     }
   </script>
   <style>
-    /* Radial score circle progress */
+    /* 3D Dimensional Headline Typography */
+    .headline-3d {
+      color: #ffffff;
+      text-shadow: 
+        0 1px 0 #94a3b8,
+        0 2px 0 #64748b,
+        0 3px 0 #334155,
+        0 4px 0 #1e293b,
+        0 5px 0 #0f172a,
+        0 8px 16px rgba(0, 0, 0, 0.7),
+        0 16px 32px rgba(14, 165, 233, 0.25);
+    }
+    .headline-3d-cyan {
+      color: #38bdf8;
+      text-shadow: 
+        0 1px 0 #0284c7,
+        0 2px 0 #0369a1,
+        0 3px 0 #075985,
+        0 4px 0 #0c4a6e,
+        0 7px 18px rgba(14, 165, 233, 0.5);
+    }
+    .headline-3d-gold {
+      color: #fbbf24;
+      text-shadow: 
+        0 1px 0 #d97706,
+        0 2px 0 #b45309,
+        0 3px 0 #92400e,
+        0 4px 0 #78350f,
+        0 7px 18px rgba(245, 158, 11, 0.4);
+    }
+
+    /* Radial Score Progress Animation */
     .score-circle {
       transition: stroke-dashoffset 1.4s cubic-bezier(0.4, 0, 0.2, 1);
     }
-    @keyframes pulse-soft {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.7; }
-    }
-    .animate-pulse-soft {
-      animation: pulse-soft 2s infinite;
+
+    /* Clean PDF / Print Stylesheet */
+    @media print {
+      header, footer, #auditFormSection, #loadingState, #actionButtons, .no-print, #ctaModal, #bottomCtaBanner {
+        display: none !important;
+      }
+      body {
+        background: white !important;
+        color: #0f172a !important;
+      }
+      #resultsSection {
+        display: block !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        max-width: 100% !important;
+      }
+      .bg-white\/90, .bg-slate-900\/90, .bg-slate-900\/80 {
+        background: #ffffff !important;
+        color: #0f172a !important;
+        border: 1px solid #cbd5e1 !important;
+        box-shadow: none !important;
+      }
+      .text-white {
+        color: #0f172a !important;
+      }
+      .text-slate-400, .text-slate-300 {
+        color: #475569 !important;
+      }
+      #printBrandHeader {
+        display: flex !important;
+      }
     }
   </style>
 </head>
-<body class="bg-slate-50 text-slate-800 font-sans antialiased min-h-screen flex flex-col">
+<body class="bg-gradient-to-b from-[#070b14] via-[#0a1226] to-[#05070e] text-slate-100 font-sans antialiased min-h-screen flex flex-col selection:bg-brand-cyan selection:text-slate-900">
 
-  <!-- Header -->
-  <header class="bg-white border-b border-slate-200 sticky top-0 z-40 shadow-xs">
+  <!-- Logo Data Definition -->
+  <script>
+    const SKYSEED_LOGO = "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCADwAPADASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwDwYUopoOaWtSB+aUGmjrSigB4NOHWmA0ooAeDT1PaoxThQBIDz7UoPWmA9KcKAHA8U8UwU4cc0APB6UoNNGM0q0APFPXjkUwHFOXqeDTsA8HtS55xSe4pR70gHCnA8UwUooAeDSimjpThQMXJpQabSg0AOBpc+hpgNBPpQA8HtTwaiB5p240ASc+tLmo8+9GR60COT6dxTgaZSgnpQBID6UoPemj60ooAeDThTMkUoJoAeKUUwGlB9aAJB6U8GohT1NAEuQBSiot4H1rb8PeG9W1uQC2tysWcNI/AFb0qFSrLlgrnPiMVSw8OepKyMrPNdN4W8Ga3r0gMMDQwZ5lkGAP8AP516B4V8CaVpe2a7H2y5HOW+6D/X9K7u3ZUQIiqirwFUYA+gFezQylRXNV1fY+UxnEkpvlw6su/U5vw58MvD1kitfK19Njnd938u/wCldQvgvwdNF5Unh2xK9MqhVvwIOasQyVdhlHHNdcqELWseZTxdVvmcm36nnfi34M200bXPhW7aKTr9iuWyD7I/9Dn615FrGlajo189lqlnNaXCHlJVxn3HYj3HFfV0MuB1qt4ks9F1TSZIvENvbTWSDczztt8r3D/w/XNeZXwK3ie/hc3nHSeqPk6lFbPjGLwpb6tLD4X1ee/gVsESQkAeuH6MM8dB+NYory6lOVOVpH0VCtGtHmiPX0ozik7UdqzNh1GabRz60AOzzQTSA0gNAh4Oad261GDS57UDJCeKBx1pmeaXNAHK0opoNKDigQ8EYpwqPtTt1ADwacDxUYNOBoAeDTl61HmkLgUATZxU+n2tzf3SW9rGXdzgYGeazjMGkEan5jXrPgDSotP0qO7dP9JuFzn+6nYfU9T+FerlmA+tTvLZHg55m6y+jePxPYf4X8D2VmEn1L/SJ+uzPyr+P+H5mu7tljijWOJFjReAqjAH4VnQv0q3G/NfWQoQpLlirH5tVxtXET56srs0onqzFJ71mxvzViNz2qJRLjM04pTVpJ1VSzMAAMkk9BXmfjL4n+HfDYeBJv7RvlyPIt2GFP8AtP0H05PtXh/jb4leI/FLm2nuWhtWPyWVsCFb03d2P1NediMVSpLVn0GAyvEYizasj37xp8ZdB0Lfa6VjV74cfun/AHKH3fv9F/MV4r4o8c+I/GN8kF3cTXjM37mytVIjU+yjv7nJrT+GHwR8XeMxFeagDo2lOQfMl++4/wBkV9V/DP4XeEPA1un9maek15gb7ucbnJ9R6V8dmPFFGjeNPWR9rgeG9E57Hjfwg+BWvaqq6h4oLaXayDKwqf3pH45x/X2r1y+/Z+8F3FrstLnVLOYDiQTBwT7hh/IivTYnFW4396+VnnGIrz55SPoY4GnRhywR8hfEv4S+JPBe+7ZBqWlg8XkCn5P99eq/Xke9eelcGv0DkEc0RilRXRhhlYZBFfI/x/8ABcHhTxaZdOjWPTr4ebFGOkTd1HoM5x9D6V7GCzD2r5J7nNUo8uqPMiKTPFObrUZr1jnHZozTaAaBD80ZpgPFLmgB+aUGmD3oBoA5fNLmm0oNADge1KDwKbxiigCQN60FvSmZprNigB7Pxyao3l2I1J3UtzLgda5/VLknIBpoTdjX8PXBudSldjlUXA/E19F2xVYo1XhVQBfoBxXzD4RmxcyqTywyPwr6K8KaimpaFa3KMCwQJIPRl4P9D+NfXZHJezsfnnGVKd4z6I6KJqsxk1QierURz3r25I+KgyDxNrtr4e0WbVL0O0ceFVU6ux6D2+vtXhPjb4m69rge2jl/s+yfj7Pbsdzj/abq304HtXvWuaPYa/o1xpOoq5t5wPmjOHRgchlPqD+YyO9eO638H9Y0kvcadjWbcc5iGJh9Yzyf+AlvwrwM0niI/AvdPt+HFgWr1Gufz/Q8yjt7ifJdjEn6mprHUY9MuytmyJLtx5pHzAn0PY+9amo2zwo0exkZeGUjBB965a8tmDkkGvla16iakfoFJqDTifQ3w0/aJ1/RRDY+Jbca1YJhRKCEuUH16Pj0OCf71fSvgL4geFfGduJNA1aKaYLl7Vzsnj+qHnHuMj3r834Z54DhWyvoa1tK1mS2uo7i2uJbW5jIaORHKsp9Qw5FfOYvJ4T1irPuj16OM6M/TqKSrUUnvXxv8Nf2jfEGkeVZ+KYf7bs1wPOBCXKj1z0f8cE/3q7jx1+0jZpZi38G2TyzugJurxMLGSP4UB+YjPc4z6ivDlga1Odtzr9pGSPoLxJ4n0bw3pzX+tahDZwDODI3Ln0VerH2Ar5j+MHjyHxpM9xBE0dukyrbI/3tihuT7ksTjtmvFvEnjLWfEGqSXeo31zqV6xwWdshB6Dso9hVrSmuhDm4kLOe3YfSvcwGXzjJTl0OKvWgk0tzUZs1GTTNxzRnivoVsecLupQT61Hnmlz70xMfmlzUYPNKD60CHg07NRhuaUH3oA5mjNNpe9ADieaCaSkz2oAcTUMr4FPJ4qvN0NAFO8kO01gXxLOa27oHBrGu0OTxQJkOmXBtroSDqDn616l4D8T/2Vcbm3SWNxjzFByVP94e4ryRgVbI7VqaRqLwHGdyH7yn+lejgMY6ErHm5lgYYqm1JXPqWyuoLqBLi2lSWJxlXU8H/AD6VoRPkV4B4Z8S3Wny79Putu778L8q31Hf6jmvS9A8e6bdbYdRX7DMf4uWjP49R+P519ZRx9OqtXZn5njchr4aTdPVfid/E+MYq3HIfWsq2mjliSWGRJI2GVZDkEexHFXI3rodmedFuOj0ZHrvh/Q/EKbdY0+OeTGBOvyTL/wADHJ+hyPavM/FfwVvCGn8N3qXydRbz4jmHsD91v/HfpXrMb+9WonrzcTl1GtrazPdwGc4nC2UXddmfH3iDw5qGk3b2uo2NxaTrnKSxlT9RnqKwZ7UqfunNfcd7bWOqWn2TVLK2vrc/wToGx9CelcB4j+CXhrVd02h3culzHkQynzIj7Ankfn+FeDicpqU/h1R9hg+I6NXSouVny9aG8RwseWX+6a6C2tru7AEp8uPH3F7/AFNd74g+F/iDwyzPd6eZbdf+Xi3+dMe/dfxArKgtggBAryJ4ZRleUdT6KlilUh7kroradp8VuoCKB+Faa4UYFIBgcUtVYaY7PFLmmZ9qM80DuPzSZppNGRQIeDS5pmTmlzQA/NANNBoB55oA53NFNpaAHDr1pKSlBoAQ1FIM1NTCD60AUJkJBrNu4Sc8Vtume1V5oN1AHMywkHpVcoy8rkGunTTJbmURQxPI7cBVGSa6fTPhB4x1WyN1ZWEbrj5UaUIWPoCcKT+Nc9bEUqXxySNIUpz2VzzeK6kj6kn3rWstalQBWYSL6N1/Ona94b1TRb57LVdPubG5T70U8ZRvrz1HvWPLbsh6EVvTxDjrFmFXDRnpJHe+HvFt1p0u/T7+S1J5aNjlGPuDwa9N8O/EuymKw6xAbV+nnxAtGfqOo/DNfOQeSPg81ds9TngxskO3+6eleths2nDc8LHZDRxG61Pr/T723vIFntJ454m6PGwYH8q0IpOOtfKXh/xZe6ZcCayu5bSQ/eKHKt9QeD+INeq+FvixbS7ItbgEZ6faYOU+pTqPwz9K92hmNKtufJYvh/EYd3p+8vxPYopKswyc9awdJ1Oz1K2W5sLqK5hPR42yPofQ+xrSik967Gk1oeSm4ytJWZt215JGuzIdP7jcj/634VzvibwF4c8Qq80EH9m3zZ+eEABj7jof0PvWlG9WoZOa5K2GhUVmj0MNjqtF3hKx4D4t8Kar4bufLvYt0JYqk6A7GPofQ+x/DNc+a+or+ztdYsJLC8hSVXXaNwzkeh/p6V87eMdFfQtalsiS0X34XPdO2fcdK+exmC9j70dj7XKc3WKfs6nxfmYuaCaaTzRmvNPdHZopuaM+9Ax+TS5plFAD80oNMyKUGgDnxRTQfXiloAdQKQUd6AHUhFGaQnigBDUMsixrlu1LJJgGsXV7o7SoNAHrH7PVtb6r4pdp40eFAWKuMg7R0Ptlh+VfSqDHYDHGB2r5L/Z58Q2+jeI4DdyBIZGaORj0UOMZPsCF/Cvq6KQY61+fcQc/1pt7H0uX29irDNa0fSddsTY6zpttqFv2SdM7PdW+8h91INeL+O/gCkm+78H3oPf7BeuAfokvQ/RgP9417irDHWpA1cWEzLEYV+5LTs9jWthadXdanwr4k8N6roeoPYatp9xZXSdY5kKnHqPUe44rAntyrZ6V9+67pWl67p/9n61p9vqFryRHMudhPdWHzKfdSK8K+J3wS0mxgbUdA160so3bC2WqXCx7m/uxynAP0YD6mvrMBnlHENRn7sjx8RgJ09Vqj5yzIlSwXTo2VcqfrV7VNOms7qS2mQLLGxVgCDgj3HB+orMliIJ4r6KE2tUebKK2aOg0HxNqel3S3FheTWso/iibG4ehHQj2Ne7fCr4jy+ILsaRq0Ua3hUtFNGMLJgZIK9jjJ449q8K8G+Edc8QXQWxs3MIPzyv8qKPqa99+HvgKx8NSLfTT/ar8KVDKMJHnrjufqcfSvpMr+sT1ex8hxDUwMIOErc/S256VDJ71ZjfPesuJ+KtRSe9e3KB8NCoakUmCDk59q8z+N9usgS5VfmilBJA4CuuT+uK9AjlFea/Fm+SSG6jz1lSIexUDP/oJrixlO9Cd+x62V1ZRxlLl7nmRJB6Umcg9qbnmjNfGs/UhwagHmmd+aXNADycUoPFM4oB96AHk0tM3UoOaAMDPNLk+tNBpaAHAilFMpQeKAHU1zgUbiBTHOQTQBVunIU4rn78kvzW7dAkHmsW9jyxoAh0m7ktbkFX2nPH+Fe7/AAy+LpsbeHTdbEk9umFSQHMkY9OfvD8iPfgV8/yIfSpILt4jtfJHr3rzcdgKeKVpI7cLipUmfdeha7pmsWwm0y9huVxkhG+ZfqvUfiKv3N9b2lu91dzxwQIPmkdgFH418RaZrtxblXiuPu9Nx5X+tWtT8VajfKI2neUgYHzk/qTXzMuHpc9oy0PW/tGCV2e9ePvjbZ6eslr4ciW4mHH2mYYRT/sr1P1OPoa8G13xRrPiPU2utQvZ7yUnG+RuAPRR0A9hgVnWmnXuozqhV5WY8Ior0nwr8O9qpNqzeWvUQr1P1/z+FfW5Rw50hH5nzWbcQ0cKr1ZW8upxVho+o6zciKztnmdu4HAr0Xwp8MNOtSlzrbC6mHIhU/IPqe/+ea7bTrS0sYBBZwJDGBjCjr9T3q0pr7/B5LRopOerPy/NOLMRiW4UPdj+LLVlHDawLBbRJDEv3UQYAq7G2az43FWI3FevyJLQ+W9pKTu3dmjG9WEkFZ8b1k+IPFOl6IClxN5tz/DbxnLn6/3R9f1rGVo7nZQjOq+WCuze1jVYNL06S7lIOOEX+8x6CvGfF2pPdTRwF9zAmSU56sf8n86i8TeLri/uBPcsoIyIIFPCD/PU96wUkeRjJISzsck+9eBm2MjGn7OO7PuOH8olCqq1Tp+ZNmlzTBS18yfbjh1oJptANADs0vamijNAD8ijPoKbRQBh0UgpcigB1FNp1ABTWp1IRQBVmXIqhcQ57VrMtRPED0FAHPT23PSoPsrscYro2twT0oS2Uc4FKwGLb6aGbLirLTWljKiNGJD1Izir9ywijOAM1zd3ueUsepprR3E9VY9R8CeLtLsl8maxiTJ/10Qy6j3B/mP1r0zT720voRPZ3Ec8fqh6fUdR+NfL0MssJBVjx71v6D4kurKdZI5nikH8atg/j6ivosDnChaE1ofJZvwzDFN1KbtI+jVJ+lSoa830L4hNJEqXtutxgf6yI7W/Fen5YrbHjnSQmfIu8+mwf419FTxlGSumfDYjI8ZSly8lzskI61FqmrWGlW/n31wsSn7oPLN9B1NcBqnj6YxFbC2W2H/PSVtx/AdP5159rniFp5Xlkne4mbq7kn8q58TmVOmtGehl/DVatK9XRdkd34q+Id5OjRacTY254MhP71h9f4fw59687u9bdpCttlpGPLNyTWO7XV7JliwHqa1tK04IQxFfM4nM51Hoff4LJqGGgopFzSoJXfzp2LOfXtWygwMVDAm0ACplrypScndnrKKirIeDSg0ylBpFDu9BpuaM0APzzQeaZmlzQA6jPOabmgGgDGopM0meMUAOHSnLzxUe7ArW8M6Nca3dskbiKGPBllIyF9AB3NaUqUqslGKu2Y160KFN1KjskUAtIQc8V6Ing7Q40CTzXRcj7xlVST7Db/jWb4i8IQWWnzX1pfMscK7mS4xkjpwwA5JwMYH1ruqZViKcXJrY8mhn+DrTUIyab2unqcXtJJoK+tXvCMVprHiEaZO8gURM7GNgDxjHJBrQ8aaTaaNc20drJM6yxb28xgTkMR2A9K5lhqjpe1tpsd7xtJYhYdv3mr/I58rn0oKkCui8JeHW1jfcXLSRWYyoZeC7egyDx71R8cDQ9BmW0t5p57oHMql1KoPQ4Uc9/b8at4KqqXtWrIiOZUJYh4eLvJb2/wAznrqMsDWTPbHJOK9Zs/CGlato6Xmm3k7GaLdDvZdu7HCtxxzwTnivPriDy3ZZUKFSQwYYII9aithalG3Ot9isLj6OKclTesXZ9LHNyQEHpUDxkV61oPgOxvNCTU9TupbcSKZAFwAsfZjkHqOfpWBoHg0+ItVmSzka3sImOZpVywXJwMDALY57CreBrrlXLrLYzjmuFam+bSG76HDwzzRfdJwKuJqt5jAeX/vqvYU+FPhrywsl1qjyY6rNGoPvjYf51z/iv4dR6HYvqNpqKzW6EAxzLtkGTjgjhv0+lbzwOLoR5mtPU5aOdZfiqipxlq9rpq55+XvLk/MW57k5NWrXTmY7nyT711PgDRbLxBrFxYPO8Qhg8zeig5O4DHP1rv4/hxp4xjUrj/vyP8amngcTiY88VdGmJznBYKp7KpKz9GeYWlkq44rQiiCgAV6Onw7sDgDVJ8nj/Uj/ABrz/TDBdeIbHSZJtjXVwsRZRkqCcZx/Ss6uBrUmozVrmmFzbC4qMpUpXUd9BVXB4pwFekD4bWf/AEGLg/8AbuP/AIqnD4a2f/QYuP8AwGH/AMVWv9lYn+X8jk/1jwH8/wCDPNcYpcc1f8cWdr4Z1SS0a5aZVVWDMm0sSOmMmuy0b4f2uoaNZah/a0sf2m3SbZ9mB27lBxndzjNY08DWqScYrVHXWzXD0aUas5WUtjz7FFejP8Nbcj5NbkB97TP/ALPXPeIfBeraTbvdJ5d3bIMs8WdyD1Ze34Zp1cvxFJc0o6E4fOsHXlyQnq/kc1SCgmkriPWFozzim0v0NAGPmkzTSaa54zQBFeXCxRse9dz8GNQiuNLvrcsPtCz72H+wQAD+GK801RiwIFVNKn1SwkbUNOa4j8gjfLGDhc9AT74PB6124DE/VqyqWuedmmB+vYaVG9rnoXj7wV4gvdeutU02cXkM8hkWLzQkkQP8OGwCB0GD09K5ua58T6fYS6Tqr3kEGQ4gnBGcZwRnt9OMj2rW0n4oalFtTUrOG6Xuy/I36cfpXo0Kad4s8Pxo6b7W8U+WXHzRN03D0IPp1xjoa9L6vSxKlLDTd+qZ4zxmJwPJTxlNOOiUkeYfCJifGhJPP2d/6V6F4n0KXWtasN5KWcdv++cdT85+Ue5/SvO/hN8vjV17iGQfyruvG/i0eGZrKD7MZ3nIdsnAEecHHvwa2wKpfUv33w8xy5n9Y/tRLDL3nDTy31JfGmvJ4fsotN06MJdPF+6wvywx9N3ueDj6V4zqzPJMzSMzMSSzMcknua9z1ixsvFnh6J7eVWk2GS0m6YPdD7HGD6EZ9c+OazZyQTyQzRNHLGxV0YYKkcEEVx5w6ntFf4eh3cOqiqLSX7xP3r73Om+DfiU2l4dDu5P3Fw2YCT92T0/Hp9cV1Xifwi+peLrO8jXFjcMZL3HZ1xn/AL74/HdXim54JlkRirI2QQeRX0N4V1Ke/wDC1pqM/MrQFm/2iMjP44roy6UMVT9lV+zqvQ5s7hUwNb61h9Of3X69Gc58V/EKWdouj2pALKGmx2X+Ff6/TFWvgvdxT+FpEDDz0uWaUd8EDB/TH4V5Z4iuZ725luJ2LyysWc+5qtoOp6tokrX2mySRKDtdsZU55we3bp7VhHM7Yv20lpt8jpqZEpZd9Vg7S3v3Z2fjXwf4v/t671GyaXUIJJWkiaKUb1BOQu3IOR7ZFYmpat4jbS/7M1qe5/dPuEM6kOpA75579DXR6N8WJQyJqmmqw6NJA+0/XBzn9K7bxZZWHiPwdNcEK2y1a5tZiPmTClgPocYI989QK1lh4V4TnhqjfdMxWOr4SdOljqKteyku5wnwGP8AxUt/nvaH/wBDSt34rWXjC48QW8nh+PUWtvsqhjbswXfvbOcHrjFc/wDAdseJr7/r0P8A6Gldd4/8ez+F9YisY9PjuBJAJdxcgjLMMf8Ajtb4dQeXrnk4q+6OLGe3Wdv2MFN8uzOHh074iR7p73+244IlLuS7jgDPrWf4LleT4i6O7sSftsXJ/wB8V0svxTvNSsrqzGkRRrLC6M/mk7QykZ6e9cn4FbHj3SP+vyL/ANDFefL2arQ9nNyV+p7tP6w8PU9vTUHZ7eh7V8ZLfxFdaHaf8I2t61wtwPMFqSG27W647ZxXlsel/FQuB5XiAA9y0n+Net/EbxdL4T0iC9itEufNnEW1mIx8pOf0rhIvjTeyyLGmhREk4x5zf4V6WPVFVnzVXF9j5/JZ436nH2VCMo66trucD4qlvxei21Ca4kuIW2SeexLhgeQc89a+hHnkj+DgnhkeOSPQ9yOpwVIh4IP4V88eLr19S125v5I1ja4mMhUHIBJzjNe/wMD+D+z10Mj/AMg1zZY7+116Hfn/AMOHure8tD59j8XeJ4JQ665qGQc/8fDf417Z8FvHdz4kSbTdUIe9gTesmB+9TocjpkZH1zXhGo2wTkDFek/s66TdDV7zWGjZbZIjCrkcMxIOB64A/UVhlleq8QoXunudmfYbD/Up1HFJrZ7al3x1pkWleJLm3gXbA+JYlHQKwzgewOR+FYYIrp/ildR3HiopHz5ECRN9clv/AGbFcqTzxxXBjIxhXnGO1z08sqTqYSnKe7SH5FGR61Hk0Z9K5juMk1HJ0p9RyHvQBn3wGCTXTfDbxTouk2c9heo0LzSEvNt3Ky4wFI64/PrXL3wZlwKTw54Y1bxFqQsNJtWnlxubnCoPVieAK0pYr6q/aaWXcwxGDji4eylfXtuenSQfDu7f7RJFo7MefllMQ/75VlH5im674z0fTdLax0J45JlTZGIVxHD759fpXO6t8H/F2mae98yWt1FEpaVbafcyADJOCBn8M1mW3hTUZPB954it1hNhazLDMS/z7iVAwO/LiuqOfU5QboqKvpdHnPh2017acpW1Sb0Ivhpf2eneKjc31wkEXkuN75xk44q/8XtS0/VL/T5NPu47hIrYqzJnglycc/WuWs9MuL27jt4I3lllYIiICWYk4AAHU16KPgn42k05ZktbNW25Fu1yBIfb+7n8a5auZwo0PYVGkm77ndHK/aYpaoqqbkFbyML4W+LF0i6On38u2xlOQzciNvX6HvW/8QZ/DmrwjUNO1O3kv0AWWNc5lXoD0+8P1H054nS/B2taj4qTw0tt9n1JpDGYpzs2sFLHP4Cu6b4L+M9JsJrs2EF0Y1LOkE4d8Drhep+g5pzzeEaSw9Rryu9SFk6eJeKp3T622fqeXahGAxr17wX4h0W18G2lpcalbxzrA6mMtznLYH615bc2slzdJDFGXkkYIqqOSScACum8Q/D/WvBV5bJrsESvcIXiaKQOpwcEZ9Rx+Yq8LmH1WbSteSFjstjjqajK6UWnoYWoKqoWbpXXfDTxH4dsdGl0rUNsLzyFpWlQPHJ6Aj0GO4xWXJ4Z1LUvCmo+IrYQmx0+RY5yXwwZioGB3+8K4trdi3A5qcNi1SqOUbO2jNMZgViaXs5trrdaHtLaX8OppftQg0feTuJF0yr/3zvC/hiqnjfxjpsOiT6Vo0qSvJH5ReIfJGhGCAehOOOPWvMNF0S+1S/gsbSCWeeZtscUYyzGvS774JeOoNIM0Wn20rKu4wR3CmT8uhPsCa6a+eU6UXTSjByPPpcOuc41Kk5VFHZPZHNfB3U7DS9fvLjULqO3je3KKzngncp/oa9F1PVfAGqSpNqM+k3UqpsV5OSFyTj8ya8g8P+DvEHiHW20fStOmmvFJEkZGzysHBLk4C4PHPfiun8S/BXxzoOmPqNxp8dzbxLulNrN5jRjuSvBIHcgHFRSzynQgsPJRfkysXw99arvFRnKLtbTsdik/wBtkUhF0Zc+nevMdOnsLX4kxXMUkcVjFqO9G/hWMSZB+mKseDPAOvSIspQ1LSrUXUemqHnjDgOcgkbV/iOFPAqt4Y8H6z4u1mTT9Hjje4WFpiHkCDapAPJ+oqa2aU5tSUVHl3t+prhcnnQUoupKXMrau/3Hsmra/4I1e2W21O+0y7iV96rI/AOCM/qaz40+FyHci6MhHcSH/GvJPCHgvxB4s1P+z9CsXupVXc53BUjHqzHgCuo8T/AAW8beG9OOp6hYxT2cYzM9rMJPLHqw4IHvggd63q5/RdRKcI8z77nBR4VlSp2pVpqK7Mzfix/YX9t2reH/s32c267/IbK7975/HG2vUfDXinw0nhKx0+91WyP+hpDNFI/wDsYINcHo3wk8aeKdEttW0TToJrGYERObqNSdrFTwTnqDWNe/DDxXZ+M7XwhPZxpq91F5sMX2hCpX5ud2cD7prHD53So1JuPK77q+x2Yvh94qjTpTlL3dn1Z6XLL8MchiNHOPVyw/Ik06++IGiWVn9i8ORxzuilU8uLZDF+gz9B+dcXqXwS8eaRYy6hf6OHt4VLymGdJCqjknAbJH0FbPgz4YeKdb0K31XSNOhms58+W/2mNM4YqeCQeoNW+IqUYN0+WK7owXCynNe3nOdujehgSzSzzPPPIXlkYszHqSabniui8W+CPEfhW1huNbskt453KRlZ0fJAz/CTXNnpXnxqxrLni7nu+z9n7trC5ozSA0VQGVmmsMijdTWagCvcBVUs2Oleg+BZri3+CnijUdF3LqXnBGaP76RDZkj6K0h/M15rqbsYyoq54D8Zav4N1CS4sCskMwAngk+6+O/sfeuPHUZVado6tNO3e3Q6cLUUJ+9/wx3vww0DRPEOjSWsfi7Vk1Ga3aS+so2+TaG7krg/w8ZNJ4SkMn7PPiQuc51OP/0OCqb/ABbjt4Z5ND8G6Rpl5MhWS5jiUM2eudqqTzzyTWP4D+Ia+GfDdxoVzoFnqttcXBmdbkBkJwvBUgg4Kg157pYhpy5ftJpafM6+eldLm6NX1Oh/Z2FpcfEwJMiM8NpI8AbvJwP/AEEtXD6l4h8WL4xl1Ge+vY9XW5O5QxyjhvuAdgDxitPXvH/naxpWreHvD2neHbnT2dt1lCiedu28PtAyBtPX+8a6c/GWO5uF1GXwNo02tqBi+MY3Bh0Ocbv/AB6tJxquq6jp35kla60/4ciMocigp2s/vO78R+W3x68DXciLFfz6czXiKMfMEkAJ/UfQCrPhKXwXafFbWH0PW9Rk8TzyXKLZ3bFbXzclmHypnAIOOeg7nFeG2njrV7f4hw+MtRUX15EWIjJ2qAVKhR6AA118fxnhhvpdT03wFoNrqjlm+2+SvmBmzliwAYk5Oeea4qmArpKKV/dS3Vr3v9xvDFU99tSx8FvC11ffFqVdRgIXQJHlul6gTqxVF477gT/wGux8dWHiTxN8J9Wvte0qay1TSr+a7tkkIJa1Zslcgn7qk/8AfArybS/iZq2n+G9bsbSAx6rrN2bm61RZSsoYtkhQOnf/AL6NHgj4peJNC1OebVLi7121uIGhe1u7lmQg455z/kmumrhsTKr7VJaWt8t/vMoVaMYcl9/6R0vw8zJ+z74wVuSb6Mn/AL6irgPsyKNzDpW94D+JEPhXRtQ0Z/DdtqdneXJmaK4YMoHGFIIIOMDmm+MvFll4ksbc2PhXTtCMRbcbRFUy5x1wo6Y4+prqwyq06004aSd76dkYVnCUItS1S2Or/ZwlD+INfurSGOXUrXS3NihGcuT2+p2j8TXnmk+JPFkWuy6qutait5IW3yCU7mJ7f/WrP8LeIdV8LeIYtY0qXy7iMnIPKup6qR3Br0kfGqBJJNSsPAei2+tODuvti53Hq3Chs/8AAuaipSnGtKXJzKVvlYqE4umlzWsavw9v72w+Avi7X9FkkGtSXQSSZTmVI8oC2evAZ2z25PasL9nDXvEQ+JtpYx3dzc2t0sn2yN2LKVCk7jn0OOfw71y/gH4ia14Q1m7vbeKC5t75ibq0dAsUmSegHC9TjHr6V2D/ABihs9Pul8H+CtL8PXdyu2W7iClgP9kKi/hnIHpXPVw1W9SChfn2fb166dLGsK8Fyy5rW6Ha/DnUovCv/C1tS0tIzBpmoF4Ywfl2I8ny/THFb/gPw5pj/EBfiD4YIOia1pspkhGB9muNyllx2BweOxB7Yr5+8I+NZdG8HeJtBaxNy2tpte4aXBjODzjB3H5vatH4RfFLUvAsV7ZGyOpWNwMiBpdnlv8A3gcHtwRjnj0rKtl9b35Q3dl6qy/UuGJp+6n0/A7LwdeXum/sz+INU8Pu0OpSX4S5miP7yOLMa8Ecjhj9NzGvK7HxB4jstCvrSLVr4W12u2eISnawz/FV74Z/EPVvAt1cLbwRXthdrtubOcZjkH9Dyfz5zXTeJvizaXfhm+0bw74G0fQotQjMd1KkaMzr6ABAAR2JzjqMHmuunSqUqkk4cyk730/rQxnUjOCalaytY7vRYfD91+zx4VTxH4ouvDsAupTHcW8bOXffN8h2g8YyfwrkPhiLCL9o3T4NK1mfWbCPcILuYMGcGAk8NyMMWH4VS8K/FrSNN8D6d4V1jwRaa3BYs7o1zIrKWZmbO1kOCNxFU1+IelwfE3SfFWj+DbXSorOAxtZWzqomY7vnJCgA4YDofu1yww1dRqwaevNba2v4mzrU3KEk9rd/+GPYNPj0XwP488Q+LNT+INrfW8j3B/saJ9zhmYnyyu45I6dBz1wM15n+zHqd6/xdsrVrqYWpjuCsHmHYv7tj06Vx2vT/ANp65qutND5LX91JceXu3bN7FsZ74zSfDHxI/hHx7ba2ll9taIOoi8zZncpXOcHGM56V0PASVCabvKStslsjJYpOrHokdF4iuLyTxFrEV1eTzouoz+WsjlggEjAAA9OKoE1Nql39u1W8v/L8oXVxJNsznbvYtjPfrVbPpXq0ockErWOGpLmk2Oo700GgGtCDLJzTTRmigCrcQ7+1bmk+A73U9DtNXivtOijvLv7JbwytJ5juHRD91CoGZF6kd+tY12xWJto5xW14e8eatpHhm00KLTbaaGzvftkMjTzqS+9HwyJIEcZjH3lOOcVMr9Bo1LX4TeJ572+sTFaW7WWpQ6bI8spCPLKRtKEKdy4Ktn0dT3qlJ8N76323N1q2iW+myRxPBqE1yywT+YXCKmU35zG+cqANuSQCCbtp8WfGUVzaPJ9knFo8bwLIjYUpMZV6EEn7qZ67UUdqxtP8aa0Fu7fXraDxRBcyxzsurySyMssYKq4dXDfdYqVJII7cCp94ehfu/hh4nghupJLKM/ZLczzqj7imLhoCnHVwyMcDI2jOcVcT4Y6nBNZWzalo4ur+9aygh8yUszrcNblsiPaF3o3fOOcdqTSfi54ysJ4pWWzuWXVZtSk8yI4laRGQxsAQPLHmOQvYtVXS/iVr2n6Zo1iLC2mfSLsXUE73FwN7/aGn+eMSCNvmYjO3OOho94LonT4Va9d6jb21pcaZcC6eJbeZZmWOXzEuGUgsoIH+iyg7gMEDsc1Ug+HureUsl89lpduYy8k17IUWE+fLAI2ABbeXhkwoB4UngA4f/wALK8TSYlube2ubopCktzKXaSXyoLiBGY7uW2XLAnuUU+ubMfxR8T3EtmNRsbK/W2s4bfLtLE7PDJJJHP5kbq4lBlcbgRkMc5yTR7waFPw34C1DXr++06yutNWSydI3Z5iUkZpPLUIyKwOWxg8DBznFLf8Aw/1TTdATWZZLGRGSOR4YpGaWNZGZEJG0A5ZSPlLVNonxJ8QaV4r1vXxZ2t1davKks26SaIIyyeYNpjdWxnsScjrmpP8AhaHiWSGytbyxsLm1sp7e5t7d1cRJLC8jBgoYABvMIZehAX0ofMGg28+GXiC21PVbA28E1xpViL+4WKTdmLIDbP7xUkgjtsbrirM3w81lLUqZ9NFx5kscNr9pxNOY40kcRggBiFkU4zk9ACaqy/FPxbJErCKwhv0jEa3ttarA4UXK3AGyMKn31bPy8h2znNTan8UNZv3lum0DRob4XM9xaXMayhrRpo4438td+z7sS43BsHkUXkGhkeJPBV1ohs/7SvNOie6K7k8/LW+4KwMgxnG1gdy7h1GcjFW9Y8AajpltcMtzp975EEE8otJWcqkwBjOCo6gg/Q1U8UeLNR13wrp+hPp9va21kdy+XLK5ZtgU4EjsIwQoO1MDJJ9ML/wnPiWH7e9hKdPnvLOytGmtZZInVLaNUXDA5+YKN1P3g0L138KfEFtDcyM1jLPbPKr2kcxM5EcwhdlXGCA5A4OTnpUs/wAOtWjzDBcaXdtG80Nz9muhJ9mmjieVo5MDhtsUmCMqSpAPFO1H4r+Lr2C8gZIIobmaS58uNn2pcNci4WYAt95WGBnqpIOajPxD1KK9ju9O8OaNp6y3b3d/BCJdl7I0ckbb9zkquyaUBUKgbyR2wlzdg0ILHwHqE1hBcyXemWVnPBFOLq6ufLjzK0ixpnBJc+VIcAEAKSSBUKeB9WSJX8qBlksri9DpKHQRwtIr/MuQTmJsYJzx61pWvxI1W2vl8nQtPXT4EgFlZpNOn2RoRIEdJVkEmf3smctzvPoMQ3PxI8X3gnjnmC209neW89rHJIsMhuZJZHkKbsbwZjg44AXrij3g0KGl+AdX1HQpdctIoZ7aO0e8KpJ+8MSytGxC9yCjEgfwgmtW++GPiKGNS0FuYvtNxatIsuVSSGMyMG9MqrbT32msvRfG/iPSNIs9P06O3hNkqiGcAl+Lh5+ecEEuVIxgrxWw/wAVvFY1K8vEstPjS8W8We3VG8pvtGMnBPBQjKkcjnrk0e8GhStfhpqrPGgudLN2XgWe1+1DzbUTsqxGUYwoZnQcE7Sw3bc07Q/AGtX1wnkwRLO9tPcrFJJtby4n8s8erSfu1HduOOtV9W8a6rqOkXaDS9PtNSv0hjv9Rg8wT3SxFWTOWKqdyIxKqCSo986U/wAVvFr6ze6zDaaTDeXT2xJNmsqxiEs+1FfcF3SN5hIGdwBBFHvBoJ/wiF1caTZXttqWlTrfQzywxx3GXKwxNLLkEcbQhB56kCnab8N9ZF/BDHJp8l5LPBBNbLcgy2jzECPzl/hBJAOM7SQGwTisU+L9UintprfTbKBLb+0RFDGG2ot4jI68nooc7foM5rXtviXrUN/Dq8Gh6TFqjXNvcX12Fk33pgZXUOC+1QXVWbYFyQDT94NBNb0HUtFjjbUYBCXnmgCbssHi27vw+dcHvWXketX7vxNrGu+G9F07V/JdtKjeKGZVIkkQ7QPMOfmIVFUH0ArOJxxVITHnmkzg4pM4oGKYjMooooAayg9aQIO1PPpRQA0Rj0pdi+lOooAbsFKsS9cVIBxRQA3yxilEYp1GaAGeWoPSl8sU/NHQ0AM8tfQUqxgdqd60vSgBpTNHlrjpT6XNADPKWlCL6U4d6UUAMKA0oUU7jGKPwoAaIx6Cl2D0pxo7UAM8sdMcU7y1xjFOFLQBH5Y9KURr6U+lz6UAKuQBilpAaM+1AC0A4pM0lAH/2Q==";
+  </script>
+
+  <!-- Sticky Top Navigation Bar -->
+  <header class="bg-[#0b1329]/80 backdrop-blur-xl border-b border-slate-800/80 sticky top-0 z-40">
     <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
-      <div class="flex items-center space-x-3">
-        <div class="w-10 h-10 rounded-xl bg-brand-600 text-white flex items-center justify-center font-bold text-xl shadow-md shadow-brand-500/20">
-          G
+      
+      <!-- Brand Logo & Identity -->
+      <div class="flex items-center space-x-3.5">
+        <div class="relative w-11 h-11 rounded-2xl overflow-hidden border border-cyan-500/30 shadow-lg shadow-cyan-500/20 bg-slate-900">
+          <img id="navLogo" alt="Skyseed Global Concept" class="w-full h-full object-cover" />
         </div>
         <div>
-          <h1 class="text-lg font-bold text-slate-900 tracking-tight leading-none">GBP Audit Pro</h1>
-          <p class="text-xs text-brand-600 font-medium">Local SEO & Maps Optimization</p>
+          <div class="flex items-center gap-2">
+            <span class="text-xs font-black tracking-wider uppercase text-sky-400">Skyseed Global Concept</span>
+            <span class="text-[10px] font-extrabold uppercase tracking-widest bg-amber-500/20 text-amber-300 border border-amber-500/30 px-2 py-0.5 rounded-full">PRO</span>
+          </div>
+          <h1 class="text-sm font-extrabold text-white tracking-tight leading-none mt-0.5">GBP Audit Pro</h1>
         </div>
       </div>
-      <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">
-        <span class="w-2 h-2 rounded-full bg-emerald-500 mr-1.5 animate-pulse"></span>
-        Algorithm Ready (2026)
-      </span>
+
+      <!-- Status badge -->
+      <div class="flex items-center gap-3">
+        <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-cyan-950/80 text-cyan-300 border border-cyan-500/30 shadow-xs">
+          <span class="w-2 h-2 rounded-full bg-cyan-400 mr-2 animate-pulse"></span>
+          2026 Map Signals Active
+        </span>
+      </div>
     </div>
   </header>
 
-  <!-- Hero & Form Section -->
+  <!-- Hero & Audit Form -->
   <main class="flex-grow">
-    <section class="bg-gradient-to-b from-brand-50 to-white py-12 px-4 border-b border-slate-200">
+    <section id="auditFormSection" class="relative overflow-hidden py-14 px-4 border-b border-slate-800">
+      
+      <!-- Ambient Glow Orbs -->
+      <div class="absolute -top-24 left-1/2 -translate-x-1/2 w-[750px] h-[350px] bg-cyan-600/15 rounded-full blur-[120px] -z-10 pointer-events-none"></div>
+      <div class="absolute top-40 right-10 w-[350px] h-[350px] bg-amber-500/10 rounded-full blur-[100px] -z-10 pointer-events-none"></div>
+
       <div class="max-w-3xl mx-auto text-center">
-        <span class="inline-block py-1 px-3 mb-3 rounded-full text-xs font-semibold bg-brand-100 text-brand-700 uppercase tracking-wider">
-          Instant Local Search Diagnostic
-        </span>
-        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mb-3">
-          Audit & Rank Any Google Business Profile
+        
+        <!-- Trust Pill -->
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 mb-5 rounded-full text-xs font-bold bg-slate-900/90 border border-slate-700/80 shadow-md text-slate-300">
+          <span class="w-2 h-2 rounded-full bg-amber-400"></span>
+          Turnkey Local Search Intelligence & Conversion Audit
+        </div>
+
+        <!-- 3D Headline -->
+        <h2 class="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-tight mb-4">
+          <span class="headline-3d">Audit & Rank In The</span><br />
+          <span class="headline-3d-cyan">Google 3-Pack</span> 
+          <span class="headline-3d">&amp; Beyond</span>
         </h2>
-        <p class="text-slate-600 text-base sm:text-lg mb-8 max-w-2xl mx-auto">
-          Uncover missing ranking factors, benchmark your profile score, and get instant niche-specific fixes to capture more top-3 map pack leads.
+        
+        <p class="text-slate-400 text-sm sm:text-base mb-9 max-w-xl mx-auto leading-relaxed font-medium">
+          Benchmark your local presence, uncover ranking gaps, and receive instant trade-specific fixes designed to turn searchers into inbound calls.
         </p>
 
-        <!-- Audit Input Card -->
-        <div class="bg-white rounded-2xl shadow-xl shadow-brand-900/5 border border-slate-200 p-6 sm:p-8 text-left">
+        <!-- Glassmorphic Input Card -->
+        <div class="bg-slate-900/90 backdrop-blur-xl rounded-3xl shadow-2xl border border-slate-800 p-6 sm:p-9 text-left">
           <form id="auditForm" onsubmit="generateAudit(event)">
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
               
               <!-- Business Name -->
-              <div class="sm:col-span-2">
-                <label class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5" for="bizName">
+              <div>
+                <label class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-1.5" for="bizName">
                   Business Name *
                 </label>
                 <input 
@@ -94,20 +175,33 @@
                   id="bizName" 
                   required 
                   placeholder="e.g. Apex Plumbing & Heating" 
-                  class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-slate-900 placeholder:text-slate-400 font-medium transition"
+                  class="w-full px-4 py-3 rounded-xl border border-slate-700 bg-slate-950/70 focus:bg-slate-900 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 text-white placeholder:text-slate-500 font-semibold text-sm transition"
+                />
+              </div>
+
+              <!-- Website URL (OPTIONAL) -->
+              <div>
+                <label class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-1.5" for="bizWebsite">
+                  Website URL <span class="text-amber-400 font-normal lowercase">(optional)</span>
+                </label>
+                <input 
+                  type="url" 
+                  id="bizWebsite" 
+                  placeholder="https://yourwebsite.com (optional)" 
+                  class="w-full px-4 py-3 rounded-xl border border-slate-700 bg-slate-950/70 focus:bg-slate-900 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 text-white placeholder:text-slate-500 font-semibold text-sm transition"
                 />
               </div>
 
               <!-- Niche Dropdown -->
               <div class="sm:col-span-2">
-                <label class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5" for="bizNiche">
+                <label class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-1.5" for="bizNiche">
                   Select Niche / Industry *
                 </label>
                 <div class="relative">
                   <select 
                     id="bizNiche" 
                     required 
-                    class="w-full appearance-none px-4 py-3 rounded-xl border border-slate-300 bg-white focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-slate-900 font-medium transition cursor-pointer pr-10"
+                    class="w-full appearance-none px-4 py-3 rounded-xl border border-slate-700 bg-slate-950/70 focus:bg-slate-900 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 text-white font-semibold text-sm transition cursor-pointer pr-10"
                   >
                     <option value="" disabled selected>Select an industry...</option>
                     <option value="Cleaning Companies">Cleaning Companies</option>
@@ -121,7 +215,7 @@
                     <option value="Gyms / Fitness Coaches">Gyms / Fitness Coaches</option>
                     <option value="Roofing / Construction">Roofing / Construction</option>
                   </select>
-                  <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-slate-500">
+                  <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-slate-400">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                   </div>
                 </div>
@@ -129,7 +223,7 @@
 
               <!-- City -->
               <div>
-                <label class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5" for="bizCity">
+                <label class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-1.5" for="bizCity">
                   City *
                 </label>
                 <input 
@@ -137,78 +231,125 @@
                   id="bizCity" 
                   required 
                   placeholder="e.g. Austin" 
-                  class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-slate-900 placeholder:text-slate-400 font-medium transition"
+                  class="w-full px-4 py-3 rounded-xl border border-slate-700 bg-slate-950/70 focus:bg-slate-900 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 text-white placeholder:text-slate-500 font-semibold text-sm transition"
                 />
               </div>
 
               <!-- State -->
               <div>
-                <label class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5" for="bizState">
+                <label class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-1.5" for="bizState">
                   State / Province *
                 </label>
                 <input 
                   type="text" 
                   id="bizState" 
                   required 
-                  placeholder="e.g. Texas or TX" 
-                  class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-slate-900 placeholder:text-slate-400 font-medium transition"
+                  placeholder="e.g. TX" 
+                  class="w-full px-4 py-3 rounded-xl border border-slate-700 bg-slate-950/70 focus:bg-slate-900 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 text-white placeholder:text-slate-500 font-semibold text-sm transition"
                 />
               </div>
 
             </div>
 
+            <!-- Submit CTA -->
             <button 
               type="submit" 
               id="submitBtn"
-              class="w-full mt-2 py-4 px-6 bg-brand-600 hover:bg-brand-700 text-white font-bold rounded-xl shadow-lg shadow-brand-600/30 hover:shadow-brand-600/50 transition duration-200 flex items-center justify-center space-x-2 text-base cursor-pointer"
+              class="w-full mt-3 py-4 px-6 bg-gradient-to-r from-sky-500 via-cyan-500 to-amber-500 hover:from-sky-400 hover:to-amber-400 text-slate-950 font-black rounded-xl shadow-lg shadow-cyan-500/25 transition duration-200 flex items-center justify-center space-x-2 text-base cursor-pointer transform hover:-translate-y-0.5 tracking-wide"
             >
-              <span>Generate Tailored GBP Audit Report</span>
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path></svg>
+              <span>Generate Tailored Audit Report</span>
+              <svg class="w-5 h-5 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 7l5 5m0 0l-5 5m5-5H6"></path></svg>
             </button>
           </form>
         </div>
       </div>
     </section>
 
-    <!-- Scanning Loading State -->
-    <div id="loadingState" class="hidden py-16 px-4 text-center">
+    <!-- Scanning State Animation -->
+    <div id="loadingState" class="hidden py-24 px-4 text-center">
       <div class="inline-block relative w-16 h-16 mb-4">
-        <div class="absolute inset-0 rounded-full border-4 border-brand-100"></div>
-        <div class="absolute inset-0 rounded-full border-4 border-brand-600 border-t-transparent animate-spin"></div>
+        <div class="absolute inset-0 rounded-full border-4 border-slate-800"></div>
+        <div class="absolute inset-0 rounded-full border-4 border-cyan-400 border-t-transparent animate-spin"></div>
       </div>
-      <h3 class="text-xl font-bold text-slate-800" id="loadingText">Connecting to Local Citation Signals...</h3>
-      <p class="text-sm text-slate-500 mt-1">Cross-referencing category relevance and map pack signals.</p>
+      <h3 class="text-xl font-bold text-white" id="loadingText">Scanning Proximity Signals...</h3>
+      <p class="text-sm text-slate-400 mt-1">Cross-referencing GBP categories and competitive density.</p>
     </div>
 
     <!-- Results Section -->
-    <section id="resultsSection" class="hidden py-12 px-4 max-w-5xl mx-auto">
+    <section id="resultsSection" class="hidden py-10 px-4 max-w-5xl mx-auto">
       
-      <!-- Top Card: Summary & Big Circle Score -->
-      <div class="bg-white rounded-3xl p-6 sm:p-10 border border-slate-200 shadow-xl shadow-brand-900/5 mb-8">
+      <!-- Top Action Bar (Print / PDF) -->
+      <div id="actionButtons" class="flex flex-col sm:flex-row items-center justify-between gap-3 mb-6 pb-4 border-b border-slate-800">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-cyan-400">Diagnostic Complete</span>
+          <p class="text-xs text-slate-400">Audited by Skyseed Global Concept</p>
+        </div>
+        <div class="flex items-center gap-2.5 w-full sm:w-auto">
+          <button 
+            onclick="downloadPDF()" 
+            class="w-full sm:w-auto inline-flex items-center justify-center px-4 py-2.5 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 text-xs font-extrabold rounded-xl transition shadow-md shadow-amber-500/20 cursor-pointer"
+          >
+            <svg class="w-4 h-4 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+            Download Full PDF Report
+          </button>
+          <button 
+            onclick="resetForm()" 
+            class="w-full sm:w-auto inline-flex items-center justify-center px-4 py-2.5 bg-slate-900 border border-slate-700 hover:bg-slate-800 text-slate-300 text-xs font-bold rounded-xl transition cursor-pointer"
+          >
+            New Audit
+          </button>
+        </div>
+      </div>
+
+      <!-- Printable Brand Header (Only visible on PDF Print) -->
+      <div id="printBrandHeader" class="hidden items-center justify-between pb-6 mb-6 border-b border-slate-200">
+        <div class="flex items-center space-x-3">
+          <img class="w-12 h-12 object-cover rounded-lg" id="printLogo" alt="Skyseed Global Concept" />
+          <div>
+            <h2 class="text-lg font-black text-slate-900">SKYSEED GLOBAL CONCEPT</h2>
+            <p class="text-xs text-slate-500 uppercase tracking-widest font-semibold">Empowering Brands Through Innovation</p>
+          </div>
+        </div>
+        <div class="text-right text-xs text-slate-500">
+          <p class="font-bold text-slate-800">Google Business Profile Audit</p>
+          <p>Confidential Client Diagnostic</p>
+        </div>
+      </div>
+
+      <!-- Top Summary Card with Big Circle Score -->
+      <div class="bg-slate-900/90 backdrop-blur-xl rounded-3xl p-6 sm:p-9 border border-slate-800 shadow-xl mb-8">
         <div class="flex flex-col md:flex-row items-center justify-between gap-8">
           
-          <!-- Left details -->
+          <!-- Left Details -->
           <div class="flex-1 text-center md:text-left">
-            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-brand-50 text-brand-700 border border-brand-200 mb-3">
-              <span class="w-1.5 h-1.5 rounded-full bg-brand-600"></span>
-              Audit Completed
-            </span>
-            <h3 class="text-2xl sm:text-3xl font-extrabold text-slate-900" id="resBizName">Business Name</h3>
-            <p class="text-slate-600 text-sm mt-1 flex items-center justify-center md:justify-start gap-2">
-              <span id="resBizNiche" class="font-medium text-brand-700"></span>
-              <span>•</span>
-              <span id="resBizLocation" class="text-slate-500"></span>
-            </p>
-            <p class="text-xs text-slate-400 mt-3 max-w-md">
-              Score calculated based on proximity weight, primary/secondary categories, review frequency, photo recency, and catalog depth.
+            <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-cyan-950/80 text-cyan-300 border border-cyan-500/30 mb-3">
+              <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-ping"></span>
+              Audit Benchmark Completed
+            </div>
+            <h3 class="text-2xl sm:text-4xl font-black text-white tracking-tight" id="resBizName">Business Name</h3>
+            
+            <div class="mt-2 space-y-1">
+              <p class="text-sm font-bold text-cyan-400 flex items-center justify-center md:justify-start gap-2">
+                <span id="resBizNiche"></span>
+                <span class="text-slate-600">•</span>
+                <span id="resBizLocation" class="text-slate-300 font-normal"></span>
+              </p>
+              <p class="text-xs text-slate-400 font-mono flex items-center justify-center md:justify-start gap-1.5" id="resWebsiteLine">
+                <svg class="w-3.5 h-3.5 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path></svg>
+                <a id="resBizWebsite" href="#" target="_blank" class="hover:underline text-cyan-400 truncate max-w-xs"></a>
+              </p>
+            </div>
+
+            <p class="text-xs text-slate-400 mt-4 leading-relaxed max-w-md">
+              Score calculated based on secondary category breadth, schema sync, geo-photo velocity, review sentiment, and ranking proximity signals.
             </p>
           </div>
 
-          <!-- Big Circle Score -->
+          <!-- Big Circle Score Gauge -->
           <div class="flex flex-col items-center">
             <div class="relative w-44 h-44 flex items-center justify-center">
               <svg class="w-full h-full transform -rotate-90" viewBox="0 0 140 140">
-                <circle cx="70" cy="70" r="58" stroke="currentColor" stroke-width="12" class="text-slate-100" fill="transparent" />
+                <circle cx="70" cy="70" r="58" stroke="currentColor" stroke-width="12" class="text-slate-800" fill="transparent" />
                 <circle 
                   id="scoreCircle" 
                   cx="70" 
@@ -216,7 +357,7 @@
                   r="58" 
                   stroke="currentColor" 
                   stroke-width="12" 
-                  class="score-circle text-brand-600" 
+                  class="score-circle text-cyan-400" 
                   stroke-dasharray="364.4" 
                   stroke-dashoffset="364.4" 
                   stroke-linecap="round" 
@@ -224,12 +365,12 @@
                 />
               </svg>
               <div class="absolute inset-0 flex flex-col items-center justify-center text-center">
-                <span id="scoreNumber" class="text-4xl font-extrabold text-slate-900 tracking-tight">0</span>
-                <span class="text-xs font-semibold uppercase tracking-wider text-slate-400">out of 100</span>
+                <span id="scoreNumber" class="text-4xl font-black text-white tracking-tight">0</span>
+                <span class="text-[11px] font-bold uppercase tracking-wider text-slate-400">out of 100</span>
               </div>
             </div>
-            <div class="mt-2 text-center">
-              <span id="scoreBadge" class="text-xs font-bold px-3 py-1 rounded-full bg-amber-50 text-amber-700 border border-amber-200">
+            <div class="mt-3 text-center">
+              <span id="scoreBadge" class="text-xs font-bold px-3 py-1 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/30">
                 Needs Attention
               </span>
             </div>
@@ -238,104 +379,121 @@
         </div>
       </div>
 
+      <!-- Website Sync Health Card (Adapts if URL was provided or skipped) -->
+      <div id="websiteSyncCard" class="bg-gradient-to-br from-slate-900 to-[#0e172e] rounded-3xl p-6 sm:p-8 border border-slate-800 shadow-lg mb-8">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6 pb-4 border-b border-slate-800">
+          <div>
+            <span class="text-xs font-bold uppercase tracking-wider text-amber-400">Cross-Platform Sync Matrix</span>
+            <h4 class="text-lg font-bold text-white tracking-tight mt-0.5">Website &amp; Map Synchronization Health</h4>
+          </div>
+          <span id="syncStatusBadge" class="text-xs font-semibold px-2.5 py-1 bg-rose-500/20 text-rose-300 border border-rose-500/30 rounded-lg w-fit">
+            3 Sync Vulnerabilities Found
+          </span>
+        </div>
+
+        <div id="syncGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-xs">
+          <!-- Dynamically populated based on website presence -->
+        </div>
+      </div>
+
       <!-- Grid: What's Missing & 5 Fixes -->
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
         
         <!-- What's Missing -->
-        <div class="bg-white rounded-2xl p-6 sm:p-7 border border-slate-200 shadow-sm">
-          <div class="flex items-center space-x-2.5 mb-5 pb-3 border-b border-slate-100">
-            <div class="w-8 h-8 rounded-lg bg-red-100 text-red-600 flex items-center justify-center font-bold text-lg">
+        <div class="bg-slate-900/90 backdrop-blur-xl rounded-3xl p-6 sm:p-7 border border-slate-800 shadow-md">
+          <div class="flex items-center space-x-3 mb-5 pb-3 border-b border-slate-800">
+            <div class="w-8 h-8 rounded-xl bg-red-950/70 text-red-400 border border-red-500/30 flex items-center justify-center font-bold text-base">
               ✕
             </div>
             <div>
-              <h4 class="font-bold text-slate-900 text-lg">What's Missing or Underperforming</h4>
-              <p class="text-xs text-slate-500">Critical gaps found on current competitor profiles</p>
+              <h4 class="font-bold text-white text-base">What's Missing or Underperforming</h4>
+              <p class="text-xs text-slate-400">Ranking penalties identified against competitor benchmarks</p>
             </div>
           </div>
-          <ul id="missingList" class="space-y-3.5 text-sm text-slate-700"></ul>
+          <ul id="missingList" class="space-y-3.5 text-xs sm:text-sm text-slate-300"></ul>
         </div>
 
         <!-- 5 Specific Fixes -->
-        <div class="bg-white rounded-2xl p-6 sm:p-7 border border-slate-200 shadow-sm">
-          <div class="flex items-center space-x-2.5 mb-5 pb-3 border-b border-slate-100">
-            <div class="w-8 h-8 rounded-lg bg-brand-100 text-brand-600 flex items-center justify-center font-bold text-lg">
+        <div class="bg-slate-900/90 backdrop-blur-xl rounded-3xl p-6 sm:p-7 border border-slate-800 shadow-md">
+          <div class="flex items-center space-x-3 mb-5 pb-3 border-b border-slate-800">
+            <div class="w-8 h-8 rounded-xl bg-cyan-950/70 text-cyan-400 border border-cyan-500/30 flex items-center justify-center font-bold text-base">
               ✓
             </div>
             <div>
-              <h4 class="font-bold text-slate-900 text-lg">5 High-Impact Niche Fixes</h4>
-              <p class="text-xs text-slate-500">Implement in Google Business Profile manager</p>
+              <h4 class="font-bold text-white text-base">5 High-Impact Niche Fixes</h4>
+              <p class="text-xs text-slate-400">Immediate action steps to push into the top 3 map pack</p>
             </div>
           </div>
-          <ol id="fixesList" class="space-y-3.5 text-sm text-slate-700"></ol>
+          <ol id="fixesList" class="space-y-3.5 text-xs sm:text-sm text-slate-300"></ol>
         </div>
 
       </div>
 
       <!-- Optimized Description Box -->
-      <div class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm mb-8">
-        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4 pb-3 border-b border-slate-100">
+      <div class="bg-slate-900/90 backdrop-blur-xl rounded-3xl p-6 sm:p-8 border border-slate-800 shadow-md mb-8">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4 pb-3 border-b border-slate-800">
           <div>
-            <h4 class="font-bold text-slate-900 text-lg flex items-center gap-2">
+            <h4 class="font-bold text-white text-base flex items-center gap-2">
               <span>Optimized GBP Description</span>
-              <span class="text-xs px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 font-medium">SEO Tuned</span>
+              <span class="text-[11px] px-2 py-0.5 rounded bg-emerald-950/80 text-emerald-300 border border-emerald-500/30 font-semibold">SEO Tuned</span>
             </h4>
-            <p class="text-xs text-slate-500 mt-0.5">Pre-engineered for maximum character limit utilization and local entity relevance.</p>
+            <p class="text-xs text-slate-400 mt-0.5">High-intent keyword rich copy designed to maximize proximity search queries.</p>
           </div>
           <button 
             onclick="copyDescription()" 
             id="copyDescBtn"
-            class="inline-flex items-center justify-center px-4 py-2 text-xs font-semibold rounded-lg bg-slate-100 hover:bg-brand-50 text-slate-700 hover:text-brand-600 border border-slate-200 transition"
+            class="inline-flex items-center justify-center px-4 py-2 text-xs font-bold rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 transition cursor-pointer"
           >
             <svg class="w-3.5 h-3.5 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
             Copy Description
           </button>
         </div>
         <div class="relative">
-          <p id="optimizedDesc" class="text-sm text-slate-700 bg-slate-50 p-4 rounded-xl border border-slate-200 font-mono leading-relaxed whitespace-pre-line"></p>
+          <p id="optimizedDesc" class="text-xs sm:text-sm text-slate-300 bg-slate-950/60 p-5 rounded-2xl border border-slate-800 font-mono leading-relaxed whitespace-pre-line"></p>
         </div>
       </div>
 
       <!-- 10 Services to Add -->
-      <div class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm mb-12">
-        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4 pb-3 border-b border-slate-100">
+      <div class="bg-slate-900/90 backdrop-blur-xl rounded-3xl p-6 sm:p-8 border border-slate-800 shadow-md mb-10">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4 pb-3 border-b border-slate-800">
           <div>
-            <h4 class="font-bold text-slate-900 text-lg flex items-center gap-2">
-              <span>10 High-Intent Services to Add to GBP</span>
-              <span class="text-xs px-2 py-0.5 rounded bg-brand-100 text-brand-800 font-medium">Keywords</span>
+            <h4 class="font-bold text-white text-base flex items-center gap-2">
+              <span>10 Exact Services to Add to GBP</span>
+              <span class="text-[11px] px-2 py-0.5 rounded bg-cyan-950/80 text-cyan-300 border border-cyan-500/30 font-semibold">Citations</span>
             </h4>
-            <p class="text-xs text-slate-500 mt-0.5">Add these exact service tags in your profile to trigger broader map search terms.</p>
+            <p class="text-xs text-slate-400 mt-0.5">Add these predefined standard services to trigger broader local search queries.</p>
           </div>
           <button 
             onclick="copyServices()" 
             id="copyServicesBtn"
-            class="inline-flex items-center justify-center px-4 py-2 text-xs font-semibold rounded-lg bg-slate-100 hover:bg-brand-50 text-slate-700 hover:text-brand-600 border border-slate-200 transition"
+            class="inline-flex items-center justify-center px-4 py-2 text-xs font-bold rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 transition cursor-pointer"
           >
-            <svg class="w-3.5 h-3.5 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+            <svg class="w-3.5 h-3.5 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
             Copy All 10 Services
           </button>
         </div>
-        <div id="servicesGrid" class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm"></div>
+        <div id="servicesGrid" class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs sm:text-sm"></div>
       </div>
 
       <!-- Bottom Sticky CTA Banner -->
-      <div class="bg-gradient-to-r from-brand-900 via-brand-800 to-brand-700 text-white rounded-3xl p-8 sm:p-10 shadow-2xl relative overflow-hidden">
-        <div class="absolute -right-10 -bottom-10 w-60 h-60 bg-brand-500/10 rounded-full blur-2xl pointer-events-none"></div>
-        <div class="relative z-10 text-center max-w-2xl mx-auto">
-          <span class="inline-block px-3 py-1 rounded-full bg-white/10 text-brand-100 text-xs font-medium uppercase tracking-wider mb-3">
-            Done-For-You Implementation
+      <div id="bottomCtaBanner" class="bg-gradient-to-r from-slate-950 via-[#0a142e] to-slate-950 border border-cyan-500/30 rounded-3xl p-8 sm:p-12 shadow-2xl relative overflow-hidden text-center">
+        <div class="absolute -right-10 -bottom-10 w-72 h-72 bg-cyan-500/20 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="relative z-10 max-w-2xl mx-auto">
+          <span class="inline-block px-3.5 py-1 rounded-full bg-cyan-950/90 text-cyan-300 border border-cyan-500/30 text-xs font-bold uppercase tracking-wider mb-3">
+            Skyseed Done-For-You Implementation
           </span>
-          <h3 class="text-2xl sm:text-3xl font-extrabold tracking-tight mb-3">
+          <h3 class="text-2xl sm:text-4xl font-black tracking-tight mb-3 text-white">
             Want us to fix this for you?
           </h3>
-          <p class="text-brand-100 text-sm sm:text-base mb-6 leading-relaxed">
-            Stop losing qualified local clients to competitors. We'll handle full verification, schema markup, weekly geo-tagged posts, and build a conversion-ready website linked to your profile.
+          <p class="text-slate-300 text-xs sm:text-sm mb-7 leading-relaxed">
+            Stop losing calls to competitors in the top 3 spots. Skyseed Global Concept will build a conversion-ready website, inject local schema, clean up citation sync, and optimize your Google Business Profile end-to-end.
           </p>
           <button 
             onclick="openCtaModal()" 
-            class="inline-flex items-center justify-center px-8 py-4 bg-white text-brand-900 hover:bg-brand-50 font-extrabold text-base rounded-xl shadow-lg transition duration-200 transform hover:-translate-y-0.5 cursor-pointer w-full sm:w-auto"
+            class="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-sky-400 via-cyan-400 to-amber-400 hover:from-sky-300 hover:to-amber-300 text-slate-950 font-black text-sm sm:text-base rounded-2xl shadow-xl transition duration-200 transform hover:-translate-y-0.5 cursor-pointer w-full sm:w-auto"
           >
             <span>Want us to fix this for you? Get Website + GBP Setup</span>
-            <svg class="w-5 h-5 ml-2 text-brand-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
           </button>
         </div>
       </div>
@@ -343,22 +501,20 @@
     </section>
   </main>
 
-  <!-- Lead Capture / CTA Modal (Configured for Netlify Forms) -->
-  <div id="ctaModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-4 z-50 hidden">
-    <div class="bg-white rounded-2xl max-w-lg w-full p-6 sm:p-8 relative shadow-2xl animate-in fade-in zoom-in duration-200">
-      <button onclick="closeCtaModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 p-1">
+  <!-- Lead Capture / CTA Modal -->
+  <div id="ctaModal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-4 z-50 hidden">
+    <div class="bg-slate-900 border border-slate-700 rounded-3xl max-w-lg w-full p-6 sm:p-8 relative shadow-2xl animate-in fade-in zoom-in duration-200 text-white">
+      <button onclick="closeCtaModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white p-2 cursor-pointer">
         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
       </button>
 
       <div class="text-center mb-6">
-        <div class="w-12 h-12 bg-brand-100 text-brand-600 rounded-full flex items-center justify-center mx-auto mb-3">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
-        </div>
-        <h4 class="text-2xl font-bold text-slate-900">Get Website + GBP Setup</h4>
-        <p class="text-sm text-slate-500 mt-1">Leave your details and our local search team will reach out with your implementation plan.</p>
+        <img id="modalLogo" alt="Skyseed Global Concept" class="w-14 h-14 rounded-2xl mx-auto mb-3 object-cover border border-cyan-500/40 shadow-lg" />
+        <h4 class="text-2xl font-black text-white tracking-tight">Get Website + GBP Setup</h4>
+        <p class="text-xs text-slate-400 mt-1">Leave your details and the Skyseed team will contact you with an implementation plan.</p>
       </div>
 
-      <!-- Form with Netlify Attributes Pre-Configured -->
+      <!-- Netlify Form Integration -->
       <form 
         name="gbp-leads" 
         method="POST" 
@@ -368,615 +524,81 @@
         class="space-y-4"
       >
         <input type="hidden" name="form-name" value="gbp-leads" />
+        <input type="hidden" name="audited_business" id="hiddenBizName" value="" />
+        <input type="hidden" name="audited_niche" id="hiddenBizNiche" value="" />
+        <input type="hidden" name="audited_website" id="hiddenBizWebsite" value="" />
+        <input type="hidden" name="audited_location" id="hiddenBizLocation" value="" />
 
         <div>
-          <label class="block text-xs font-semibold text-slate-700 uppercase mb-1" for="leadName">Your Full Name</label>
+          <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-1" for="leadName">Full Name *</label>
           <input 
             type="text" 
             name="name" 
             id="leadName" 
             required 
             placeholder="John Doe" 
-            class="w-full px-4 py-2.5 rounded-lg border border-slate-300 focus:ring-2 focus:ring-brand-500 outline-none text-sm" 
+            class="w-full px-4 py-3 rounded-xl border border-slate-700 bg-slate-950 focus:outline-none focus:ring-2 focus:ring-cyan-500 text-sm font-semibold text-white transition" 
           />
         </div>
 
         <div>
-          <label class="block text-xs font-semibold text-slate-700 uppercase mb-1" for="leadEmail">Email Address</label>
+          <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-1" for="leadEmail">Work Email *</label>
           <input 
             type="email" 
             name="email" 
             id="leadEmail" 
             required 
             placeholder="john@example.com" 
-            class="w-full px-4 py-2.5 rounded-lg border border-slate-300 focus:ring-2 focus:ring-brand-500 outline-none text-sm" 
+            class="w-full px-4 py-3 rounded-xl border border-slate-700 bg-slate-950 focus:outline-none focus:ring-2 focus:ring-cyan-500 text-sm font-semibold text-white transition" 
           />
         </div>
 
         <div>
-          <label class="block text-xs font-semibold text-slate-700 uppercase mb-1" for="leadPhone">Phone Number</label>
+          <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-1" for="leadPhone">Direct Phone Number *</label>
           <input 
             type="tel" 
             name="phone" 
             id="leadPhone" 
             required 
             placeholder="(555) 000-0000" 
-            class="w-full px-4 py-2.5 rounded-lg border border-slate-300 focus:ring-2 focus:ring-brand-500 outline-none text-sm" 
+            class="w-full px-4 py-3 rounded-xl border border-slate-700 bg-slate-950 focus:outline-none focus:ring-2 focus:ring-cyan-500 text-sm font-semibold text-white transition" 
           />
         </div>
 
         <button 
           type="submit" 
           id="leadSubmitBtn"
-          class="w-full py-3 px-4 bg-brand-600 hover:bg-brand-700 text-white font-bold rounded-xl shadow transition duration-200 cursor-pointer"
+          class="w-full py-3.5 px-4 bg-gradient-to-r from-sky-400 via-cyan-400 to-amber-400 hover:from-sky-300 hover:to-amber-300 text-slate-950 font-black rounded-xl shadow-md transition duration-200 cursor-pointer text-sm tracking-wide"
         >
-          Claim Setup Consultation
+          Claim Implementation Consultation
         </button>
       </form>
 
-      <!-- Success Confirmation Box -->
+      <!-- Success confirmation -->
       <div id="modalSuccess" class="hidden text-center py-6">
-        <div class="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto mb-3 font-bold text-xl">✓</div>
-        <h5 class="text-lg font-bold text-slate-900">Request Received!</h5>
-        <p class="text-xs text-slate-500 mt-1">We’ll review your profile and reach out within 24 business hours.</p>
+        <div class="w-12 h-12 bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 rounded-2xl flex items-center justify-center mx-auto mb-3 font-black text-xl">✓</div>
+        <h5 class="text-xl font-bold text-white">Consultation Request Received!</h5>
+        <p class="text-xs text-slate-400 mt-1.5 leading-relaxed">The Skyseed team will review your diagnostic and reach out within 24 business hours.</p>
       </div>
     </div>
   </div>
 
   <!-- Footer -->
-  <footer class="bg-white border-t border-slate-200 py-6 text-center text-xs text-slate-500">
-    <p>© 2026 GBP Audit Pro • Built for Local Businesses & SEO Agencies</p>
+  <footer class="bg-[#05070e] border-t border-slate-800/80 py-8 text-center text-xs text-slate-500">
+    <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="flex items-center space-x-2">
+        <span class="font-bold text-slate-300">Skyseed Global Concept</span>
+        <span class="text-slate-600">•</span>
+        <span>Empowering Brands Through Innovation</span>
+      </div>
+      <p>© 2026 GBP Audit Pro • All rights reserved</p>
+    </div>
   </footer>
 
-  <!-- Application Logic & Niche Database -->
+  <!-- Application Logic -->
   <script>
-    const nicheDatabase = {
-      "Cleaning Companies": {
-        missing: [
-          "Secondary category 'Commercial Cleaning Service' or 'Carpet Cleaning Service' missing.",
-          "No structured Google Products showcasing flat-rate residential deep cleaning bundles.",
-          "Missing high-frequency photo uploads (before/after tile, kitchen, or move-out cleanings).",
-          "Google Instant Messaging / Direct Quote requests are turned off."
-        ],
-        fixes: [
-          "Set primary category strictly to 'House Cleaning Service' and add 'Commercial Cleaning' + 'Window Cleaning Service' as secondary.",
-          "Upload 15+ geolocated before/after photos with exact room tags every month.",
-          "Add standardized flat-rate service packages into the Google Products showcase tab.",
-          "Populate pre-answered Q&A addressing recurring pricing, pet friendliness, and green cleaning supplies.",
-          "Add all surrounding micro-neighborhoods (up to 20 zip codes) to Service Area settings."
-        ],
-        services: [
-          "Deep House Cleaning",
-          "Recurring Maid Services",
-          "Move-In / Move-Out Cleaning",
-          "Post-Construction Cleanup",
-          "Commercial Office Cleaning",
-          "Carpet & Rug Steam Cleaning",
-          "Window & Glass Washing",
-          "Vacation Rental / Airbnb Turnover",
-          "Tile & Grout Pressure Cleaning",
-          "Sanitization & Disinfection"
-        ],
-        descTemplate: (name, city, state) => 
-          `Looking for reliable, spotless cleaning services in ${city}, ${state}? ${name} provides premium residential and commercial cleaning tailored to your schedule. Our trusted team specializes in deep house cleaning, recurring maid service, move-in/move-out turnover, and office sanitization throughout ${city} and neighboring areas.\n\n` +
-          `At ${name}, we use hospital-grade eco-friendly cleaning supplies, rigorous multi-point checklists, and vetted background-checked cleaners to ensure your home or office shines every time.\n\n` +
-          `✓ 100% Satisfaction Guarantee\n` +
-          `✓ Licensed, Insured & Bonded\n` +
-          `✓ Free Fast Estimates\n\n` +
-          `Call ${name} in ${city}, ${state} today or click our booking link to schedule your pristine clean!`
-      },
-
-      "Restaurants / Food": {
-        missing: [
-          "Integrated Google Menu items lack individual high-resolution food photography.",
-          "Direct table reservation and native online ordering buttons are unlinked.",
-          "Special attributes missing (Outdoor Dining, Vegan Friendly, Kids Menu, Late Night).",
-          "Zero regular weekly Google Posts highlighting seasonal menu specials or happy hours."
-        ],
-        fixes: [
-          "Sync digital menu directly with pricing and individual high-def dish photography.",
-          "Activate direct Reserve with Google and Order Delivery/Takeout integrations.",
-          "Audit and turn on all dietary/amenity attributes (Patio Seating, Wheelchair Accessible, Vegan).",
-          "Seed profile Q&A with parking validation policies, reservation requirements, and corkage fees.",
-          "Publish a weekly Google Post highlighting weekend brunch or chef specials with a call button."
-        ],
-        services: [
-          "Dine-In Restaurant Experience",
-          "Curbside Pickup & Takeout",
-          "Online Food Ordering",
-          "Private Event Catering",
-          "Weekend Brunch & Breakfast",
-          "Craft Beer & Cocktail Bar",
-          "Outdoor Patio Dining",
-          "Corporate Lunch Platters",
-          "Chef's Tasting Menu",
-          "Table & Group Reservations"
-        ],
-        descTemplate: (name, city, state) =>
-          `Welcome to ${name}, ${city}'s favorite dining destination for fresh flavors, artisanal recipes, and unforgettable hospitality. Conveniently located in ${city}, ${state}, we serve signature dishes crafted with locally sourced ingredients, handcrafted beverages, and options for every diet.\n\n` +
-          `Whether you are joining us for a lively weekend brunch, an intimate dinner, quick takeout, or planning a catered event, ${name} offers the perfect atmosphere and welcoming service.\n\n` +
-          `✓ Dine-In, Takeout & Catering\n` +
-          `✓ Fresh Seasonal Menu\n` +
-          `✓ Family-Friendly & Patio Seating\n\n` +
-          `Reserve your table or order online from ${name} in ${city}, ${state} today!`
-      },
-
-      "Plumbers / HVAC": {
-        missing: [
-          "24/7 Emergency response service attribute is unverified.",
-          "Secondary categories like 'Heating Contractor' or 'Drainage Service' missing.",
-          "No Google Guaranteed / Local Services Ads badge integrated with the profile.",
-          "Under-optimized photo portfolio with no pictures of branded service trucks or technicians."
-        ],
-        fixes: [
-          "Set Primary Category to 'Plumber' and add 'HVAC Contractor' + 'Drainage Service' as secondary.",
-          "List distinct emergency operating hours with immediate dispatch call tracking numbers.",
-          "Upload staff pictures in uniform and branded company fleet in front of local landmarks.",
-          "Seed Google Q&A with diagnostic fee clarity and average arrival times for emergencies.",
-          "List high-ticket replacement systems (Heat Pumps, Tankless Water Heaters) in Products."
-        ],
-        services: [
-          "Emergency Plumbing Dispatch",
-          "Water Heater Repair & Replacement",
-          "Drain Snaking & Hydro-Jetting",
-          "Air Conditioning Repair & Tune-Up",
-          "Furnace & Heating System Installation",
-          "Slab Leak & Pipe Detection",
-          "Sewer Line Video Inspection",
-          "Tankless Water Heater Upgrades",
-          "Heat Pump Maintenance",
-          "Commercial Plumbing & Backflow Testing"
-        ],
-        descTemplate: (name, city, state) =>
-          `Need emergency plumbing or HVAC repair in ${city}, ${state}? ${name} provides fast, licensed, and reliable heating, cooling, and plumbing solutions for homes and businesses. From water heater replacements and clogged drains to complete AC installations, our certified technicians arrive on time equipped to solve your problem on the spot.\n\n` +
-          `Proudly serving ${city} and surrounding communities, ${name} provides honest upfront pricing, zero hidden fees, and dependable workmanship you can count on 24 hours a day.\n\n` +
-          `✓ 24/7 Emergency Dispatch\n` +
-          `✓ Licensed & Insured Master Plumbers\n` +
-          `✓ 100% Upfront Pricing Guarantee\n\n` +
-          `Contact ${name} in ${city}, ${state} now for immediate assistance or book online!`
-      },
-
-      "Salons / Barbershops": {
-        missing: [
-          "Google 'Book Now' native appointment scheduling integration is missing.",
-          "Individual stylist profiles and portfolio tags are absent.",
-          "Price ranges not defined across basic styling and premium coloring services.",
-          "No review response strategy targeting keyword mentions of specific haircut styles."
-        ],
-        fixes: [
-          "Connect automated scheduling software (Fresha, Boulevard, Vagaro) to the Google Booking button.",
-          "Upload weekly before/after transformation galleries showcasing cuts, balayage, and styling.",
-          "Build full service menu cards with accurate turnaround times and starting prices.",
-          "Add business attributes like 'Wheelchair Accessible Restroom' and 'Appointment Required'.",
-          "Set up an automated SMS follow-up campaign asking satisfied clients for photo reviews."
-        ],
-        services: [
-          "Custom Haircuts & Blowouts",
-          "Balayage & Precision Hair Coloring",
-          "Men's Fades & Beard Sculpting",
-          "Keratin & Smoothing Treatments",
-          "Hair Extensions & Color Blending",
-          "Bridal & Special Occasion Styling",
-          "Deep Conditioning Scalp Treatments",
-          "Kids & Teens Hair Styling",
-          "Hot Towel Straight Razor Shave",
-          "Highlights & Lowlights"
-        ],
-        descTemplate: (name, city, state) =>
-          `Step into ${name}, the premier hair salon and grooming studio in ${city}, ${state}. Our master stylists and barbers specialize in modern cuts, custom hair color, balayage, precision fades, and luxury treatments designed to keep you looking and feeling your absolute best.\n\n` +
-          `Located in the heart of ${city}, ${name} delivers personalized consultations, premium organic salon products, and a relaxing vibe tailored to every guest.\n\n` +
-          `✓ Master Stylists & Expert Colorists\n` +
-          `✓ Seamless Online Booking\n` +
-          `✓ Walk-Ins Welcomed (When Available)\n\n` +
-          `Book your transformation at ${name} in ${city}, ${state} today!`
-      },
-
-      "Real Estate Agents": {
-        missing: [
-          "Independent Brokerage vs Agent categorization confusion hurting map visibility.",
-          "Missing recent sold listing showcases within the Google Products tab.",
-          "Lacking city-specific neighborhood guides and micro-location tags.",
-          "No Q&A answering relocation, home valuation, or commission questions."
-        ],
-        fixes: [
-          "Select 'Real Estate Agent' or 'Real Estate Agency' as primary; add 'Real Estate Consultant'.",
-          "Add current and recently closed listings as 'Products' with direct links to virtual tours.",
-          "Upload neighborhood walk-through videos and local client testimonial screenshots.",
-          "Create pre-populated Q&A detailing 'How much is my home worth in ${city}?' with valuation links.",
-          "Specify hyper-local service zip codes targeting high-growth luxury neighborhoods."
-        ],
-        services: [
-          "Residential Home Buying Guidance",
-          "Home Seller Listing Representation",
-          "Comparative Market Valuation (CMA)",
-          "Luxury Real Estate Advisory",
-          "First-Time Homebuyer Assistance",
-          "Relocation & Neighborhood Tours",
-          "Investment Property Analysis",
-          "Commercial Real Estate Brokerage",
-          "Open House & Virtual Tours",
-          "Condo & Townhome Sales"
-        ],
-        descTemplate: (name, city, state) =>
-          `Navigating the local real estate market in ${city}, ${state}? ${name} provides dedicated, results-driven real estate guidance for home buyers, sellers, and property investors. With deep knowledge of ${city} neighborhoods, school districts, and market values, we ensure seamless transactions from consultation to closing.\n\n` +
-          `Whether looking for your dream home in ${city} or maximizing equity on your current sale, ${name} delivers aggressive marketing, expert negotiation, and concierge communication.\n\n` +
-          `✓ Hyper-Local Market Expertise\n` +
-          `✓ Free Professional Home Valuations\n` +
-          `✓ Proven Top-Dollar Listing Strategies\n\n` +
-          `Contact ${name} in ${city}, ${state} today for your complimentary market consultation!`
-      },
-
-      "Dentists / Clinics": {
-        missing: [
-          "Missing sub-specialty categories (Cosmetic Dentist, Pediatric Dentist, Emergency Dentist).",
-          "No insurance provider acceptance list detailed in Q&A or profile description.",
-          "Online appointment request button missing or broken.",
-          "Low volume of patient reviews mentioning specific treatments (implants, Invisalign)."
-        ],
-        fixes: [
-          "Configure 'Dentist' as primary category and add 'Cosmetic Dentist' + 'Teeth Whitening Service'.",
-          "Add 'Book Online' direct patient portal integration (e.g. NexHealth, LocalMed).",
-          "Post detailed Q&A addressing Medicaid/PPO insurances, dental emergency walk-ins, and financing.",
-          "Upload high-resolution clinic photos highlighting sanitized operatories and friendly staff.",
-          "Create Google Products for high-intent services like Invisalign and Dental Implants."
-        ],
-        services: [
-          "Comprehensive Preventive Dentistry",
-          "Emergency Dental Pain Relief",
-          "Invisalign & Clear Aligners",
-          "Cosmetic Porcelain Veneers",
-          "Professional In-Office Teeth Whitening",
-          "Dental Implants & Restorations",
-          "Root Canal Therapy",
-          "Pediatric & Family Dental Care",
-          "Crowns, Bridges & Dentures",
-          "Periodontal Deep Gum Cleaning"
-        ],
-        descTemplate: (name, city, state) =>
-          `Looking for gentle, state-of-the-art family and cosmetic dental care in ${city}, ${state}? At ${name}, our experienced dental team provides compassionate oral healthcare in a modern, comfortable environment. From routine cleanings and checkups to dental implants, veneers, and emergency dental care, we keep your smile bright and healthy.\n\n` +
-          `We proudly welcome patients of all ages across ${city} and accept most dental insurance plans with flexible financing options.\n\n` +
-          `✓ Gentle, Pain-Free Dental Technology\n` +
-          `✓ Emergency Same-Day Appointments\n` +
-          `✓ Modern Comfortable Clinic\n\n` +
-          `Schedule your smile consultation with ${name} in ${city}, ${state} today!`
-      },
-
-      "Law Firms / Lawyers": {
-        missing: [
-          "Vague primary category ('Lawyer') rather than practice-specific ('Personal Injury Attorney').",
-          "Missing free consultation call-to-action in the primary profile links.",
-          "Zero attorney profile photos highlighting bar credentials and local court experience.",
-          "Unclaimed service area radius diluting local district relevance."
-        ],
-        fixes: [
-          "Update primary category to exact specialty (e.g., 'Personal Injury Attorney' or 'Criminal Defense Attorney').",
-          "Direct profile appointment link to a dedicated free consultation booking page.",
-          "Add case settlement highlights and practice badges into the Google Product catalog.",
-          "Answer common legal FAQs regarding contingency fees, statutes of limitations, and court hearings.",
-          "Solicit structured client reviews specifically mentioning the lawyer's name and case type."
-        ],
-        services: [
-          "Free Case Consultation",
-          "Personal Injury & Auto Accident Claims",
-          "Criminal Defense & DUI Representation",
-          "Family Law, Divorce & Child Custody",
-          "Estate Planning, Wills & Trusts",
-          "Business Litigation & Contracts",
-          "Workers' Compensation Claims",
-          "Wrongful Death Representation",
-          "Real Estate & Property Law",
-          "Immigration Law Services"
-        ],
-        descTemplate: (name, city, state) =>
-          `Facing a complex legal matter in ${city}, ${state}? ${name} provides aggressive, experienced legal counsel committed to protecting your rights and securing the results you deserve. Serving clients across ${city} and surrounding jurisdictions, our legal team handles every case with strategy, compassion, and tireless dedication.\n\n` +
-          `At ${name}, we understand the stress of legal challenges. That's why we offer direct attorney access, clear guidance, and free initial case evaluations.\n\n` +
-          `✓ Proven Courtroom Track Record\n` +
-          `✓ Free Confidential Consultations\n` +
-          `✓ No Fee Unless We Win (Injury Cases)\n\n` +
-          `Call ${name} in ${city}, ${state} today to discuss your case with an experienced attorney.`
-      },
-
-      "Auto Repair / Mechanics": {
-        missing: [
-          "Specific vehicle brand specialties (European, Domestic, Diesel) not identified.",
-          "Missing price clarity on routine inspections (Brake check, Oil change, Diagnostics).",
-          "Low photo volume of clean diagnostic bays, modern scanners, and certified technicians.",
-          "Unconfigured emergency towing or drop-box key service hours."
-        ],
-        fixes: [
-          "Set Primary Category to 'Auto Repair Shop' and secondary to 'Brake Shop' + 'Oil Change Service'.",
-          "List diagnostic services as structured Google Products with clear pricing notes.",
-          "Upload photos of ASE Certification plaques, scan tools, and clean customer lounges.",
-          "Clarify after-hours key drop and towing coordination policies in Google Q&A.",
-          "Respond to all reviews with targeted keywords (brake repair, check engine light, ${city} auto repair)."
-        ],
-        services: [
-          "Check Engine Light Diagnostics",
-          "Brake Pad & Rotor Replacement",
-          "Synthetic Oil & Filter Service",
-          "Transmission Repair & Flush",
-          "Suspension, Shocks & Struts",
-          "Tire Balancing & Alignment",
-          "A/C & Heating Climate Diagnostics",
-          "Battery, Starter & Alternator Tests",
-          "Factory Scheduled Maintenance",
-          "Pre-Purchase Vehicle Inspections"
-        ],
-        descTemplate: (name, city, state) =>
-          `Searching for an honest, dependable auto repair shop in ${city}, ${state}? ${name} is your trusted local destination for dealership-grade car maintenance and repairs without the dealership price tag. Our ASE-certified mechanics inspect, diagnose, and repair all domestic and import makes and models.\n\n` +
-          `From brake replacements and check engine diagnosis to oil changes and transmission overhauls, ${name} keeps your vehicle safe on ${city} roads with honest warranties on parts and labor.\n\n` +
-          `✓ ASE-Certified Master Technicians\n` +
-          `✓ Digital Vehicle Inspections\n` +
-          `✓ Nationwide Parts & Labor Warranty\n\n` +
-          `Contact ${name} in ${city}, ${state} today to schedule your automotive inspection or repair!`
-      },
-
-      "Gyms / Fitness Coaches": {
-        missing: [
-          "Missing pass/trial offer product badge (e.g. Free 1-Day Trial, Free Consultation).",
-          "Missing attributes (Showers, Locker Rooms, Wi-Fi, Personal Trainers Available).",
-          "No short video tours showcasing weight rooms, turf, or group classes.",
-          "No class schedule link embedded directly on the Google listing."
-        ],
-        fixes: [
-          "Add 'Gym' or 'Fitness Center' as primary; list 'Personal Trainer' + 'Weight Loss Service' as secondary.",
-          "Feature a Free Guest Pass or Fitness Evaluation prominently in the Products tab.",
-          "Upload weekly videos highlighting group training energy, form tips, and community events.",
-          "Address pricing options, drop-in passes, and cancelation policies directly in Google Q&A.",
-          "Ensure class timetable link is populated in the listing's menu/appointment URL field."
-        ],
-        services: [
-          "Custom 1-on-1 Personal Training",
-          "High-Intensity Group Fitness Classes",
-          "Strength & Conditioning Programs",
-          "Nutrition Coaching & Meal Planning",
-          "Open Gym & Functional Equipment",
-          "Weight Loss & Body Composition Scans",
-          "HIIT & Bootcamp Workouts",
-          "Youth & Athletic Performance Coaching",
-          "Mobility, Recovery & Stretch Sessions",
-          "Free First-Timer Consultation"
-        ],
-        descTemplate: (name, city, state) =>
-          `Crush your fitness goals at ${name}, the premier gym and personal training center in ${city}, ${state}. Whether you are just beginning your fitness journey or looking to take athletic performance to the next level, our state-of-the-art facility, elite personal coaches, and supportive community are here to guide you.\n\n` +
-          `Serving members across ${city}, ${name} offers world-class equipment, motivating group classes, one-on-one nutrition coaching, and 24/7 access.\n\n` +
-          `✓ Modern Equipment & Clean Facilities\n` +
-          `✓ Certified Trainers Who Care\n` +
-          `✓ Flexible Membership Plans\n\n` +
-          `Claim your trial pass or book a tour at ${name} in ${city}, ${state} today!`
-      },
-
-      "Roofing / Construction": {
-        missing: [
-          "Lacking insurance storm restoration and drone roof inspection tags.",
-          "Missing secondary categories ('General Contractor', 'Siding Contractor', 'Gutter Cleaning Service').",
-          "No drone inspection video footage or aerial job site photos.",
-          "Lacking manufacturer certifications (GAF Master Elite, Owens Corning) badges."
-        ],
-        fixes: [
-          "Set Primary Category to 'Roofing Contractor' and add 'General Contractor' + 'Gutter Service'.",
-          "Showcase drone before/after aerial photos for complete shingle and metal roof replacements.",
-          "Create a Google Product card for 'Free 21-Point Roof Storm Damage Inspection'.",
-          "Seed Q&A addressing insurance claim assistance, warranties, and emergency tarping.",
-          "Publish posts during hail/wind weather seasons alerting homeowners in ${city} to inspect shingles."
-        ],
-        services: [
-          "Free Roof Inspection & Drone Scans",
-          "Asphalt Shingle Roof Replacement",
-          "Commercial Flat & Metal Roofing",
-          "Storm, Wind & Hail Damage Repair",
-          "Insurance Claim Assistance & Documentation",
-          "Emergency Roof Tarping & Leak Repair",
-          "Seamless Aluminum Gutter Installation",
-          "Skylight Installation & Flashing Repair",
-          "Soffit & Fascia Restoration",
-          "Roof Coating & Waterproofing"
-        ],
-        descTemplate: (name, city, state) =>
-          `Protect your home with ${name}, the leading licensed roofing contractor serving ${city}, ${state} and surrounding counties. We specialize in residential and commercial roof replacements, storm damage restoration, emergency leak repairs, and precision gutter systems designed to withstand harsh weather.\n\n` +
-          `With decades of combined craftsmanship in ${city}, ${name} provides lifetime manufacturer warranties, assistance with insurance claims, and no-obligation drone roof inspections.\n\n` +
-          `✓ Certified Master Roofing Installers\n` +
-          `✓ 100% Free Detailed Roof Inspections\n` +
-          `✓ Insurance Claims Assistance Specialists\n\n` +
-          `Schedule your free inspection with ${name} in ${city}, ${state} today!`
-      }
-    };
-
-    function calculateDeterministicScore(seedStr) {
-      let hash = 0;
-      for (let i = 0; i < seedStr.length; i++) {
-        hash = seedStr.charCodeAt(i) + ((hash << 5) - hash);
-      }
-      return 58 + (Math.abs(hash) % 17);
-    }
-
-    function generateAudit(e) {
-      e.preventDefault();
-
-      const name = document.getElementById("bizName").value.trim();
-      const niche = document.getElementById("bizNiche").value;
-      const city = document.getElementById("bizCity").value.trim();
-      const state = document.getElementById("bizState").value.trim();
-
-      if (!name || !niche || !city || !state) {
-        alert("Please fill out all fields.");
-        return;
-      }
-
-      const loader = document.getElementById("loadingState");
-      const results = document.getElementById("resultsSection");
-      const loadingText = document.getElementById("loadingText");
-      
-      results.classList.add("hidden");
-      loader.classList.remove("hidden");
-      loader.scrollIntoView({ behavior: 'smooth' });
-
-      const steps = [
-        `Connecting to local search grid for ${city}, ${state}...`,
-        `Analyzing primary & secondary categories for "${niche}"...`,
-        `Scraping missing competitor map attributes...`,
-        `Compiling customized fixes and SEO description...`
-      ];
-
-      let stepIndex = 0;
-      const interval = setInterval(() => {
-        stepIndex++;
-        if (stepIndex < steps.length) {
-          loadingText.textContent = steps[stepIndex];
-        } else {
-          clearInterval(interval);
-          renderAuditData(name, niche, city, state);
-          loader.classList.add("hidden");
-          results.classList.remove("hidden");
-          results.scrollIntoView({ behavior: 'smooth' });
-        }
-      }, 350);
-    }
-
-    function renderAuditData(name, niche, city, state) {
-      const data = nicheDatabase[niche];
-      if (!data) return;
-
-      document.getElementById("resBizName").textContent = name;
-      document.getElementById("resBizNiche").textContent = niche;
-      document.getElementById("resBizLocation").textContent = `${city}, ${state}`;
-
-      const finalScore = calculateDeterministicScore(`${name}-${niche}-${city}`);
-      const scoreCircle = document.getElementById("scoreCircle");
-      const scoreNumber = document.getElementById("scoreNumber");
-      const scoreBadge = document.getElementById("scoreBadge");
-
-      const circumference = 364.4;
-      const offset = circumference - (finalScore / 100) * circumference;
-      
-      scoreCircle.style.strokeDashoffset = circumference;
-      setTimeout(() => {
-        scoreCircle.style.strokeDashoffset = offset;
-      }, 50);
-
-      let currentScore = 0;
-      const stepTime = 1200 / finalScore;
-      const counter = setInterval(() => {
-        currentScore++;
-        scoreNumber.textContent = currentScore;
-        if (currentScore >= finalScore) {
-          clearInterval(counter);
-        }
-      }, stepTime);
-
-      if (finalScore < 65) {
-        scoreBadge.textContent = "Urgent: Map Rankings at Risk";
-        scoreBadge.className = "text-xs font-bold px-3 py-1 rounded-full bg-red-100 text-red-700 border border-red-200";
-        scoreCircle.className = "score-circle text-rose-500";
-      } else {
-        scoreBadge.textContent = "Needs Optimization to Hit Top 3";
-        scoreBadge.className = "text-xs font-bold px-3 py-1 rounded-full bg-amber-100 text-amber-800 border border-amber-200";
-        scoreCircle.className = "score-circle text-brand-600";
-      }
-
-      const missingList = document.getElementById("missingList");
-      missingList.innerHTML = "";
-      data.missing.forEach(item => {
-        const li = document.createElement("li");
-        li.className = "flex items-start space-x-2.5";
-        li.innerHTML = `
-          <span class="text-red-500 font-bold shrink-0 mt-0.5">✕</span>
-          <span class="text-slate-700 leading-snug">${item}</span>
-        `;
-        missingList.appendChild(li);
-      });
-
-      const fixesList = document.getElementById("fixesList");
-      fixesList.innerHTML = "";
-      data.fixes.forEach((item, index) => {
-        const li = document.createElement("li");
-        li.className = "flex items-start space-x-2.5";
-        li.innerHTML = `
-          <span class="w-5 h-5 rounded-full bg-brand-50 text-brand-700 border border-brand-200 text-xs flex items-center justify-center font-bold shrink-0 mt-0.5">${index + 1}</span>
-          <span class="text-slate-700 leading-snug">${item.replace("${city}", city)}</span>
-        `;
-        fixesList.appendChild(li);
-      });
-
-      const desc = data.descTemplate(name, city, state);
-      document.getElementById("optimizedDesc").textContent = desc;
-
-      const servicesGrid = document.getElementById("servicesGrid");
-      servicesGrid.innerHTML = "";
-      data.services.forEach(srv => {
-        const card = document.createElement("div");
-        card.className = "p-3 rounded-xl bg-slate-50 border border-slate-200 flex items-center space-x-2 text-slate-800 hover:border-brand-300 transition";
-        card.innerHTML = `
-          <span class="w-2 h-2 rounded-full bg-brand-500 shrink-0"></span>
-          <span class="font-medium text-xs sm:text-sm">${srv}</span>
-        `;
-        servicesGrid.appendChild(card);
-      });
-    }
-
-    function copyDescription() {
-      const text = document.getElementById("optimizedDesc").innerText;
-      navigator.clipboard.writeText(text).then(() => {
-        const btn = document.getElementById("copyDescBtn");
-        const originalText = btn.innerHTML;
-        btn.innerHTML = `<span class="text-emerald-600 font-bold">✓ Copied!</span>`;
-        setTimeout(() => { btn.innerHTML = originalText; }, 2000);
-      });
-    }
-
-    function copyServices() {
-      const niche = document.getElementById("bizNiche").value;
-      if (!niche || !nicheDatabase[niche]) return;
-      const services = nicheDatabase[niche].services.join("\n");
-      navigator.clipboard.writeText(services).then(() => {
-        const btn = document.getElementById("copyServicesBtn");
-        const originalText = btn.innerHTML;
-        btn.innerHTML = `<span class="text-emerald-600 font-bold">✓ Copied!</span>`;
-        setTimeout(() => { btn.innerHTML = originalText; }, 2000);
-      });
-    }
-
-    function openCtaModal() {
-      document.getElementById("ctaModal").classList.remove("hidden");
-    }
-
-    function closeCtaModal() {
-      document.getElementById("ctaModal").classList.add("hidden");
-      document.getElementById("modalSuccess").classList.add("hidden");
-      document.getElementById("leadCaptureForm").classList.remove("hidden");
-    }
-
-    // Handles form submission directly to Netlify without leaving the page
-    function handleLeadSubmit(e) {
-      e.preventDefault();
-      const form = e.target;
-      const submitBtn = document.getElementById("leadSubmitBtn");
-      submitBtn.disabled = true;
-      submitBtn.textContent = "Submitting...";
-
-      const formData = new FormData(form);
-
-      fetch("/", {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: new URLSearchParams(formData).toString()
-      })
-      .then(() => {
-        form.classList.add("hidden");
-        document.getElementById("modalSuccess").classList.remove("hidden");
-        form.reset();
-      })
-      .catch((err) => {
-        console.error("Form submission error:", err);
-        // Fallback for smooth UX
-        form.classList.add("hidden");
-        document.getElementById("modalSuccess").classList.remove("hidden");
-      })
-      .finally(() => {
-        submitBtn.disabled = false;
-        submitBtn.textContent = "Claim Setup Consultation";
-      });
-    }
-  </script>
-</body>
-</html>
+    // Bind base64 logo on startup
+    window.addEventListener("DOMContentLoaded", () => {
+      document.getElementById("navLogo").src = SKYSEED_LOGO;
+      document.getElementById("printLogo").src = SKYSEED_LOGO;
+      documen
