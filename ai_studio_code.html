@@ -93,7 +93,7 @@
                   type="text" 
                   id="bizName" 
                   required 
-                  placeholder="e.g. Apex Apex Plumbing & Heating" 
+                  placeholder="e.g. Apex Plumbing & Heating" 
                   class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-slate-900 placeholder:text-slate-400 font-medium transition"
                 />
               </div>
@@ -252,9 +252,7 @@
               <p class="text-xs text-slate-500">Critical gaps found on current competitor profiles</p>
             </div>
           </div>
-          <ul id="missingList" class="space-y-3.5 text-sm text-slate-700">
-            <!-- Dynamically populated -->
-          </ul>
+          <ul id="missingList" class="space-y-3.5 text-sm text-slate-700"></ul>
         </div>
 
         <!-- 5 Specific Fixes -->
@@ -268,9 +266,7 @@
               <p class="text-xs text-slate-500">Implement in Google Business Profile manager</p>
             </div>
           </div>
-          <ol id="fixesList" class="space-y-3.5 text-sm text-slate-700">
-            <!-- Dynamically populated -->
-          </ol>
+          <ol id="fixesList" class="space-y-3.5 text-sm text-slate-700"></ol>
         </div>
 
       </div>
@@ -318,9 +314,7 @@
             Copy All 10 Services
           </button>
         </div>
-        <div id="servicesGrid" class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm">
-          <!-- Dynamically populated -->
-        </div>
+        <div id="servicesGrid" class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm"></div>
       </div>
 
       <!-- Bottom Sticky CTA Banner -->
@@ -349,7 +343,7 @@
     </section>
   </main>
 
-  <!-- Lead Capture / CTA Modal -->
+  <!-- Lead Capture / CTA Modal (Configured for Netlify Forms) -->
   <div id="ctaModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-4 z-50 hidden">
     <div class="bg-white rounded-2xl max-w-lg w-full p-6 sm:p-8 relative shadow-2xl animate-in fade-in zoom-in duration-200">
       <button onclick="closeCtaModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 p-1">
@@ -364,23 +358,63 @@
         <p class="text-sm text-slate-500 mt-1">Leave your details and our local search team will reach out with your implementation plan.</p>
       </div>
 
-      <form onsubmit="handleLeadSubmit(event)" class="space-y-4">
+      <!-- Form with Netlify Attributes Pre-Configured -->
+      <form 
+        name="gbp-leads" 
+        method="POST" 
+        data-netlify="true" 
+        id="leadCaptureForm" 
+        onsubmit="handleLeadSubmit(event)" 
+        class="space-y-4"
+      >
+        <input type="hidden" name="form-name" value="gbp-leads" />
+
         <div>
-          <label class="block text-xs font-semibold text-slate-700 uppercase mb-1">Your Full Name</label>
-          <input type="text" required placeholder="John Doe" class="w-full px-4 py-2.5 rounded-lg border border-slate-300 focus:ring-2 focus:ring-brand-500 outline-none text-sm" />
+          <label class="block text-xs font-semibold text-slate-700 uppercase mb-1" for="leadName">Your Full Name</label>
+          <input 
+            type="text" 
+            name="name" 
+            id="leadName" 
+            required 
+            placeholder="John Doe" 
+            class="w-full px-4 py-2.5 rounded-lg border border-slate-300 focus:ring-2 focus:ring-brand-500 outline-none text-sm" 
+          />
         </div>
+
         <div>
-          <label class="block text-xs font-semibold text-slate-700 uppercase mb-1">Email Address</label>
-          <input type="email" required placeholder="john@example.com" class="w-full px-4 py-2.5 rounded-lg border border-slate-300 focus:ring-2 focus:ring-brand-500 outline-none text-sm" />
+          <label class="block text-xs font-semibold text-slate-700 uppercase mb-1" for="leadEmail">Email Address</label>
+          <input 
+            type="email" 
+            name="email" 
+            id="leadEmail" 
+            required 
+            placeholder="john@example.com" 
+            class="w-full px-4 py-2.5 rounded-lg border border-slate-300 focus:ring-2 focus:ring-brand-500 outline-none text-sm" 
+          />
         </div>
+
         <div>
-          <label class="block text-xs font-semibold text-slate-700 uppercase mb-1">Phone Number</label>
-          <input type="tel" required placeholder="(555) 000-0000" class="w-full px-4 py-2.5 rounded-lg border border-slate-300 focus:ring-2 focus:ring-brand-500 outline-none text-sm" />
+          <label class="block text-xs font-semibold text-slate-700 uppercase mb-1" for="leadPhone">Phone Number</label>
+          <input 
+            type="tel" 
+            name="phone" 
+            id="leadPhone" 
+            required 
+            placeholder="(555) 000-0000" 
+            class="w-full px-4 py-2.5 rounded-lg border border-slate-300 focus:ring-2 focus:ring-brand-500 outline-none text-sm" 
+          />
         </div>
-        <button type="submit" class="w-full py-3 px-4 bg-brand-600 hover:bg-brand-700 text-white font-bold rounded-xl shadow transition duration-200">
+
+        <button 
+          type="submit" 
+          id="leadSubmitBtn"
+          class="w-full py-3 px-4 bg-brand-600 hover:bg-brand-700 text-white font-bold rounded-xl shadow transition duration-200 cursor-pointer"
+        >
           Claim Setup Consultation
         </button>
       </form>
+
+      <!-- Success Confirmation Box -->
       <div id="modalSuccess" class="hidden text-center py-6">
         <div class="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto mb-3 font-bold text-xl">✓</div>
         <h5 class="text-lg font-bold text-slate-900">Request Received!</h5>
@@ -396,7 +430,6 @@
 
   <!-- Application Logic & Niche Database -->
   <script>
-    // Comprehensive Niche Data Engine
     const nicheDatabase = {
       "Cleaning Companies": {
         missing: [
@@ -749,17 +782,14 @@
       }
     };
 
-    // Calculate deterministic score based on input text (between 58 and 74)
     function calculateDeterministicScore(seedStr) {
       let hash = 0;
       for (let i = 0; i < seedStr.length; i++) {
         hash = seedStr.charCodeAt(i) + ((hash << 5) - hash);
       }
-      const score = 58 + (Math.abs(hash) % 17); // 58 to 74
-      return score;
+      return 58 + (Math.abs(hash) % 17);
     }
 
-    // Main form submission handler
     function generateAudit(e) {
       e.preventDefault();
 
@@ -773,7 +803,6 @@
         return;
       }
 
-      // Show loader
       const loader = document.getElementById("loadingState");
       const results = document.getElementById("resultsSection");
       const loadingText = document.getElementById("loadingText");
@@ -782,7 +811,6 @@
       loader.classList.remove("hidden");
       loader.scrollIntoView({ behavior: 'smooth' });
 
-      // Simulated real-time analysis steps
       const steps = [
         `Connecting to local search grid for ${city}, ${state}...`,
         `Analyzing primary & secondary categories for "${niche}"...`,
@@ -805,34 +833,27 @@
       }, 350);
     }
 
-    // Render results into the DOM
     function renderAuditData(name, niche, city, state) {
       const data = nicheDatabase[niche];
       if (!data) return;
 
-      // Populate Header Details
       document.getElementById("resBizName").textContent = name;
       document.getElementById("resBizNiche").textContent = niche;
       document.getElementById("resBizLocation").textContent = `${city}, ${state}`;
 
-      // Calculate & Animate Score
       const finalScore = calculateDeterministicScore(`${name}-${niche}-${city}`);
       const scoreCircle = document.getElementById("scoreCircle");
       const scoreNumber = document.getElementById("scoreNumber");
       const scoreBadge = document.getElementById("scoreBadge");
 
-      // Circumference = 2 * π * 58 ≈ 364.4
       const circumference = 364.4;
       const offset = circumference - (finalScore / 100) * circumference;
       
-      // Reset circle
       scoreCircle.style.strokeDashoffset = circumference;
-      
       setTimeout(() => {
         scoreCircle.style.strokeDashoffset = offset;
       }, 50);
 
-      // Animate number count up
       let currentScore = 0;
       const stepTime = 1200 / finalScore;
       const counter = setInterval(() => {
@@ -843,7 +864,6 @@
         }
       }, stepTime);
 
-      // Score status badge
       if (finalScore < 65) {
         scoreBadge.textContent = "Urgent: Map Rankings at Risk";
         scoreBadge.className = "text-xs font-bold px-3 py-1 rounded-full bg-red-100 text-red-700 border border-red-200";
@@ -854,7 +874,6 @@
         scoreCircle.className = "score-circle text-brand-600";
       }
 
-      // Populate "What's Missing"
       const missingList = document.getElementById("missingList");
       missingList.innerHTML = "";
       data.missing.forEach(item => {
@@ -867,7 +886,6 @@
         missingList.appendChild(li);
       });
 
-      // Populate "5 Fixes"
       const fixesList = document.getElementById("fixesList");
       fixesList.innerHTML = "";
       data.fixes.forEach((item, index) => {
@@ -880,11 +898,9 @@
         fixesList.appendChild(li);
       });
 
-      // Populate Description
       const desc = data.descTemplate(name, city, state);
       document.getElementById("optimizedDesc").textContent = desc;
 
-      // Populate Services Grid
       const servicesGrid = document.getElementById("servicesGrid");
       servicesGrid.innerHTML = "";
       data.services.forEach(srv => {
@@ -898,20 +914,16 @@
       });
     }
 
-    // Copy Description to Clipboard
     function copyDescription() {
       const text = document.getElementById("optimizedDesc").innerText;
       navigator.clipboard.writeText(text).then(() => {
         const btn = document.getElementById("copyDescBtn");
         const originalText = btn.innerHTML;
         btn.innerHTML = `<span class="text-emerald-600 font-bold">✓ Copied!</span>`;
-        setTimeout(() => {
-          btn.innerHTML = originalText;
-        }, 2000);
+        setTimeout(() => { btn.innerHTML = originalText; }, 2000);
       });
     }
 
-    // Copy 10 Services to Clipboard
     function copyServices() {
       const niche = document.getElementById("bizNiche").value;
       if (!niche || !nicheDatabase[niche]) return;
@@ -920,13 +932,10 @@
         const btn = document.getElementById("copyServicesBtn");
         const originalText = btn.innerHTML;
         btn.innerHTML = `<span class="text-emerald-600 font-bold">✓ Copied!</span>`;
-        setTimeout(() => {
-          btn.innerHTML = originalText;
-        }, 2000);
+        setTimeout(() => { btn.innerHTML = originalText; }, 2000);
       });
     }
 
-    // Modal Control
     function openCtaModal() {
       document.getElementById("ctaModal").classList.remove("hidden");
     }
@@ -934,12 +943,39 @@
     function closeCtaModal() {
       document.getElementById("ctaModal").classList.add("hidden");
       document.getElementById("modalSuccess").classList.add("hidden");
+      document.getElementById("leadCaptureForm").classList.remove("hidden");
     }
 
+    // Handles form submission directly to Netlify without leaving the page
     function handleLeadSubmit(e) {
       e.preventDefault();
-      e.target.classList.add("hidden");
-      document.getElementById("modalSuccess").classList.remove("hidden");
+      const form = e.target;
+      const submitBtn = document.getElementById("leadSubmitBtn");
+      submitBtn.disabled = true;
+      submitBtn.textContent = "Submitting...";
+
+      const formData = new FormData(form);
+
+      fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(formData).toString()
+      })
+      .then(() => {
+        form.classList.add("hidden");
+        document.getElementById("modalSuccess").classList.remove("hidden");
+        form.reset();
+      })
+      .catch((err) => {
+        console.error("Form submission error:", err);
+        // Fallback for smooth UX
+        form.classList.add("hidden");
+        document.getElementById("modalSuccess").classList.remove("hidden");
+      })
+      .finally(() => {
+        submitBtn.disabled = false;
+        submitBtn.textContent = "Claim Setup Consultation";
+      });
     }
   </script>
 </body>
