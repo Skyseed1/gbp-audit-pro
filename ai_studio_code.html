@@ -1,0 +1,946 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GBP Audit Pro - For Any Business</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'sans-serif'] },
+          colors: {
+            brand: {
+              50: '#eff6ff',
+              100: '#dbeafe',
+              500: '#3b82f6',
+              600: '#2563eb',
+              700: '#1d4ed8',
+              800: '#1e40af',
+              900: '#1e3a8a',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* Radial score circle progress */
+    .score-circle {
+      transition: stroke-dashoffset 1.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    @keyframes pulse-soft {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.7; }
+    }
+    .animate-pulse-soft {
+      animation: pulse-soft 2s infinite;
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased min-h-screen flex flex-col">
+
+  <!-- Header -->
+  <header class="bg-white border-b border-slate-200 sticky top-0 z-40 shadow-xs">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+      <div class="flex items-center space-x-3">
+        <div class="w-10 h-10 rounded-xl bg-brand-600 text-white flex items-center justify-center font-bold text-xl shadow-md shadow-brand-500/20">
+          G
+        </div>
+        <div>
+          <h1 class="text-lg font-bold text-slate-900 tracking-tight leading-none">GBP Audit Pro</h1>
+          <p class="text-xs text-brand-600 font-medium">Local SEO & Maps Optimization</p>
+        </div>
+      </div>
+      <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">
+        <span class="w-2 h-2 rounded-full bg-emerald-500 mr-1.5 animate-pulse"></span>
+        Algorithm Ready (2026)
+      </span>
+    </div>
+  </header>
+
+  <!-- Hero & Form Section -->
+  <main class="flex-grow">
+    <section class="bg-gradient-to-b from-brand-50 to-white py-12 px-4 border-b border-slate-200">
+      <div class="max-w-3xl mx-auto text-center">
+        <span class="inline-block py-1 px-3 mb-3 rounded-full text-xs font-semibold bg-brand-100 text-brand-700 uppercase tracking-wider">
+          Instant Local Search Diagnostic
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mb-3">
+          Audit & Rank Any Google Business Profile
+        </h2>
+        <p class="text-slate-600 text-base sm:text-lg mb-8 max-w-2xl mx-auto">
+          Uncover missing ranking factors, benchmark your profile score, and get instant niche-specific fixes to capture more top-3 map pack leads.
+        </p>
+
+        <!-- Audit Input Card -->
+        <div class="bg-white rounded-2xl shadow-xl shadow-brand-900/5 border border-slate-200 p-6 sm:p-8 text-left">
+          <form id="auditForm" onsubmit="generateAudit(event)">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+              
+              <!-- Business Name -->
+              <div class="sm:col-span-2">
+                <label class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5" for="bizName">
+                  Business Name *
+                </label>
+                <input 
+                  type="text" 
+                  id="bizName" 
+                  required 
+                  placeholder="e.g. Apex Apex Plumbing & Heating" 
+                  class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-slate-900 placeholder:text-slate-400 font-medium transition"
+                />
+              </div>
+
+              <!-- Niche Dropdown -->
+              <div class="sm:col-span-2">
+                <label class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5" for="bizNiche">
+                  Select Niche / Industry *
+                </label>
+                <div class="relative">
+                  <select 
+                    id="bizNiche" 
+                    required 
+                    class="w-full appearance-none px-4 py-3 rounded-xl border border-slate-300 bg-white focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-slate-900 font-medium transition cursor-pointer pr-10"
+                  >
+                    <option value="" disabled selected>Select an industry...</option>
+                    <option value="Cleaning Companies">Cleaning Companies</option>
+                    <option value="Restaurants / Food">Restaurants / Food</option>
+                    <option value="Plumbers / HVAC">Plumbers / HVAC</option>
+                    <option value="Salons / Barbershops">Salons / Barbershops</option>
+                    <option value="Real Estate Agents">Real Estate Agents</option>
+                    <option value="Dentists / Clinics">Dentists / Clinics</option>
+                    <option value="Law Firms / Lawyers">Law Firms / Lawyers</option>
+                    <option value="Auto Repair / Mechanics">Auto Repair / Mechanics</option>
+                    <option value="Gyms / Fitness Coaches">Gyms / Fitness Coaches</option>
+                    <option value="Roofing / Construction">Roofing / Construction</option>
+                  </select>
+                  <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-slate-500">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                  </div>
+                </div>
+              </div>
+
+              <!-- City -->
+              <div>
+                <label class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5" for="bizCity">
+                  City *
+                </label>
+                <input 
+                  type="text" 
+                  id="bizCity" 
+                  required 
+                  placeholder="e.g. Austin" 
+                  class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-slate-900 placeholder:text-slate-400 font-medium transition"
+                />
+              </div>
+
+              <!-- State -->
+              <div>
+                <label class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5" for="bizState">
+                  State / Province *
+                </label>
+                <input 
+                  type="text" 
+                  id="bizState" 
+                  required 
+                  placeholder="e.g. Texas or TX" 
+                  class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-slate-900 placeholder:text-slate-400 font-medium transition"
+                />
+              </div>
+
+            </div>
+
+            <button 
+              type="submit" 
+              id="submitBtn"
+              class="w-full mt-2 py-4 px-6 bg-brand-600 hover:bg-brand-700 text-white font-bold rounded-xl shadow-lg shadow-brand-600/30 hover:shadow-brand-600/50 transition duration-200 flex items-center justify-center space-x-2 text-base cursor-pointer"
+            >
+              <span>Generate Tailored GBP Audit Report</span>
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path></svg>
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Scanning Loading State -->
+    <div id="loadingState" class="hidden py-16 px-4 text-center">
+      <div class="inline-block relative w-16 h-16 mb-4">
+        <div class="absolute inset-0 rounded-full border-4 border-brand-100"></div>
+        <div class="absolute inset-0 rounded-full border-4 border-brand-600 border-t-transparent animate-spin"></div>
+      </div>
+      <h3 class="text-xl font-bold text-slate-800" id="loadingText">Connecting to Local Citation Signals...</h3>
+      <p class="text-sm text-slate-500 mt-1">Cross-referencing category relevance and map pack signals.</p>
+    </div>
+
+    <!-- Results Section -->
+    <section id="resultsSection" class="hidden py-12 px-4 max-w-5xl mx-auto">
+      
+      <!-- Top Card: Summary & Big Circle Score -->
+      <div class="bg-white rounded-3xl p-6 sm:p-10 border border-slate-200 shadow-xl shadow-brand-900/5 mb-8">
+        <div class="flex flex-col md:flex-row items-center justify-between gap-8">
+          
+          <!-- Left details -->
+          <div class="flex-1 text-center md:text-left">
+            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-brand-50 text-brand-700 border border-brand-200 mb-3">
+              <span class="w-1.5 h-1.5 rounded-full bg-brand-600"></span>
+              Audit Completed
+            </span>
+            <h3 class="text-2xl sm:text-3xl font-extrabold text-slate-900" id="resBizName">Business Name</h3>
+            <p class="text-slate-600 text-sm mt-1 flex items-center justify-center md:justify-start gap-2">
+              <span id="resBizNiche" class="font-medium text-brand-700"></span>
+              <span>•</span>
+              <span id="resBizLocation" class="text-slate-500"></span>
+            </p>
+            <p class="text-xs text-slate-400 mt-3 max-w-md">
+              Score calculated based on proximity weight, primary/secondary categories, review frequency, photo recency, and catalog depth.
+            </p>
+          </div>
+
+          <!-- Big Circle Score -->
+          <div class="flex flex-col items-center">
+            <div class="relative w-44 h-44 flex items-center justify-center">
+              <svg class="w-full h-full transform -rotate-90" viewBox="0 0 140 140">
+                <circle cx="70" cy="70" r="58" stroke="currentColor" stroke-width="12" class="text-slate-100" fill="transparent" />
+                <circle 
+                  id="scoreCircle" 
+                  cx="70" 
+                  cy="70" 
+                  r="58" 
+                  stroke="currentColor" 
+                  stroke-width="12" 
+                  class="score-circle text-brand-600" 
+                  stroke-dasharray="364.4" 
+                  stroke-dashoffset="364.4" 
+                  stroke-linecap="round" 
+                  fill="transparent" 
+                />
+              </svg>
+              <div class="absolute inset-0 flex flex-col items-center justify-center text-center">
+                <span id="scoreNumber" class="text-4xl font-extrabold text-slate-900 tracking-tight">0</span>
+                <span class="text-xs font-semibold uppercase tracking-wider text-slate-400">out of 100</span>
+              </div>
+            </div>
+            <div class="mt-2 text-center">
+              <span id="scoreBadge" class="text-xs font-bold px-3 py-1 rounded-full bg-amber-50 text-amber-700 border border-amber-200">
+                Needs Attention
+              </span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Grid: What's Missing & 5 Fixes -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+        
+        <!-- What's Missing -->
+        <div class="bg-white rounded-2xl p-6 sm:p-7 border border-slate-200 shadow-sm">
+          <div class="flex items-center space-x-2.5 mb-5 pb-3 border-b border-slate-100">
+            <div class="w-8 h-8 rounded-lg bg-red-100 text-red-600 flex items-center justify-center font-bold text-lg">
+              ✕
+            </div>
+            <div>
+              <h4 class="font-bold text-slate-900 text-lg">What's Missing or Underperforming</h4>
+              <p class="text-xs text-slate-500">Critical gaps found on current competitor profiles</p>
+            </div>
+          </div>
+          <ul id="missingList" class="space-y-3.5 text-sm text-slate-700">
+            <!-- Dynamically populated -->
+          </ul>
+        </div>
+
+        <!-- 5 Specific Fixes -->
+        <div class="bg-white rounded-2xl p-6 sm:p-7 border border-slate-200 shadow-sm">
+          <div class="flex items-center space-x-2.5 mb-5 pb-3 border-b border-slate-100">
+            <div class="w-8 h-8 rounded-lg bg-brand-100 text-brand-600 flex items-center justify-center font-bold text-lg">
+              ✓
+            </div>
+            <div>
+              <h4 class="font-bold text-slate-900 text-lg">5 High-Impact Niche Fixes</h4>
+              <p class="text-xs text-slate-500">Implement in Google Business Profile manager</p>
+            </div>
+          </div>
+          <ol id="fixesList" class="space-y-3.5 text-sm text-slate-700">
+            <!-- Dynamically populated -->
+          </ol>
+        </div>
+
+      </div>
+
+      <!-- Optimized Description Box -->
+      <div class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm mb-8">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4 pb-3 border-b border-slate-100">
+          <div>
+            <h4 class="font-bold text-slate-900 text-lg flex items-center gap-2">
+              <span>Optimized GBP Description</span>
+              <span class="text-xs px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 font-medium">SEO Tuned</span>
+            </h4>
+            <p class="text-xs text-slate-500 mt-0.5">Pre-engineered for maximum character limit utilization and local entity relevance.</p>
+          </div>
+          <button 
+            onclick="copyDescription()" 
+            id="copyDescBtn"
+            class="inline-flex items-center justify-center px-4 py-2 text-xs font-semibold rounded-lg bg-slate-100 hover:bg-brand-50 text-slate-700 hover:text-brand-600 border border-slate-200 transition"
+          >
+            <svg class="w-3.5 h-3.5 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+            Copy Description
+          </button>
+        </div>
+        <div class="relative">
+          <p id="optimizedDesc" class="text-sm text-slate-700 bg-slate-50 p-4 rounded-xl border border-slate-200 font-mono leading-relaxed whitespace-pre-line"></p>
+        </div>
+      </div>
+
+      <!-- 10 Services to Add -->
+      <div class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm mb-12">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4 pb-3 border-b border-slate-100">
+          <div>
+            <h4 class="font-bold text-slate-900 text-lg flex items-center gap-2">
+              <span>10 High-Intent Services to Add to GBP</span>
+              <span class="text-xs px-2 py-0.5 rounded bg-brand-100 text-brand-800 font-medium">Keywords</span>
+            </h4>
+            <p class="text-xs text-slate-500 mt-0.5">Add these exact service tags in your profile to trigger broader map search terms.</p>
+          </div>
+          <button 
+            onclick="copyServices()" 
+            id="copyServicesBtn"
+            class="inline-flex items-center justify-center px-4 py-2 text-xs font-semibold rounded-lg bg-slate-100 hover:bg-brand-50 text-slate-700 hover:text-brand-600 border border-slate-200 transition"
+          >
+            <svg class="w-3.5 h-3.5 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+            Copy All 10 Services
+          </button>
+        </div>
+        <div id="servicesGrid" class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm">
+          <!-- Dynamically populated -->
+        </div>
+      </div>
+
+      <!-- Bottom Sticky CTA Banner -->
+      <div class="bg-gradient-to-r from-brand-900 via-brand-800 to-brand-700 text-white rounded-3xl p-8 sm:p-10 shadow-2xl relative overflow-hidden">
+        <div class="absolute -right-10 -bottom-10 w-60 h-60 bg-brand-500/10 rounded-full blur-2xl pointer-events-none"></div>
+        <div class="relative z-10 text-center max-w-2xl mx-auto">
+          <span class="inline-block px-3 py-1 rounded-full bg-white/10 text-brand-100 text-xs font-medium uppercase tracking-wider mb-3">
+            Done-For-You Implementation
+          </span>
+          <h3 class="text-2xl sm:text-3xl font-extrabold tracking-tight mb-3">
+            Want us to fix this for you?
+          </h3>
+          <p class="text-brand-100 text-sm sm:text-base mb-6 leading-relaxed">
+            Stop losing qualified local clients to competitors. We'll handle full verification, schema markup, weekly geo-tagged posts, and build a conversion-ready website linked to your profile.
+          </p>
+          <button 
+            onclick="openCtaModal()" 
+            class="inline-flex items-center justify-center px-8 py-4 bg-white text-brand-900 hover:bg-brand-50 font-extrabold text-base rounded-xl shadow-lg transition duration-200 transform hover:-translate-y-0.5 cursor-pointer w-full sm:w-auto"
+          >
+            <span>Want us to fix this for you? Get Website + GBP Setup</span>
+            <svg class="w-5 h-5 ml-2 text-brand-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+          </button>
+        </div>
+      </div>
+
+    </section>
+  </main>
+
+  <!-- Lead Capture / CTA Modal -->
+  <div id="ctaModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-4 z-50 hidden">
+    <div class="bg-white rounded-2xl max-w-lg w-full p-6 sm:p-8 relative shadow-2xl animate-in fade-in zoom-in duration-200">
+      <button onclick="closeCtaModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 p-1">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+      </button>
+
+      <div class="text-center mb-6">
+        <div class="w-12 h-12 bg-brand-100 text-brand-600 rounded-full flex items-center justify-center mx-auto mb-3">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+        </div>
+        <h4 class="text-2xl font-bold text-slate-900">Get Website + GBP Setup</h4>
+        <p class="text-sm text-slate-500 mt-1">Leave your details and our local search team will reach out with your implementation plan.</p>
+      </div>
+
+      <form onsubmit="handleLeadSubmit(event)" class="space-y-4">
+        <div>
+          <label class="block text-xs font-semibold text-slate-700 uppercase mb-1">Your Full Name</label>
+          <input type="text" required placeholder="John Doe" class="w-full px-4 py-2.5 rounded-lg border border-slate-300 focus:ring-2 focus:ring-brand-500 outline-none text-sm" />
+        </div>
+        <div>
+          <label class="block text-xs font-semibold text-slate-700 uppercase mb-1">Email Address</label>
+          <input type="email" required placeholder="john@example.com" class="w-full px-4 py-2.5 rounded-lg border border-slate-300 focus:ring-2 focus:ring-brand-500 outline-none text-sm" />
+        </div>
+        <div>
+          <label class="block text-xs font-semibold text-slate-700 uppercase mb-1">Phone Number</label>
+          <input type="tel" required placeholder="(555) 000-0000" class="w-full px-4 py-2.5 rounded-lg border border-slate-300 focus:ring-2 focus:ring-brand-500 outline-none text-sm" />
+        </div>
+        <button type="submit" class="w-full py-3 px-4 bg-brand-600 hover:bg-brand-700 text-white font-bold rounded-xl shadow transition duration-200">
+          Claim Setup Consultation
+        </button>
+      </form>
+      <div id="modalSuccess" class="hidden text-center py-6">
+        <div class="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto mb-3 font-bold text-xl">✓</div>
+        <h5 class="text-lg font-bold text-slate-900">Request Received!</h5>
+        <p class="text-xs text-slate-500 mt-1">We’ll review your profile and reach out within 24 business hours.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-white border-t border-slate-200 py-6 text-center text-xs text-slate-500">
+    <p>© 2026 GBP Audit Pro • Built for Local Businesses & SEO Agencies</p>
+  </footer>
+
+  <!-- Application Logic & Niche Database -->
+  <script>
+    // Comprehensive Niche Data Engine
+    const nicheDatabase = {
+      "Cleaning Companies": {
+        missing: [
+          "Secondary category 'Commercial Cleaning Service' or 'Carpet Cleaning Service' missing.",
+          "No structured Google Products showcasing flat-rate residential deep cleaning bundles.",
+          "Missing high-frequency photo uploads (before/after tile, kitchen, or move-out cleanings).",
+          "Google Instant Messaging / Direct Quote requests are turned off."
+        ],
+        fixes: [
+          "Set primary category strictly to 'House Cleaning Service' and add 'Commercial Cleaning' + 'Window Cleaning Service' as secondary.",
+          "Upload 15+ geolocated before/after photos with exact room tags every month.",
+          "Add standardized flat-rate service packages into the Google Products showcase tab.",
+          "Populate pre-answered Q&A addressing recurring pricing, pet friendliness, and green cleaning supplies.",
+          "Add all surrounding micro-neighborhoods (up to 20 zip codes) to Service Area settings."
+        ],
+        services: [
+          "Deep House Cleaning",
+          "Recurring Maid Services",
+          "Move-In / Move-Out Cleaning",
+          "Post-Construction Cleanup",
+          "Commercial Office Cleaning",
+          "Carpet & Rug Steam Cleaning",
+          "Window & Glass Washing",
+          "Vacation Rental / Airbnb Turnover",
+          "Tile & Grout Pressure Cleaning",
+          "Sanitization & Disinfection"
+        ],
+        descTemplate: (name, city, state) => 
+          `Looking for reliable, spotless cleaning services in ${city}, ${state}? ${name} provides premium residential and commercial cleaning tailored to your schedule. Our trusted team specializes in deep house cleaning, recurring maid service, move-in/move-out turnover, and office sanitization throughout ${city} and neighboring areas.\n\n` +
+          `At ${name}, we use hospital-grade eco-friendly cleaning supplies, rigorous multi-point checklists, and vetted background-checked cleaners to ensure your home or office shines every time.\n\n` +
+          `✓ 100% Satisfaction Guarantee\n` +
+          `✓ Licensed, Insured & Bonded\n` +
+          `✓ Free Fast Estimates\n\n` +
+          `Call ${name} in ${city}, ${state} today or click our booking link to schedule your pristine clean!`
+      },
+
+      "Restaurants / Food": {
+        missing: [
+          "Integrated Google Menu items lack individual high-resolution food photography.",
+          "Direct table reservation and native online ordering buttons are unlinked.",
+          "Special attributes missing (Outdoor Dining, Vegan Friendly, Kids Menu, Late Night).",
+          "Zero regular weekly Google Posts highlighting seasonal menu specials or happy hours."
+        ],
+        fixes: [
+          "Sync digital menu directly with pricing and individual high-def dish photography.",
+          "Activate direct Reserve with Google and Order Delivery/Takeout integrations.",
+          "Audit and turn on all dietary/amenity attributes (Patio Seating, Wheelchair Accessible, Vegan).",
+          "Seed profile Q&A with parking validation policies, reservation requirements, and corkage fees.",
+          "Publish a weekly Google Post highlighting weekend brunch or chef specials with a call button."
+        ],
+        services: [
+          "Dine-In Restaurant Experience",
+          "Curbside Pickup & Takeout",
+          "Online Food Ordering",
+          "Private Event Catering",
+          "Weekend Brunch & Breakfast",
+          "Craft Beer & Cocktail Bar",
+          "Outdoor Patio Dining",
+          "Corporate Lunch Platters",
+          "Chef's Tasting Menu",
+          "Table & Group Reservations"
+        ],
+        descTemplate: (name, city, state) =>
+          `Welcome to ${name}, ${city}'s favorite dining destination for fresh flavors, artisanal recipes, and unforgettable hospitality. Conveniently located in ${city}, ${state}, we serve signature dishes crafted with locally sourced ingredients, handcrafted beverages, and options for every diet.\n\n` +
+          `Whether you are joining us for a lively weekend brunch, an intimate dinner, quick takeout, or planning a catered event, ${name} offers the perfect atmosphere and welcoming service.\n\n` +
+          `✓ Dine-In, Takeout & Catering\n` +
+          `✓ Fresh Seasonal Menu\n` +
+          `✓ Family-Friendly & Patio Seating\n\n` +
+          `Reserve your table or order online from ${name} in ${city}, ${state} today!`
+      },
+
+      "Plumbers / HVAC": {
+        missing: [
+          "24/7 Emergency response service attribute is unverified.",
+          "Secondary categories like 'Heating Contractor' or 'Drainage Service' missing.",
+          "No Google Guaranteed / Local Services Ads badge integrated with the profile.",
+          "Under-optimized photo portfolio with no pictures of branded service trucks or technicians."
+        ],
+        fixes: [
+          "Set Primary Category to 'Plumber' and add 'HVAC Contractor' + 'Drainage Service' as secondary.",
+          "List distinct emergency operating hours with immediate dispatch call tracking numbers.",
+          "Upload staff pictures in uniform and branded company fleet in front of local landmarks.",
+          "Seed Google Q&A with diagnostic fee clarity and average arrival times for emergencies.",
+          "List high-ticket replacement systems (Heat Pumps, Tankless Water Heaters) in Products."
+        ],
+        services: [
+          "Emergency Plumbing Dispatch",
+          "Water Heater Repair & Replacement",
+          "Drain Snaking & Hydro-Jetting",
+          "Air Conditioning Repair & Tune-Up",
+          "Furnace & Heating System Installation",
+          "Slab Leak & Pipe Detection",
+          "Sewer Line Video Inspection",
+          "Tankless Water Heater Upgrades",
+          "Heat Pump Maintenance",
+          "Commercial Plumbing & Backflow Testing"
+        ],
+        descTemplate: (name, city, state) =>
+          `Need emergency plumbing or HVAC repair in ${city}, ${state}? ${name} provides fast, licensed, and reliable heating, cooling, and plumbing solutions for homes and businesses. From water heater replacements and clogged drains to complete AC installations, our certified technicians arrive on time equipped to solve your problem on the spot.\n\n` +
+          `Proudly serving ${city} and surrounding communities, ${name} provides honest upfront pricing, zero hidden fees, and dependable workmanship you can count on 24 hours a day.\n\n` +
+          `✓ 24/7 Emergency Dispatch\n` +
+          `✓ Licensed & Insured Master Plumbers\n` +
+          `✓ 100% Upfront Pricing Guarantee\n\n` +
+          `Contact ${name} in ${city}, ${state} now for immediate assistance or book online!`
+      },
+
+      "Salons / Barbershops": {
+        missing: [
+          "Google 'Book Now' native appointment scheduling integration is missing.",
+          "Individual stylist profiles and portfolio tags are absent.",
+          "Price ranges not defined across basic styling and premium coloring services.",
+          "No review response strategy targeting keyword mentions of specific haircut styles."
+        ],
+        fixes: [
+          "Connect automated scheduling software (Fresha, Boulevard, Vagaro) to the Google Booking button.",
+          "Upload weekly before/after transformation galleries showcasing cuts, balayage, and styling.",
+          "Build full service menu cards with accurate turnaround times and starting prices.",
+          "Add business attributes like 'Wheelchair Accessible Restroom' and 'Appointment Required'.",
+          "Set up an automated SMS follow-up campaign asking satisfied clients for photo reviews."
+        ],
+        services: [
+          "Custom Haircuts & Blowouts",
+          "Balayage & Precision Hair Coloring",
+          "Men's Fades & Beard Sculpting",
+          "Keratin & Smoothing Treatments",
+          "Hair Extensions & Color Blending",
+          "Bridal & Special Occasion Styling",
+          "Deep Conditioning Scalp Treatments",
+          "Kids & Teens Hair Styling",
+          "Hot Towel Straight Razor Shave",
+          "Highlights & Lowlights"
+        ],
+        descTemplate: (name, city, state) =>
+          `Step into ${name}, the premier hair salon and grooming studio in ${city}, ${state}. Our master stylists and barbers specialize in modern cuts, custom hair color, balayage, precision fades, and luxury treatments designed to keep you looking and feeling your absolute best.\n\n` +
+          `Located in the heart of ${city}, ${name} delivers personalized consultations, premium organic salon products, and a relaxing vibe tailored to every guest.\n\n` +
+          `✓ Master Stylists & Expert Colorists\n` +
+          `✓ Seamless Online Booking\n` +
+          `✓ Walk-Ins Welcomed (When Available)\n\n` +
+          `Book your transformation at ${name} in ${city}, ${state} today!`
+      },
+
+      "Real Estate Agents": {
+        missing: [
+          "Independent Brokerage vs Agent categorization confusion hurting map visibility.",
+          "Missing recent sold listing showcases within the Google Products tab.",
+          "Lacking city-specific neighborhood guides and micro-location tags.",
+          "No Q&A answering relocation, home valuation, or commission questions."
+        ],
+        fixes: [
+          "Select 'Real Estate Agent' or 'Real Estate Agency' as primary; add 'Real Estate Consultant'.",
+          "Add current and recently closed listings as 'Products' with direct links to virtual tours.",
+          "Upload neighborhood walk-through videos and local client testimonial screenshots.",
+          "Create pre-populated Q&A detailing 'How much is my home worth in ${city}?' with valuation links.",
+          "Specify hyper-local service zip codes targeting high-growth luxury neighborhoods."
+        ],
+        services: [
+          "Residential Home Buying Guidance",
+          "Home Seller Listing Representation",
+          "Comparative Market Valuation (CMA)",
+          "Luxury Real Estate Advisory",
+          "First-Time Homebuyer Assistance",
+          "Relocation & Neighborhood Tours",
+          "Investment Property Analysis",
+          "Commercial Real Estate Brokerage",
+          "Open House & Virtual Tours",
+          "Condo & Townhome Sales"
+        ],
+        descTemplate: (name, city, state) =>
+          `Navigating the local real estate market in ${city}, ${state}? ${name} provides dedicated, results-driven real estate guidance for home buyers, sellers, and property investors. With deep knowledge of ${city} neighborhoods, school districts, and market values, we ensure seamless transactions from consultation to closing.\n\n` +
+          `Whether looking for your dream home in ${city} or maximizing equity on your current sale, ${name} delivers aggressive marketing, expert negotiation, and concierge communication.\n\n` +
+          `✓ Hyper-Local Market Expertise\n` +
+          `✓ Free Professional Home Valuations\n` +
+          `✓ Proven Top-Dollar Listing Strategies\n\n` +
+          `Contact ${name} in ${city}, ${state} today for your complimentary market consultation!`
+      },
+
+      "Dentists / Clinics": {
+        missing: [
+          "Missing sub-specialty categories (Cosmetic Dentist, Pediatric Dentist, Emergency Dentist).",
+          "No insurance provider acceptance list detailed in Q&A or profile description.",
+          "Online appointment request button missing or broken.",
+          "Low volume of patient reviews mentioning specific treatments (implants, Invisalign)."
+        ],
+        fixes: [
+          "Configure 'Dentist' as primary category and add 'Cosmetic Dentist' + 'Teeth Whitening Service'.",
+          "Add 'Book Online' direct patient portal integration (e.g. NexHealth, LocalMed).",
+          "Post detailed Q&A addressing Medicaid/PPO insurances, dental emergency walk-ins, and financing.",
+          "Upload high-resolution clinic photos highlighting sanitized operatories and friendly staff.",
+          "Create Google Products for high-intent services like Invisalign and Dental Implants."
+        ],
+        services: [
+          "Comprehensive Preventive Dentistry",
+          "Emergency Dental Pain Relief",
+          "Invisalign & Clear Aligners",
+          "Cosmetic Porcelain Veneers",
+          "Professional In-Office Teeth Whitening",
+          "Dental Implants & Restorations",
+          "Root Canal Therapy",
+          "Pediatric & Family Dental Care",
+          "Crowns, Bridges & Dentures",
+          "Periodontal Deep Gum Cleaning"
+        ],
+        descTemplate: (name, city, state) =>
+          `Looking for gentle, state-of-the-art family and cosmetic dental care in ${city}, ${state}? At ${name}, our experienced dental team provides compassionate oral healthcare in a modern, comfortable environment. From routine cleanings and checkups to dental implants, veneers, and emergency dental care, we keep your smile bright and healthy.\n\n` +
+          `We proudly welcome patients of all ages across ${city} and accept most dental insurance plans with flexible financing options.\n\n` +
+          `✓ Gentle, Pain-Free Dental Technology\n` +
+          `✓ Emergency Same-Day Appointments\n` +
+          `✓ Modern Comfortable Clinic\n\n` +
+          `Schedule your smile consultation with ${name} in ${city}, ${state} today!`
+      },
+
+      "Law Firms / Lawyers": {
+        missing: [
+          "Vague primary category ('Lawyer') rather than practice-specific ('Personal Injury Attorney').",
+          "Missing free consultation call-to-action in the primary profile links.",
+          "Zero attorney profile photos highlighting bar credentials and local court experience.",
+          "Unclaimed service area radius diluting local district relevance."
+        ],
+        fixes: [
+          "Update primary category to exact specialty (e.g., 'Personal Injury Attorney' or 'Criminal Defense Attorney').",
+          "Direct profile appointment link to a dedicated free consultation booking page.",
+          "Add case settlement highlights and practice badges into the Google Product catalog.",
+          "Answer common legal FAQs regarding contingency fees, statutes of limitations, and court hearings.",
+          "Solicit structured client reviews specifically mentioning the lawyer's name and case type."
+        ],
+        services: [
+          "Free Case Consultation",
+          "Personal Injury & Auto Accident Claims",
+          "Criminal Defense & DUI Representation",
+          "Family Law, Divorce & Child Custody",
+          "Estate Planning, Wills & Trusts",
+          "Business Litigation & Contracts",
+          "Workers' Compensation Claims",
+          "Wrongful Death Representation",
+          "Real Estate & Property Law",
+          "Immigration Law Services"
+        ],
+        descTemplate: (name, city, state) =>
+          `Facing a complex legal matter in ${city}, ${state}? ${name} provides aggressive, experienced legal counsel committed to protecting your rights and securing the results you deserve. Serving clients across ${city} and surrounding jurisdictions, our legal team handles every case with strategy, compassion, and tireless dedication.\n\n` +
+          `At ${name}, we understand the stress of legal challenges. That's why we offer direct attorney access, clear guidance, and free initial case evaluations.\n\n` +
+          `✓ Proven Courtroom Track Record\n` +
+          `✓ Free Confidential Consultations\n` +
+          `✓ No Fee Unless We Win (Injury Cases)\n\n` +
+          `Call ${name} in ${city}, ${state} today to discuss your case with an experienced attorney.`
+      },
+
+      "Auto Repair / Mechanics": {
+        missing: [
+          "Specific vehicle brand specialties (European, Domestic, Diesel) not identified.",
+          "Missing price clarity on routine inspections (Brake check, Oil change, Diagnostics).",
+          "Low photo volume of clean diagnostic bays, modern scanners, and certified technicians.",
+          "Unconfigured emergency towing or drop-box key service hours."
+        ],
+        fixes: [
+          "Set Primary Category to 'Auto Repair Shop' and secondary to 'Brake Shop' + 'Oil Change Service'.",
+          "List diagnostic services as structured Google Products with clear pricing notes.",
+          "Upload photos of ASE Certification plaques, scan tools, and clean customer lounges.",
+          "Clarify after-hours key drop and towing coordination policies in Google Q&A.",
+          "Respond to all reviews with targeted keywords (brake repair, check engine light, ${city} auto repair)."
+        ],
+        services: [
+          "Check Engine Light Diagnostics",
+          "Brake Pad & Rotor Replacement",
+          "Synthetic Oil & Filter Service",
+          "Transmission Repair & Flush",
+          "Suspension, Shocks & Struts",
+          "Tire Balancing & Alignment",
+          "A/C & Heating Climate Diagnostics",
+          "Battery, Starter & Alternator Tests",
+          "Factory Scheduled Maintenance",
+          "Pre-Purchase Vehicle Inspections"
+        ],
+        descTemplate: (name, city, state) =>
+          `Searching for an honest, dependable auto repair shop in ${city}, ${state}? ${name} is your trusted local destination for dealership-grade car maintenance and repairs without the dealership price tag. Our ASE-certified mechanics inspect, diagnose, and repair all domestic and import makes and models.\n\n` +
+          `From brake replacements and check engine diagnosis to oil changes and transmission overhauls, ${name} keeps your vehicle safe on ${city} roads with honest warranties on parts and labor.\n\n` +
+          `✓ ASE-Certified Master Technicians\n` +
+          `✓ Digital Vehicle Inspections\n` +
+          `✓ Nationwide Parts & Labor Warranty\n\n` +
+          `Contact ${name} in ${city}, ${state} today to schedule your automotive inspection or repair!`
+      },
+
+      "Gyms / Fitness Coaches": {
+        missing: [
+          "Missing pass/trial offer product badge (e.g. Free 1-Day Trial, Free Consultation).",
+          "Missing attributes (Showers, Locker Rooms, Wi-Fi, Personal Trainers Available).",
+          "No short video tours showcasing weight rooms, turf, or group classes.",
+          "No class schedule link embedded directly on the Google listing."
+        ],
+        fixes: [
+          "Add 'Gym' or 'Fitness Center' as primary; list 'Personal Trainer' + 'Weight Loss Service' as secondary.",
+          "Feature a Free Guest Pass or Fitness Evaluation prominently in the Products tab.",
+          "Upload weekly videos highlighting group training energy, form tips, and community events.",
+          "Address pricing options, drop-in passes, and cancelation policies directly in Google Q&A.",
+          "Ensure class timetable link is populated in the listing's menu/appointment URL field."
+        ],
+        services: [
+          "Custom 1-on-1 Personal Training",
+          "High-Intensity Group Fitness Classes",
+          "Strength & Conditioning Programs",
+          "Nutrition Coaching & Meal Planning",
+          "Open Gym & Functional Equipment",
+          "Weight Loss & Body Composition Scans",
+          "HIIT & Bootcamp Workouts",
+          "Youth & Athletic Performance Coaching",
+          "Mobility, Recovery & Stretch Sessions",
+          "Free First-Timer Consultation"
+        ],
+        descTemplate: (name, city, state) =>
+          `Crush your fitness goals at ${name}, the premier gym and personal training center in ${city}, ${state}. Whether you are just beginning your fitness journey or looking to take athletic performance to the next level, our state-of-the-art facility, elite personal coaches, and supportive community are here to guide you.\n\n` +
+          `Serving members across ${city}, ${name} offers world-class equipment, motivating group classes, one-on-one nutrition coaching, and 24/7 access.\n\n` +
+          `✓ Modern Equipment & Clean Facilities\n` +
+          `✓ Certified Trainers Who Care\n` +
+          `✓ Flexible Membership Plans\n\n` +
+          `Claim your trial pass or book a tour at ${name} in ${city}, ${state} today!`
+      },
+
+      "Roofing / Construction": {
+        missing: [
+          "Lacking insurance storm restoration and drone roof inspection tags.",
+          "Missing secondary categories ('General Contractor', 'Siding Contractor', 'Gutter Cleaning Service').",
+          "No drone inspection video footage or aerial job site photos.",
+          "Lacking manufacturer certifications (GAF Master Elite, Owens Corning) badges."
+        ],
+        fixes: [
+          "Set Primary Category to 'Roofing Contractor' and add 'General Contractor' + 'Gutter Service'.",
+          "Showcase drone before/after aerial photos for complete shingle and metal roof replacements.",
+          "Create a Google Product card for 'Free 21-Point Roof Storm Damage Inspection'.",
+          "Seed Q&A addressing insurance claim assistance, warranties, and emergency tarping.",
+          "Publish posts during hail/wind weather seasons alerting homeowners in ${city} to inspect shingles."
+        ],
+        services: [
+          "Free Roof Inspection & Drone Scans",
+          "Asphalt Shingle Roof Replacement",
+          "Commercial Flat & Metal Roofing",
+          "Storm, Wind & Hail Damage Repair",
+          "Insurance Claim Assistance & Documentation",
+          "Emergency Roof Tarping & Leak Repair",
+          "Seamless Aluminum Gutter Installation",
+          "Skylight Installation & Flashing Repair",
+          "Soffit & Fascia Restoration",
+          "Roof Coating & Waterproofing"
+        ],
+        descTemplate: (name, city, state) =>
+          `Protect your home with ${name}, the leading licensed roofing contractor serving ${city}, ${state} and surrounding counties. We specialize in residential and commercial roof replacements, storm damage restoration, emergency leak repairs, and precision gutter systems designed to withstand harsh weather.\n\n` +
+          `With decades of combined craftsmanship in ${city}, ${name} provides lifetime manufacturer warranties, assistance with insurance claims, and no-obligation drone roof inspections.\n\n` +
+          `✓ Certified Master Roofing Installers\n` +
+          `✓ 100% Free Detailed Roof Inspections\n` +
+          `✓ Insurance Claims Assistance Specialists\n\n` +
+          `Schedule your free inspection with ${name} in ${city}, ${state} today!`
+      }
+    };
+
+    // Calculate deterministic score based on input text (between 58 and 74)
+    function calculateDeterministicScore(seedStr) {
+      let hash = 0;
+      for (let i = 0; i < seedStr.length; i++) {
+        hash = seedStr.charCodeAt(i) + ((hash << 5) - hash);
+      }
+      const score = 58 + (Math.abs(hash) % 17); // 58 to 74
+      return score;
+    }
+
+    // Main form submission handler
+    function generateAudit(e) {
+      e.preventDefault();
+
+      const name = document.getElementById("bizName").value.trim();
+      const niche = document.getElementById("bizNiche").value;
+      const city = document.getElementById("bizCity").value.trim();
+      const state = document.getElementById("bizState").value.trim();
+
+      if (!name || !niche || !city || !state) {
+        alert("Please fill out all fields.");
+        return;
+      }
+
+      // Show loader
+      const loader = document.getElementById("loadingState");
+      const results = document.getElementById("resultsSection");
+      const loadingText = document.getElementById("loadingText");
+      
+      results.classList.add("hidden");
+      loader.classList.remove("hidden");
+      loader.scrollIntoView({ behavior: 'smooth' });
+
+      // Simulated real-time analysis steps
+      const steps = [
+        `Connecting to local search grid for ${city}, ${state}...`,
+        `Analyzing primary & secondary categories for "${niche}"...`,
+        `Scraping missing competitor map attributes...`,
+        `Compiling customized fixes and SEO description...`
+      ];
+
+      let stepIndex = 0;
+      const interval = setInterval(() => {
+        stepIndex++;
+        if (stepIndex < steps.length) {
+          loadingText.textContent = steps[stepIndex];
+        } else {
+          clearInterval(interval);
+          renderAuditData(name, niche, city, state);
+          loader.classList.add("hidden");
+          results.classList.remove("hidden");
+          results.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 350);
+    }
+
+    // Render results into the DOM
+    function renderAuditData(name, niche, city, state) {
+      const data = nicheDatabase[niche];
+      if (!data) return;
+
+      // Populate Header Details
+      document.getElementById("resBizName").textContent = name;
+      document.getElementById("resBizNiche").textContent = niche;
+      document.getElementById("resBizLocation").textContent = `${city}, ${state}`;
+
+      // Calculate & Animate Score
+      const finalScore = calculateDeterministicScore(`${name}-${niche}-${city}`);
+      const scoreCircle = document.getElementById("scoreCircle");
+      const scoreNumber = document.getElementById("scoreNumber");
+      const scoreBadge = document.getElementById("scoreBadge");
+
+      // Circumference = 2 * π * 58 ≈ 364.4
+      const circumference = 364.4;
+      const offset = circumference - (finalScore / 100) * circumference;
+      
+      // Reset circle
+      scoreCircle.style.strokeDashoffset = circumference;
+      
+      setTimeout(() => {
+        scoreCircle.style.strokeDashoffset = offset;
+      }, 50);
+
+      // Animate number count up
+      let currentScore = 0;
+      const stepTime = 1200 / finalScore;
+      const counter = setInterval(() => {
+        currentScore++;
+        scoreNumber.textContent = currentScore;
+        if (currentScore >= finalScore) {
+          clearInterval(counter);
+        }
+      }, stepTime);
+
+      // Score status badge
+      if (finalScore < 65) {
+        scoreBadge.textContent = "Urgent: Map Rankings at Risk";
+        scoreBadge.className = "text-xs font-bold px-3 py-1 rounded-full bg-red-100 text-red-700 border border-red-200";
+        scoreCircle.className = "score-circle text-rose-500";
+      } else {
+        scoreBadge.textContent = "Needs Optimization to Hit Top 3";
+        scoreBadge.className = "text-xs font-bold px-3 py-1 rounded-full bg-amber-100 text-amber-800 border border-amber-200";
+        scoreCircle.className = "score-circle text-brand-600";
+      }
+
+      // Populate "What's Missing"
+      const missingList = document.getElementById("missingList");
+      missingList.innerHTML = "";
+      data.missing.forEach(item => {
+        const li = document.createElement("li");
+        li.className = "flex items-start space-x-2.5";
+        li.innerHTML = `
+          <span class="text-red-500 font-bold shrink-0 mt-0.5">✕</span>
+          <span class="text-slate-700 leading-snug">${item}</span>
+        `;
+        missingList.appendChild(li);
+      });
+
+      // Populate "5 Fixes"
+      const fixesList = document.getElementById("fixesList");
+      fixesList.innerHTML = "";
+      data.fixes.forEach((item, index) => {
+        const li = document.createElement("li");
+        li.className = "flex items-start space-x-2.5";
+        li.innerHTML = `
+          <span class="w-5 h-5 rounded-full bg-brand-50 text-brand-700 border border-brand-200 text-xs flex items-center justify-center font-bold shrink-0 mt-0.5">${index + 1}</span>
+          <span class="text-slate-700 leading-snug">${item.replace("${city}", city)}</span>
+        `;
+        fixesList.appendChild(li);
+      });
+
+      // Populate Description
+      const desc = data.descTemplate(name, city, state);
+      document.getElementById("optimizedDesc").textContent = desc;
+
+      // Populate Services Grid
+      const servicesGrid = document.getElementById("servicesGrid");
+      servicesGrid.innerHTML = "";
+      data.services.forEach(srv => {
+        const card = document.createElement("div");
+        card.className = "p-3 rounded-xl bg-slate-50 border border-slate-200 flex items-center space-x-2 text-slate-800 hover:border-brand-300 transition";
+        card.innerHTML = `
+          <span class="w-2 h-2 rounded-full bg-brand-500 shrink-0"></span>
+          <span class="font-medium text-xs sm:text-sm">${srv}</span>
+        `;
+        servicesGrid.appendChild(card);
+      });
+    }
+
+    // Copy Description to Clipboard
+    function copyDescription() {
+      const text = document.getElementById("optimizedDesc").innerText;
+      navigator.clipboard.writeText(text).then(() => {
+        const btn = document.getElementById("copyDescBtn");
+        const originalText = btn.innerHTML;
+        btn.innerHTML = `<span class="text-emerald-600 font-bold">✓ Copied!</span>`;
+        setTimeout(() => {
+          btn.innerHTML = originalText;
+        }, 2000);
+      });
+    }
+
+    // Copy 10 Services to Clipboard
+    function copyServices() {
+      const niche = document.getElementById("bizNiche").value;
+      if (!niche || !nicheDatabase[niche]) return;
+      const services = nicheDatabase[niche].services.join("\n");
+      navigator.clipboard.writeText(services).then(() => {
+        const btn = document.getElementById("copyServicesBtn");
+        const originalText = btn.innerHTML;
+        btn.innerHTML = `<span class="text-emerald-600 font-bold">✓ Copied!</span>`;
+        setTimeout(() => {
+          btn.innerHTML = originalText;
+        }, 2000);
+      });
+    }
+
+    // Modal Control
+    function openCtaModal() {
+      document.getElementById("ctaModal").classList.remove("hidden");
+    }
+
+    function closeCtaModal() {
+      document.getElementById("ctaModal").classList.add("hidden");
+      document.getElementById("modalSuccess").classList.add("hidden");
+    }
+
+    function handleLeadSubmit(e) {
+      e.preventDefault();
+      e.target.classList.add("hidden");
+      document.getElementById("modalSuccess").classList.remove("hidden");
+    }
+  </script>
+</body>
+</html>
