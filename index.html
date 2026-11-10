@@ -50,13 +50,9 @@
         0 4px 0 #0c4a6e,
         0 7px 18px rgba(14, 165, 233, 0.5);
     }
-
-    /* Radial Score Progress Animation */
     .score-circle {
       transition: stroke-dashoffset 1.4s cubic-bezier(0.4, 0, 0.2, 1);
     }
-
-    /* Clean PDF / Print Stylesheet */
     @media print {
       header, footer, #auditFormSection, #loadingState, #actionButtons, .no-print, #ctaModal, #bottomCtaBanner {
         display: none !important;
@@ -71,34 +67,26 @@
         margin: 0 !important;
         max-width: 100% !important;
       }
-      .bg-white\/90, .bg-slate-900\/90, .bg-slate-900\/80, .bg-slate-950\/70, .bg-slate-950\/60 {
+      .bg-slate-900\/90, .bg-slate-950\/70, .bg-slate-950\/60 {
         background: #ffffff !important;
         color: #0f172a !important;
         border: 1px solid #cbd5e1 !important;
         box-shadow: none !important;
       }
-      .text-white {
-        color: #0f172a !important;
-      }
-      .text-slate-400, .text-slate-300 {
-        color: #475569 !important;
-      }
-      #printBrandHeader {
-        display: flex !important;
-      }
+      .text-white { color: #0f172a !important; }
+      .text-slate-400, .text-slate-300 { color: #475569 !important; }
+      #printBrandHeader { display: flex !important; }
     }
   </style>
 </head>
-<body class="bg-gradient-to-b from-[#070b14] via-[#0a1226] to-[#05070e] text-slate-100 font-sans antialiased min-h-screen flex flex-col selection:bg-brand-cyan selection:text-slate-900">
+<body class="bg-gradient-to-b from-[#070b14] via-[#0a1226] to-[#05070e] text-slate-100 font-sans antialiased min-h-screen flex flex-col selection:bg-cyan-500 selection:text-slate-950">
 
-  <!-- Sticky Top Navigation Bar -->
-  <header class="bg-[#0b1329]/80 backdrop-blur-xl border-b border-slate-800/80 sticky top-0 z-40">
+  <!-- Header -->
+  <header class="bg-[#0b1329]/90 backdrop-blur-xl border-b border-slate-800/80 sticky top-0 z-40">
     <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
-      
-      <!-- Brand Logo & Identity -->
       <div class="flex items-center space-x-3.5">
-        <div class="relative w-11 h-11 rounded-2xl overflow-hidden border border-cyan-500/30 shadow-lg shadow-cyan-500/20 bg-slate-900 flex-shrink-0">
-          <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCACgAKADASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwDxoU4GowaeKskeDTgaYKcKAHg08GoxSigCUGnA0wU4UwHg08UkMbzSCOJGdz0VRkmu30H4e398iyX8q2cZ52kZc/h2rWnRnU+FHPWxVKh8bOMWnA16hP8ACuN4CbHVWEw6CaL5T+IOR+Rrg9d0DUtCuPK1K2aLP3ZByj/RhwaU6M4fEgo4mnW+BmaDTgaZThWR0Ds0oNNzS5oGOzSg0zNANAE2aM1GDS5oA5unKfWmA0oNAiQU4Go804GgCQGnCos0hlAwO54FNK7sJu2rLCkkhVBZj0A611WheELy+KyXp+ywHnBGWP4VqeD9His7aO6nUNcyAMMj7g7fjXXxScCvcw+WxilKpqz5THZ7JydOhou5LoWkWOkIBaQqH7yNyx/Gughl96xYpKq6z4j03QYPN1K6SLIyqDl2+i9T/KuyUVFdkeVTnOpLTVs7KCbpWT4s8V6FpNlJb6y8VwXX/jzCiRn9Pl7fU4rxfWfiZrWv3Y03wraTRmQ7V8td87/iOF/Dn3rrvAvwTvdQdb7xpdtGjnebSF8u3++/+FeLjcyw+HXvM+kwWV4ipq9DkYoX8RX08nh3R7oQ5OIYd05UfUDIqrc209pM0N1DJBMvVJFKsPqDX134d0jTtCsUtNJtIrW3UYCxrjP1Pc07xL4c0rxPYG21a1STA+SUDEkZ9Vbt/Kvnlmkak78tkfRxwrpxSbuz49ord8Z+H5vDPiG602Zt4jOY5MY3oehrANejGSkroyatox2aAaZmlzTEPzSg1HmlzzQBz2aXNMzS5oAeDS7qjzTJHwKAFnnCKSTzWbZXnnaqik/KoJpmoTHYayLOcwXqSH15+la0pKM02ZVYuUGkfSlq4aNGXG0qCPpV+Jq4PwRr0V1aR2c8gEyDEZJ++vYfUV2sD19dCSqRuj80r0ZYeq4TOc+JOv6podhbHTIyqzlle4C7th4wB2BPPX04rx24F1eyvc380ju3LMzEsfqa+kkKujJIqujDDKwyCPQjvXOa34D0rU1ZrTNhMf8AnmN0Z/4D2/Age1eVjcNWqO8Xddj6LKsww9GKhONn3PEdE8S32g36z6Vcy2UiNlXiOM/73qPY5r3jwL8e0cRW/iq29vttqv6sn9V/KvJfFHw81jSleY232i2HPn2/zqB7jqPxArinhlt2yhIr5jFYGNR++tT7HDYxON4O6P0F0HXNP1qzW70q9hu7c/xxNnHsR2Psea5/xn8UtC8Lh4POF7qC8fZ4GB2n/bbov6n2r4x0HWtSsJXNlNdW7upRjBIU3A9jg9K0razluWDXLHb/AHAePx9a8yGVyUt9DsliYtHf+KPFEninUDqNxt8x88L0A7AewGBWIWqtEBGgVQABT817NOmqcVFHHOXM7j880uajzQDVkEuaXNRZpc0AYNGabS5oAXNRS9KkprDNAGVeJkGsWZCGrppYt2aoyWDSuFRSzHoAM5oAq6bqTW+FY5X0z/KvQfD/AI5nhCxzsLmP0c4cfRu/41ydz4K12LT/ALc2lXf2QDJlEZIA9TjoPrXPtHLCeM1vh8fKHwSujjxeXU8QrTifR2i+ItP1IqkEwSY/8spPlb8PX8K6GJ6+WbbVJ4cAsSPQ12/h74h3ljsSd/tEI/glOSPo3X8817FHMoT0nofOYnIZ09aLv5HvkEpGCDg+tZeseEdA13JvrBEnP/Le3/dvn1OOD+IrG8PeMdL1bakc4hnP/LKUgEn2PQ/zrq4pa6pwhWj3POhOthZW1izzvVfhZcWYaXRZVvYRz5ZASVR9Ohrk5baS1laKaN45FOGV1II/CvfYZSCCDzVXxBodn4gtSlygW6A/dzKPmB/r/n615lbALeB7mFzmWkauvmeE9KXNWNTs5dPvprWcYkibB9D7iqma8uScXZn0UZKaUo7MfmjNMzS5qSh+aXPNR5pQaAMTNLTM0oNADxQabmkJ4oAR2CjJNbfwvlhu/HNpFKFMa5OD3Pb+X61yt9KVQgVn6LqU2l6rFdQOUkRgwYHoQciscTBzpSjHdo0oyUZps+zY2A6VyPir4d6D4iDymAWV63P2i2UDJ/2l6N+h96oeDfiFputwRx3MyWt7jDI5wrH2P9D+tdublEjMkjqsajJZjgAeua+MTrYWel0z3HGFVa6nzZ4x+GGtaCJJlh+3WK8/aLYFto9WXqv16e9efSQvEeMivpDxh8WdP0kPDo4F5djjzCSI1P8ANvw4968Y1S6vPE98Jnto2u5CciCBY931CgDPv1r6nL61euv3kf69DyMVCnS1TOWiupIjwxFepfC3xJrUupwWTGS6sm4cPlvKHqD2Ht0qHw78NlkdZ9bkwvXyIzz+J/wr1DSrO1062W3sYI4IR/Cgx+frX1mCwdaL5puyPjs0zbCyi6UFzPv0R0EMtXIpcYrIikqSa8jtYHmmfbGgyTXpSgfOQmef/E0IdbEq4ywKnHsf/r1x2a1PFOom/wBSZiemSfqTk/0rIzXzeMt7aVj7zLYyjhYKe9h2aXPFMBpc1ynePBpQajzS5xQBjZpabmloAdmmsTilpDQBQvE3A1izxEE8V0kke6qstqG7UAY1vcywsMEnHQg81sJqmo3EAgSSTy+wNJHZIpyRVHUpSCEjyFHPFZujCTvJFqrJKyZ2HhvwbJf7Lm9lCwk9Qcsf8K9H0rTrTTYRHZwqnq38R+prxLRPEd7pcgMUrKO47H6jvXo+ieNrW6QLdoY5P7yDI/LqP1r6PL6mGirRVn5nyGdYbHVW3e8eyO3RqsxvXMt4m0tEyJ2c/wB1Y2z+ormvEPjh9jR2Z8hf72cuf8K9OpiKcFds8DD5ZiK0uVRt6nf6t4isdJQi4l3TY4iTlj9fT8a8+1zxjPqcoiTCqD8sSHIX3Y9zXCy3d1fykgsqk8k9TWtp1qIFBxlj1NeJiMyctIH1mCyOnRs6mrNFCSMsSSeSfWn1GOlOzXkt31PeSsrDqUGmZozSGPzRmm5ozQBk0tNqOWRY0JY0wLcEbzOEiRnY9FUZNST2s9vjz4ZYs9N6Fc/nXR+FJHbwjLcaSkT6gxbhzgFg3AJ+nI9zWRdeJtegtbi11fTlQSoVWQoVH4dj+Fdrw0IQUpS1avtp955ccbUqVZQpxVou29n627FCK3llDGKN3C9Sqk4qNYy7BUUsx6ADJNbnw3leWx1MnJYyDA/4Cat2EEXhzTTqGoLuu3+WOPuCR936+p7fzcMHzRjO+j1fkKpmPs5zp8t5JpJd7q5zUlpPnZ5MgYjONpzism9smEjB1KsOoIwamk8R30fiJNSdyzq2Cg4Xb/dA9MV2/iDThrqWGo6VhhcFY5G/ur2Y/TkH6Cs44dVIt03dp7eRtUxcqM4qsrJrfs+x5pJp04iMoik8v+9tOPzpttp9/KC9pbXEig8mOMsP0r0PxTqNrDc6doMTbbRXjSY57ZHX8OT7/StnxPe61pS2y6Dp8c9oqYYKhYqc9NoOcYrZYOK5m5aR7K+pzPMptQShrO9ru2i+W77HlC/bWJR2ZSOCDnIq9baRM2GkSRs9yDV/xZ4huNWW3M9otrPGpVwPvE579x0HBr0TVtW1PS9B06XSbJr2R1RWUIzbRtzn5amFBVOZuekfIuvjZ0PZpU1zSvpfa3mcFFZGBQWjKj1Iq3HExAIVj+FTeIPFGu3ekyR6npn2OIkbWaN1Jb2zXW6Bqmoaf8MbK7063a8u1BxFtZt2ZSCcDnvmlDCwnJpS0SvsFXHVaVOMpQV5O1r6feceYmAJKNj6UKjNyATWte+NfE81hdR3+hm2tniZHleGRQoIx1JxnmtD4WajNH4S1u73bpIneQAk4yEyB9OKI4aE58sZfgOpjatKk6k4K90rXvucwwIPIIpK0bL4rzT3Cw6vp8DWrnD7MnA9cHIP0rS8Z6Xb2klteaeALW6XcFXoDwcj2IOcfWonh48jnTldLc1pYuaqKlWhyt7a3TOczSZpM8UZrkO8ySaoahlkIFXjVG9J2HHWmBo6FpXiC209NQ0eTCSE5iDgEgHGSDwe/vXb6DNfXumXK+JrZIo8YYnA3r3JHbHrXC+FbPxRcrIPD6zvEh+bkbAf+BcZq1ex+J7lb231Hz82kfmTw4CbV45IGMjketdtHG0aS5bu9tVdWPLxOAr15XslrpKzuanw0fZYamy87ZAR+Rqz4Y12LxNa3OmaqFE7ZZCvGR2I91/UfjXK+FbfXrmeWz0JZnMg3OkYHTpkk8DrTJfDmv6Tr1pamznt9RlceQOPnOcDB6H86UcxhBRpN6JO6HPK3UlOr1duV9mkM8SaXLp95JBMPmXkMOjDsR7V1nwsuZW0y/hZyUhcFAe2Qc/yFZvibSPE1pYxT+JLecLkqkjKu0E84yv071Q0a213TtLOo2yywaXPL5RmCgh3APHr61nh8VSpVfaRfumuKwdXEYf2Urc2npoZl5DPfX6Ku55ppAAe5Ymuvtm8Y6NKtusQvrdeFOQ6kfXggfXFcvq9leW9raX3lslvOzeTKCPmKHDY+hNWtN8ReI5Hjtre5kldiFQGMOxPYDgkmnh60Itycmn3Q8Vh6lRKMYxa7P8AQ6T4orE+l2E8sapfFgpAOTtxyM98HH510Oqz61FoGnNoESyTbUDg7eF2+/vXC+MPDvia1t0vtcs7oIcDzXwVX0HH3fpxV+K0+IMejLfx216LBYwwYRLkIB129cY74raOZUOaUr2UtrW6HDPKKzp04aScLtp3tr/kReKG8TXWjM+uQKlvE4bK7eCeBnB966zw9cajD8M7R9FQSXyqdikA5/enPX2zXC31x4lvPDputQeaTTJpPJD7F2s45wSB14qTTn8Y2c1lpFglwJZY1lgt0jViUb5g3fjvzRDHUoTlJyeqtfS5VXLq1WjGmoxTUr21tb/gm3qVx4zv9Lu4NTtFW2ZMvtVQcDn19qu/CsGXwnrUCDLyF1A9SUxWdfQ+PrS5hsdUjuo3vMxxRmND5pPG0EcZ9s1nxaT428NNBaxWdzZ/bptkSFFPmv6DPephj6CqKbk3o97FTy6vKg6SjGLunpe3zKy+BNaubyNBaeTGT80juoCj165P4V2/jW5hhtdP0qBw5tkG4+mFAH44/pWFPa+Pobi2t9TW+tzcuI4gEC72/uhh3qbUfDGt6ZaPdajp9zDCCN0sg7k9zWTxeHjB06T1l3t+BvHB4mpVjVxFrQvZK+773MnNGaaTSVzHoGcarXLKiFj2qY1XukMi4FMDsNHhbXvCmiwaaEuXsbiVr2wFyIHm3HKsGJHQcZrYisoTr3iKx03Blm0lR5b3IkPmkjKl2PUfWvP4PCWqS2i3cFsZIWiM48uRWby94TcUB3AbmA6e/QGrFz4I1u2d/PtkhVWZZGe5iVYyrFDvO7C/MCBnGT0zXC8M7u0v6vfudKrqyuv6tY6bSNK1BPD+ueHlkhs9dmeKdIvtCAzwjIKBwcZzzjNX9MMuj23hLRtbuY5NVj1lbhYxKJDbw4xtZgSBk84zXEjwRrhmVTYyo27Zl3VQG+TgknA/1qdemfY4kPgnWJkhNtaLKsjhEaOeN8sZPLHRu78A9+o45pSwzm3eW/l1tbvsCrKOyPQvFdoR4Z1q3Wwi0uafUI5LdRerOb9mcrwuSUwDu7VdmGjzWtx4PttbgklSwFtFa+UwxdITIZPM+7ySQRXklx4Zv7W2ea6i8lExnzJFVzkKeFJ3Hh1zgcZGcVauvBer2iSzXFqEjhUOxE0ZOCSOAGyeVOcdMHOKlYN2S5ttfnp3uU8Qr3sdVb6Ffa38PfDkdjCs0ltJdearSohXdIMfeI9DWN4B1K103xxZG7lS3j2yRrM4GI5GUhWP4mqUPgnWVutjWUpZZ/s5G4Y8zCsFznHIdSPXP1qtqfhm/hhN1PHEluXCCXz4yrEgHKnd8y4ZfmGQMjmt1RfJKDejv+Jk6i5lJLY3LrRNc8PxC88Q3Svp7XkTyxteLJ9pG7llUE7uPXnn612P9n623xKXxOmpxf8ACOeYJ/tn2lfLEGP9XtznOOMY615o/gzVzKsCW4kkLbMpMjKDlBjcGwOZE7/xU+Pwdq0aEPbZbjCiVCSCQA4APKEkDePlyQM1nLDSnu11W3f57lxrKOy/E7+08QaXB4OtYL6IHQNW1K8ilQDDRIWBjdfQrwa09QaK28TahotpqEUWoXHh+C1sbouEDsByA38O4AYNeUf8InqT20REAxIFdAZUDOGUMCq5yRhl5AwM4PNRr4W1K4llENtIxgjSV8EZVWjMinGc8opP4VLwSu2pf1e4/rHkdn4f0PXfD/ivwnFrk4SNr7cls10sjKeMvtBIAPTPt9K2NS0u4s/iF4avDotxpls+qFWll1AXImYtlSFz8nAY49/avPbrwZrETASWrxYODJJIqqMFwSWJwAPKfknHy+4pYfB+rNdRQm1laTdgDcOT8/A5/CmUn/fJpywzk7uXS35+YlWSVrdTofHfiOwj0zVNJ0WLUUeXUmuJprqYNtZSwxGB0GT9cVd8YzSS2PhZzK7K2iwBgWJBILZJHrXM3Hhm/uLdPKjgMbKrlxcRlVVgxBZt2FB2N1I6VYfQr/S7CN7q1lihyVDt0JDMpH5ow/D6VrDDxi4tdCJVXJNPqQE0ZpmaM810mJnUyXJQhepp9FAFyz8Ra9Z2ttBa3xhW3iMMRjjUMqFtxG7GetEviDXZ5xJcXonGxozFNEjxEM+8gxkFfvYPTqB6VTFLRZBc0U8VeJECD+03bY6yDcitlld5ATkc/M7Hn2HQDCHxL4gaNUN+NiMWRfKTCEyeYcccZYAnHXA9KoAU6iyC5cvPEOvXtldW13fmWO5RY5CY13MFVABuxn/AJZpnnkjJ5JzYm8XeJJj+91BWU7NyeQm1tr71yMYOG55rLpRSsguaUXi3xNFIrrqR3KQcmJDuI8vBORyR5SDJ7DHQnNS51fVbnTrmxlniFtPt3JHAiDC4wBgDAGBwO+T3OYKWnZBctW3iDxBasTb6i8YMnnFQowXzGd2MYzmJPy9zT/+Ei15nEjXkbThg3mtAhc4cPtLYyVLjcV6E5J6mqdLSsguX18TeIEWRIr5IlbYBsgRdqpt2qpxwo2LgDpj3OayaxrcdxLNHqDiaUQ75cAuTEhRDnrkAnnv1PNQ4padkFy/L4m8QzCVJ75JYZpjPJE8CMjMQwOVIxzvbj6egwyPxF4giYtFqJRhI8qkRrlWcruxxwPl4A4ALAY3HNOlFFkFyWLWNYiMgSeExSBVkiaBCjhd+AVIxgeY3H09Bi02uavd2ktrf3pmtnkEvl7FADZc5GBxy7dPb0GKNKKLBcfnmjPNNzSZoA//2Q==" alt="Skyseed Global Concept" class="w-full h-full object-cover" />
+        <div class="relative w-11 h-11 rounded-2xl overflow-hidden border border-cyan-500/40 shadow-lg shadow-cyan-500/20 bg-slate-900 flex-shrink-0">
+          <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCABgAGADASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwDzMGng1EDTwaskkBp4NRA09clgACSegHehK4N2JRU0EUs8gjhjeRz0VFJJrb0rwtNclZL1/JjP8C8sf8K7rS7Sz02PZawrH6sOp+prsp4Ob1loeZWzOlB8tPV/geZ3FjeWW37VazQbvu+YhXP0zUIr1vVtb0iwsWXV5ITE4/1TjcX+i/17Vw1t4cvvEzzXvh/R7iOwz8nnSAbv93dj+Z+tYV6apatnThsS63Q58GnZqS7s7mwuXtruCSGZDhkkXBFQZrHc6yQGl3VEDTs0wMQGnBqjzRmgQ95QikmtXwhLHd6rK7AHylJT68c/rXN3jtsIFQaHqr6TqAlU8Z5z0PtW+GnGFVORy42nOpQlCG7R7bDJ0rjte8d3sVxNY6bAYWiYo88o5BHoO36/hWxpOu2eoKvlyhZD/As2OD+HrWnd6bYarHsvLdJDjAfow/Ec17NdSnH90z5fCShQqWxEX/X5nBeDdf8ORa01z4ot7i+mZsrPK29UPqU7/r9K+jdJ1vTdQsBdWF3BLagffjYYUeh9Poa+ftX+GLvul0m4WTuIpjtb8G6H8cVzi6NrWlSPb3YmtlkGGU5G8fXoR+dfLYzL6kp80m7n2WFxtGcbQset/EjxLoWtvbwWEqT3VuTvnTptP8ACD3559K89JqpBCsC4XqepPU1NurSjT9nHlvcuclJ3JN1KDUWaXdWpBkZpetNzS5oAilj3in6Z4Q1HXpZBYRKwT7zM20D8ajnl8tCa6b4b+KbXTZrqzvpBGLhwyyN0B6YNc+KqTp0nKCuzWjGMp2kclqGk6z4euPKvLeWFu24ZVvoeh/CtXSPHd/YFY5/30Y/hc8/gev869su5NPudOc332eSzIyxlwUx688V4l4otfDs+oFPDwuGOcMuMoT/ALOfm/Os8BmVSbsk0/wJxmApOPv2aPQtF8Y6Xqm1EnEUx48uQ4yfY9DXTnyrmEw3EaSxN1RxkV45oXgS6nkWbUJDbw9o15c/4V6rasIYkjUnaihRk5OBX1NLnqQvUjY+PxPsaNS1CV/0+ZyXinQYtKljntSfs0pwFJzsb0+lc5muw8Z6hG1rFagguG3Een+f61xea8rFQUKlkfQZfVnVoKUyTNLmo80u6uc7TLzS5puatWdhc3oYwRlgvUkgD9acYuTskTKcYK8nZFGdC6kVlvayK+UyDXRnTrn7X9lMeJtu7aWHT161CLWQ2slztAhThnYgD9etP2cuwlVhvf8ApmX58kaJFdXEnlE8qtd74d/sZYV/s8qZMcl/v/5+lcXfaRcieONo/nlAMYBB3Z6YIptt4f1n7TIlrAd8Rw+HUAH0znGa6MLL2MtIX/M48fTjiadnUt89D1ZriO3jMksiog6ljiub1XxysTG309dz9PMI/kP8fyrllsNbu7w2Uu4Tqu4pkZx65/GrR0G405EkuIdm9goYsOSe3Wuytjakl7kbHm4XK8PTl+9mm+w8XE9yxluHLSNycnNOzV9tB1KONna1YKoyTuHT86ZbaTfXdstxbwGSJs7WBHODg9/UV50oVJSu07ntQrUIx92SsvMqZozTpoZbaUxzRtG46qwwajzWTVjdNNXRmO2FJqzptxPJpk1vc6ZPd2TzZ3Qk7lbA7D8KqPkrxVvR9MmkiV47+6hkuJXjijt8fMygE5LMo/iAA61UasaT5pGdSi6seVbmlZ2cdh4miVJJXR7QttlOWQZ6H8qq6rs1XQ4bmwZhaw/K8HdD6n1/z6moE05v7QWZ9RuEX7ELqWVATJtIBIHPPJA6itDSPDMUrM0GrzxW1wsJj4VCwkLrh1LjOCh4GSQeBVzx1JRcdkzGGAqc6m3dq363/Pch0LUGfRJpJoxJPpv+oduwYYH5f4VBp11NcaXJb32nXV1ayTlxLBksG/D60+DQrm30FtSM8yJLMEeAKQpTcVDE9D8wIx9Kr2+n30HiJ9KtdRlhVrpoQwJAOGIzgfSnHGRdtdk7/wBfcKWBfvNLdpry/p3fzNjTrNbHxXNEsss6tYlhuOXAyBg+/FZd3CkTWjx2Gp26/aEDNd5weeAM06O2s5JbnU4NY1GOCCJTNJ5OJiWbaABv5BxnJNaq+Fb7UTFCdbnn3XcYVXzuEbJGwkCk9QJRkdueeDSljqKjy7aihgKynzXvokSeIYYpNTvHXT9WeYrlZo8+TnaMH6etZ88F7d+B9HFilw7xvKW8kEn7x64ojhmElhaT+INS+2XghbYFJiCykY+bfkkA56Y7VcsPD8pnu7S31+/gt7R40yNgVS+8ljtlICjbkkEnnpTnjqN23fX/ADFTwFeMIx0bi/0aFv2uF0PSo9QJOoKjb9xywXPy5/D+tZW6rU0Np/ZNlexXdzNNdAlhLEBjaSrfNuJPI446enSqWaznVVV8y/qx00qLpQ5X6/fqZ7ZI4rQ0fT9X+zGSx1KO3ilc5VptvzAdee/05rPpnkxk5Kis5RTVmaptbG3b6frjLAIdYgCwELEwmAGCMAKcfMME9MjqOoIqVLHX45ZbmLWIg0ixlyJvmPZcDGeM9ByM1z/kRn+EU4QRD+AflU+zj2K533NhNK1uWBXGqoVkTyghm6qCeMHjqvX1xSalpmrS/wCl3WoxvNbgyiVX5ABzkFR17+o74yKyfIj/ALooEEY/gFPkXYXMzcW11+S5a7XWomeMGIkSbiy5yRsA5556ZJxTRY67HJHejVVWVZ/NVzMM73AXOTwcgDvyOlY32eL+4KXyIx/AKXs49g533Ne3sdeGlQLFq8Yt02SRxiUErghgMYycHB288kYFLPZapcLIb3UbeRZGRT8wwzLux90dtzc+9ZH2eL+4KPs8X9wU+SN72DmZqSafd2OnxpNcRSRxOVVVfJTdk9OuDg89+1Vc1DHGsedoAzT81SVhM//Z" alt="Skyseed Global Concept" class="w-full h-full object-cover" />
         </div>
         <div>
           <div class="flex items-center gap-2">
@@ -108,8 +96,6 @@
           <h1 class="text-sm font-extrabold text-white tracking-tight leading-none mt-0.5">GBP Audit Pro</h1>
         </div>
       </div>
-
-      <!-- Live Map Status Badge -->
       <div class="flex items-center gap-3">
         <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-cyan-950/80 text-cyan-300 border border-cyan-500/30 shadow-xs">
           <span class="w-2 h-2 rounded-full bg-cyan-400 mr-2 animate-pulse"></span>
@@ -122,20 +108,15 @@
   <!-- Hero & Audit Form -->
   <main class="flex-grow">
     <section id="auditFormSection" class="relative overflow-hidden py-14 px-4 border-b border-slate-800">
-      
-      <!-- Ambient Glow Orbs -->
       <div class="absolute -top-24 left-1/2 -translate-x-1/2 w-[750px] h-[350px] bg-cyan-600/15 rounded-full blur-[120px] -z-10 pointer-events-none"></div>
       <div class="absolute top-40 right-10 w-[350px] h-[350px] bg-amber-500/10 rounded-full blur-[100px] -z-10 pointer-events-none"></div>
 
       <div class="max-w-3xl mx-auto text-center">
-        
-        <!-- Trust Pill -->
         <div class="inline-flex items-center gap-2 px-4 py-1.5 mb-5 rounded-full text-xs font-bold bg-slate-900/90 border border-slate-700/80 shadow-md text-slate-300">
           <span class="w-2 h-2 rounded-full bg-amber-400"></span>
           Turnkey Local Search Intelligence & Conversion Audit
         </div>
 
-        <!-- 3D Headline -->
         <h2 class="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-tight mb-4">
           <span class="headline-3d">Audit & Rank In The</span><br />
           <span class="headline-3d-cyan">Google 3-Pack</span> 
@@ -146,7 +127,7 @@
           Benchmark your local presence, uncover ranking gaps, and receive instant trade-specific fixes designed to turn searchers into inbound calls.
         </p>
 
-        <!-- Glassmorphic Input Card (Plain Form to prevent page reloads) -->
+        <!-- Input Card -->
         <div class="bg-slate-900/90 backdrop-blur-xl rounded-3xl shadow-2xl border border-slate-800 p-6 sm:p-9 text-left">
           <form id="auditForm" onsubmit="event.preventDefault(); runAudit(); return false;">
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
@@ -160,12 +141,12 @@
                   type="text" 
                   id="bizName" 
                   required 
-                  placeholder="e.g. Apex Plumbing & Heating" 
+                  placeholder="e.g. Maids and Moore Conroe" 
                   class="w-full px-4 py-3 rounded-xl border border-slate-700 bg-slate-950/70 focus:bg-slate-900 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 text-white placeholder:text-slate-500 font-semibold text-sm transition"
                 />
               </div>
 
-              <!-- Website URL (OPTIONAL, type text to prevent browser validation errors) -->
+              <!-- Website URL -->
               <div>
                 <label class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-1.5" for="bizWebsite">
                   Website URL <span class="text-amber-400 font-normal lowercase">(optional)</span>
@@ -173,7 +154,7 @@
                 <input 
                   type="text" 
                   id="bizWebsite" 
-                  placeholder="e.g. apexplumbing.com (optional)" 
+                  placeholder="e.g. maidsandmoore.com (optional)" 
                   class="w-full px-4 py-3 rounded-xl border border-slate-700 bg-slate-950/70 focus:bg-slate-900 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 text-white placeholder:text-slate-500 font-semibold text-sm transition"
                 />
               </div>
@@ -216,7 +197,7 @@
                   type="text" 
                   id="bizCity" 
                   required 
-                  placeholder="e.g. Austin" 
+                  placeholder="e.g. Montgomery" 
                   class="w-full px-4 py-3 rounded-xl border border-slate-700 bg-slate-950/70 focus:bg-slate-900 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 text-white placeholder:text-slate-500 font-semibold text-sm transition"
                 />
               </div>
@@ -230,14 +211,14 @@
                   type="text" 
                   id="bizState" 
                   required 
-                  placeholder="e.g. TX" 
+                  placeholder="e.g. Texas" 
                   class="w-full px-4 py-3 rounded-xl border border-slate-700 bg-slate-950/70 focus:bg-slate-900 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 text-white placeholder:text-slate-500 font-semibold text-sm transition"
                 />
               </div>
 
             </div>
 
-            <!-- Submit CTA: type=button prevents form page reload -->
+            <!-- Button: type=button with onclick to prevent page reload -->
             <button 
               type="button" 
               onclick="runAudit()"
@@ -265,7 +246,7 @@
     <!-- Results Section -->
     <section id="resultsSection" class="hidden py-10 px-4 max-w-5xl mx-auto">
       
-      <!-- Top Action Bar (Print / PDF) -->
+      <!-- Top Action Bar -->
       <div id="actionButtons" class="flex flex-col sm:flex-row items-center justify-between gap-3 mb-6 pb-4 border-b border-slate-800">
         <div>
           <span class="text-xs font-bold uppercase tracking-wider text-cyan-400">Diagnostic Complete</span>
@@ -291,7 +272,7 @@
       <!-- Printable Brand Header (Only visible on PDF Print) -->
       <div id="printBrandHeader" class="hidden items-center justify-between pb-6 mb-6 border-b border-slate-200">
         <div class="flex items-center space-x-3">
-          <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCACgAKADASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwDxoU4GowaeKskeDTgaYKcKAHg08GoxSigCUGnA0wU4UwHg08UkMbzSCOJGdz0VRkmu30H4e398iyX8q2cZ52kZc/h2rWnRnU+FHPWxVKh8bOMWnA16hP8ACuN4CbHVWEw6CaL5T+IOR+Rrg9d0DUtCuPK1K2aLP3ZByj/RhwaU6M4fEgo4mnW+BmaDTgaZThWR0Ds0oNNzS5oGOzSg0zNANAE2aM1GDS5oA5unKfWmA0oNAiQU4Go804GgCQGnCos0hlAwO54FNK7sJu2rLCkkhVBZj0A611WheELy+KyXp+ywHnBGWP4VqeD9His7aO6nUNcyAMMj7g7fjXXxScCvcw+WxilKpqz5THZ7JydOhou5LoWkWOkIBaQqH7yNyx/Gughl96xYpKq6z4j03QYPN1K6SLIyqDl2+i9T/KuyUVFdkeVTnOpLTVs7KCbpWT4s8V6FpNlJb6y8VwXX/jzCiRn9Pl7fU4rxfWfiZrWv3Y03wraTRmQ7V8td87/iOF/Dn3rrvAvwTvdQdb7xpdtGjnebSF8u3++/+FeLjcyw+HXvM+kwWV4ipq9DkYoX8RX08nh3R7oQ5OIYd05UfUDIqrc209pM0N1DJBMvVJFKsPqDX134d0jTtCsUtNJtIrW3UYCxrjP1Pc07xL4c0rxPYG21a1STA+SUDEkZ9Vbt/Kvnlmkak78tkfRxwrpxSbuz49ord8Z+H5vDPiG602Zt4jOY5MY3oehrANejGSkroyatox2aAaZmlzTEPzSg1HmlzzQBz2aXNMzS5oAeDS7qjzTJHwKAFnnCKSTzWbZXnnaqik/KoJpmoTHYayLOcwXqSH15+la0pKM02ZVYuUGkfSlq4aNGXG0qCPpV+Jq4PwRr0V1aR2c8gEyDEZJ++vYfUV2sD19dCSqRuj80r0ZYeq4TOc+JOv6podhbHTIyqzlle4C7th4wB2BPPX04rx24F1eyvc380ju3LMzEsfqa+kkKujJIqujDDKwyCPQjvXOa34D0rU1ZrTNhMf8AnmN0Z/4D2/Age1eVjcNWqO8Xddj6LKsww9GKhONn3PEdE8S32g36z6Vcy2UiNlXiOM/73qPY5r3jwL8e0cRW/iq29vttqv6sn9V/KvJfFHw81jSleY232i2HPn2/zqB7jqPxArinhlt2yhIr5jFYGNR++tT7HDYxON4O6P0F0HXNP1qzW70q9hu7c/xxNnHsR2Psea5/xn8UtC8Lh4POF7qC8fZ4GB2n/bbov6n2r4x0HWtSsJXNlNdW7upRjBIU3A9jg9K0razluWDXLHb/AHAePx9a8yGVyUt9DsliYtHf+KPFEninUDqNxt8x88L0A7AewGBWIWqtEBGgVQABT817NOmqcVFHHOXM7j880uajzQDVkEuaXNRZpc0AYNGabS5oAXNRS9KkprDNAGVeJkGsWZCGrppYt2aoyWDSuFRSzHoAM5oAq6bqTW+FY5X0z/KvQfD/AI5nhCxzsLmP0c4cfRu/41ydz4K12LT/ALc2lXf2QDJlEZIA9TjoPrXPtHLCeM1vh8fKHwSujjxeXU8QrTifR2i+ItP1IqkEwSY/8spPlb8PX8K6GJ6+WbbVJ4cAsSPQ12/h74h3ljsSd/tEI/glOSPo3X8817FHMoT0nofOYnIZ09aLv5HvkEpGCDg+tZeseEdA13JvrBEnP/Le3/dvn1OOD+IrG8PeMdL1bakc4hnP/LKUgEn2PQ/zrq4pa6pwhWj3POhOthZW1izzvVfhZcWYaXRZVvYRz5ZASVR9Ohrk5baS1laKaN45FOGV1II/CvfYZSCCDzVXxBodn4gtSlygW6A/dzKPmB/r/n615lbALeB7mFzmWkauvmeE9KXNWNTs5dPvprWcYkibB9D7iqma8uScXZn0UZKaUo7MfmjNMzS5qSh+aXPNR5pQaAMTNLTM0oNADxQabmkJ4oAR2CjJNbfwvlhu/HNpFKFMa5OD3Pb+X61yt9KVQgVn6LqU2l6rFdQOUkRgwYHoQciscTBzpSjHdo0oyUZps+zY2A6VyPir4d6D4iDymAWV63P2i2UDJ/2l6N+h96oeDfiFputwRx3MyWt7jDI5wrH2P9D+tdublEjMkjqsajJZjgAeua+MTrYWel0z3HGFVa6nzZ4x+GGtaCJJlh+3WK8/aLYFto9WXqv16e9efSQvEeMivpDxh8WdP0kPDo4F5djjzCSI1P8ANvw4968Y1S6vPE98Jnto2u5CciCBY931CgDPv1r6nL61euv3kf69DyMVCnS1TOWiupIjwxFepfC3xJrUupwWTGS6sm4cPlvKHqD2Ht0qHw78NlkdZ9bkwvXyIzz+J/wr1DSrO1062W3sYI4IR/Cgx+frX1mCwdaL5puyPjs0zbCyi6UFzPv0R0EMtXIpcYrIikqSa8jtYHmmfbGgyTXpSgfOQmef/E0IdbEq4ywKnHsf/r1x2a1PFOom/wBSZiemSfqTk/0rIzXzeMt7aVj7zLYyjhYKe9h2aXPFMBpc1ynePBpQajzS5xQBjZpabmloAdmmsTilpDQBQvE3A1izxEE8V0kke6qstqG7UAY1vcywsMEnHQg81sJqmo3EAgSSTy+wNJHZIpyRVHUpSCEjyFHPFZujCTvJFqrJKyZ2HhvwbJf7Lm9lCwk9Qcsf8K9H0rTrTTYRHZwqnq38R+prxLRPEd7pcgMUrKO47H6jvXo+ieNrW6QLdoY5P7yDI/LqP1r6PL6mGirRVn5nyGdYbHVW3e8eyO3RqsxvXMt4m0tEyJ2c/wB1Y2z+ormvEPjh9jR2Z8hf72cuf8K9OpiKcFds8DD5ZiK0uVRt6nf6t4isdJQi4l3TY4iTlj9fT8a8+1zxjPqcoiTCqD8sSHIX3Y9zXCy3d1fykgsqk8k9TWtp1qIFBxlj1NeJiMyctIH1mCyOnRs6mrNFCSMsSSeSfWn1GOlOzXkt31PeSsrDqUGmZozSGPzRmm5ozQBk0tNqOWRY0JY0wLcEbzOEiRnY9FUZNST2s9vjz4ZYs9N6Fc/nXR+FJHbwjLcaSkT6gxbhzgFg3AJ+nI9zWRdeJtegtbi11fTlQSoVWQoVH4dj+Fdrw0IQUpS1avtp955ccbUqVZQpxVou29n627FCK3llDGKN3C9Sqk4qNYy7BUUsx6ADJNbnw3leWx1MnJYyDA/4Cat2EEXhzTTqGoLuu3+WOPuCR936+p7fzcMHzRjO+j1fkKpmPs5zp8t5JpJd7q5zUlpPnZ5MgYjONpzism9smEjB1KsOoIwamk8R30fiJNSdyzq2Cg4Xb/dA9MV2/iDThrqWGo6VhhcFY5G/ur2Y/TkH6Cs44dVIt03dp7eRtUxcqM4qsrJrfs+x5pJp04iMoik8v+9tOPzpttp9/KC9pbXEig8mOMsP0r0PxTqNrDc6doMTbbRXjSY57ZHX8OT7/StnxPe61pS2y6Dp8c9oqYYKhYqc9NoOcYrZYOK5m5aR7K+pzPMptQShrO9ru2i+W77HlC/bWJR2ZSOCDnIq9baRM2GkSRs9yDV/xZ4huNWW3M9otrPGpVwPvE579x0HBr0TVtW1PS9B06XSbJr2R1RWUIzbRtzn5amFBVOZuekfIuvjZ0PZpU1zSvpfa3mcFFZGBQWjKj1Iq3HExAIVj+FTeIPFGu3ekyR6npn2OIkbWaN1Jb2zXW6Bqmoaf8MbK7063a8u1BxFtZt2ZSCcDnvmlDCwnJpS0SvsFXHVaVOMpQV5O1r6feceYmAJKNj6UKjNyATWte+NfE81hdR3+hm2tniZHleGRQoIx1JxnmtD4WajNH4S1u73bpIneQAk4yEyB9OKI4aE58sZfgOpjatKk6k4K90rXvucwwIPIIpK0bL4rzT3Cw6vp8DWrnD7MnA9cHIP0rS8Z6Xb2klteaeALW6XcFXoDwcj2IOcfWonh48jnTldLc1pYuaqKlWhyt7a3TOczSZpM8UZrkO8ySaoahlkIFXjVG9J2HHWmBo6FpXiC209NQ0eTCSE5iDgEgHGSDwe/vXb6DNfXumXK+JrZIo8YYnA3r3JHbHrXC+FbPxRcrIPD6zvEh+bkbAf+BcZq1ex+J7lb231Hz82kfmTw4CbV45IGMjketdtHG0aS5bu9tVdWPLxOAr15XslrpKzuanw0fZYamy87ZAR+Rqz4Y12LxNa3OmaqFE7ZZCvGR2I91/UfjXK+FbfXrmeWz0JZnMg3OkYHTpkk8DrTJfDmv6Tr1pamznt9RlceQOPnOcDB6H86UcxhBRpN6JO6HPK3UlOr1duV9mkM8SaXLp95JBMPmXkMOjDsR7V1nwsuZW0y/hZyUhcFAe2Qc/yFZvibSPE1pYxT+JLecLkqkjKu0E84yv071Q0a213TtLOo2yywaXPL5RmCgh3APHr61nh8VSpVfaRfumuKwdXEYf2Urc2npoZl5DPfX6Ku55ppAAe5Ymuvtm8Y6NKtusQvrdeFOQ6kfXggfXFcvq9leW9raX3lslvOzeTKCPmKHDY+hNWtN8ReI5Hjtre5kldiFQGMOxPYDgkmnh60Itycmn3Q8Vh6lRKMYxa7P8AQ6T4orE+l2E8sapfFgpAOTtxyM98HH510Oqz61FoGnNoESyTbUDg7eF2+/vXC+MPDvia1t0vtcs7oIcDzXwVX0HH3fpxV+K0+IMejLfx216LBYwwYRLkIB129cY74raOZUOaUr2UtrW6HDPKKzp04aScLtp3tr/kReKG8TXWjM+uQKlvE4bK7eCeBnB966zw9cajD8M7R9FQSXyqdikA5/enPX2zXC31x4lvPDputQeaTTJpPJD7F2s45wSB14qTTn8Y2c1lpFglwJZY1lgt0jViUb5g3fjvzRDHUoTlJyeqtfS5VXLq1WjGmoxTUr21tb/gm3qVx4zv9Lu4NTtFW2ZMvtVQcDn19qu/CsGXwnrUCDLyF1A9SUxWdfQ+PrS5hsdUjuo3vMxxRmND5pPG0EcZ9s1nxaT428NNBaxWdzZ/bptkSFFPmv6DPephj6CqKbk3o97FTy6vKg6SjGLunpe3zKy+BNaubyNBaeTGT80juoCj165P4V2/jW5hhtdP0qBw5tkG4+mFAH44/pWFPa+Pobi2t9TW+tzcuI4gEC72/uhh3qbUfDGt6ZaPdajp9zDCCN0sg7k9zWTxeHjB06T1l3t+BvHB4mpVjVxFrQvZK+773MnNGaaTSVzHoGcarXLKiFj2qY1XukMi4FMDsNHhbXvCmiwaaEuXsbiVr2wFyIHm3HKsGJHQcZrYisoTr3iKx03Blm0lR5b3IkPmkjKl2PUfWvP4PCWqS2i3cFsZIWiM48uRWby94TcUB3AbmA6e/QGrFz4I1u2d/PtkhVWZZGe5iVYyrFDvO7C/MCBnGT0zXC8M7u0v6vfudKrqyuv6tY6bSNK1BPD+ueHlkhs9dmeKdIvtCAzwjIKBwcZzzjNX9MMuj23hLRtbuY5NVj1lbhYxKJDbw4xtZgSBk84zXEjwRrhmVTYyo27Zl3VQG+TgknA/1qdemfY4kPgnWJkhNtaLKsjhEaOeN8sZPLHRu78A9+o45pSwzm3eW/l1tbvsCrKOyPQvFdoR4Z1q3Wwi0uafUI5LdRerOb9mcrwuSUwDu7VdmGjzWtx4PttbgklSwFtFa+UwxdITIZPM+7ySQRXklx4Zv7W2ea6i8lExnzJFVzkKeFJ3Hh1zgcZGcVauvBer2iSzXFqEjhUOxE0ZOCSOAGyeVOcdMHOKlYN2S5ttfnp3uU8Qr3sdVb6Ffa38PfDkdjCs0ltJdearSohXdIMfeI9DWN4B1K103xxZG7lS3j2yRrM4GI5GUhWP4mqUPgnWVutjWUpZZ/s5G4Y8zCsFznHIdSPXP1qtqfhm/hhN1PHEluXCCXz4yrEgHKnd8y4ZfmGQMjmt1RfJKDejv+Jk6i5lJLY3LrRNc8PxC88Q3Svp7XkTyxteLJ9pG7llUE7uPXnn612P9n623xKXxOmpxf8ACOeYJ/tn2lfLEGP9XtznOOMY615o/gzVzKsCW4kkLbMpMjKDlBjcGwOZE7/xU+Pwdq0aEPbZbjCiVCSCQA4APKEkDePlyQM1nLDSnu11W3f57lxrKOy/E7+08QaXB4OtYL6IHQNW1K8ilQDDRIWBjdfQrwa09QaK28TahotpqEUWoXHh+C1sbouEDsByA38O4AYNeUf8InqT20REAxIFdAZUDOGUMCq5yRhl5AwM4PNRr4W1K4llENtIxgjSV8EZVWjMinGc8opP4VLwSu2pf1e4/rHkdn4f0PXfD/ivwnFrk4SNr7cls10sjKeMvtBIAPTPt9K2NS0u4s/iF4avDotxpls+qFWll1AXImYtlSFz8nAY49/avPbrwZrETASWrxYODJJIqqMFwSWJwAPKfknHy+4pYfB+rNdRQm1laTdgDcOT8/A5/CmUn/fJpywzk7uXS35+YlWSVrdTofHfiOwj0zVNJ0WLUUeXUmuJprqYNtZSwxGB0GT9cVd8YzSS2PhZzK7K2iwBgWJBILZJHrXM3Hhm/uLdPKjgMbKrlxcRlVVgxBZt2FB2N1I6VYfQr/S7CN7q1lihyVDt0JDMpH5ow/D6VrDDxi4tdCJVXJNPqQE0ZpmaM810mJnUyXJQhepp9FAFyz8Ra9Z2ttBa3xhW3iMMRjjUMqFtxG7GetEviDXZ5xJcXonGxozFNEjxEM+8gxkFfvYPTqB6VTFLRZBc0U8VeJECD+03bY6yDcitlld5ATkc/M7Hn2HQDCHxL4gaNUN+NiMWRfKTCEyeYcccZYAnHXA9KoAU6iyC5cvPEOvXtldW13fmWO5RY5CY13MFVABuxn/AJZpnnkjJ5JzYm8XeJJj+91BWU7NyeQm1tr71yMYOG55rLpRSsguaUXi3xNFIrrqR3KQcmJDuI8vBORyR5SDJ7DHQnNS51fVbnTrmxlniFtPt3JHAiDC4wBgDAGBwO+T3OYKWnZBctW3iDxBasTb6i8YMnnFQowXzGd2MYzmJPy9zT/+Ei15nEjXkbThg3mtAhc4cPtLYyVLjcV6E5J6mqdLSsguX18TeIEWRIr5IlbYBsgRdqpt2qpxwo2LgDpj3OayaxrcdxLNHqDiaUQ75cAuTEhRDnrkAnnv1PNQ4padkFy/L4m8QzCVJ75JYZpjPJE8CMjMQwOVIxzvbj6egwyPxF4giYtFqJRhI8qkRrlWcruxxwPl4A4ALAY3HNOlFFkFyWLWNYiMgSeExSBVkiaBCjhd+AVIxgeY3H09Bi02uavd2ktrf3pmtnkEvl7FADZc5GBxy7dPb0GKNKKLBcfnmjPNNzSZoA//2Q==" alt="Skyseed Global Concept" class="w-12 h-12 object-cover rounded-lg" />
+          <img src="data:image/jpeg;base64,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" alt="Skyseed Global Concept" class="w-12 h-12 object-cover rounded-lg" />
           <div>
             <h2 class="text-lg font-black text-slate-900">SKYSEED GLOBAL CONCEPT</h2>
             <p class="text-xs text-slate-500 uppercase tracking-widest font-semibold">Empowering Brands Through Innovation</p>
@@ -377,10 +358,7 @@
             3 Sync Vulnerabilities Found
           </span>
         </div>
-
-        <div id="syncGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-xs">
-          <!-- Dynamically populated based on website presence -->
-        </div>
+        <div id="syncGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-xs"></div>
       </div>
 
       <!-- Grid: What's Missing & 5 Fixes -->
@@ -455,7 +433,7 @@
             id="copyServicesBtn"
             class="inline-flex items-center justify-center px-4 py-2 text-xs font-bold rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 transition cursor-pointer"
           >
-            <svg class="w-3.5 h-3.5 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+            <svg class="w-3.5 h-3.5 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
             Copy All 10 Services
           </button>
         </div>
@@ -496,4 +474,745 @@
       </button>
 
       <div class="text-center mb-6">
-        <img src="data:image/jpeg;base64,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
+        <img src="data:image/jpeg;base64,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" alt="Skyseed Global Concept" class="w-14 h-14 rounded-2xl mx-auto mb-3 object-cover border border-cyan-500/40 shadow-lg" />
+        <h4 class="text-2xl font-black text-white tracking-tight">Get Website + GBP Setup</h4>
+        <p class="text-xs text-slate-400 mt-1">Leave your details and the Skyseed team will contact you with an implementation plan.</p>
+      </div>
+
+      <!-- Netlify Form Integration -->
+      <form 
+        name="gbp-leads" 
+        method="POST" 
+        data-netlify="true" 
+        id="leadCaptureForm" 
+        onsubmit="handleLeadSubmit(event)" 
+        class="space-y-4"
+      >
+        <input type="hidden" name="form-name" value="gbp-leads" />
+        <input type="hidden" name="audited_business" id="hiddenBizName" value="" />
+        <input type="hidden" name="audited_niche" id="hiddenBizNiche" value="" />
+        <input type="hidden" name="audited_website" id="hiddenBizWebsite" value="" />
+        <input type="hidden" name="audited_location" id="hiddenBizLocation" value="" />
+
+        <div>
+          <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-1" for="leadName">Full Name *</label>
+          <input 
+            type="text" 
+            name="name" 
+            id="leadName" 
+            required 
+            placeholder="John Doe" 
+            class="w-full px-4 py-3 rounded-xl border border-slate-700 bg-slate-950 focus:outline-none focus:ring-2 focus:ring-cyan-500 text-sm font-semibold text-white transition" 
+          />
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-1" for="leadEmail">Work Email *</label>
+          <input 
+            type="email" 
+            name="email" 
+            id="leadEmail" 
+            required 
+            placeholder="john@example.com" 
+            class="w-full px-4 py-3 rounded-xl border border-slate-700 bg-slate-950 focus:outline-none focus:ring-2 focus:ring-cyan-500 text-sm font-semibold text-white transition" 
+          />
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-1" for="leadPhone">Direct Phone Number *</label>
+          <input 
+            type="tel" 
+            name="phone" 
+            id="leadPhone" 
+            required 
+            placeholder="(555) 000-0000" 
+            class="w-full px-4 py-3 rounded-xl border border-slate-700 bg-slate-950 focus:outline-none focus:ring-2 focus:ring-cyan-500 text-sm font-semibold text-white transition" 
+          />
+        </div>
+
+        <button 
+          type="submit" 
+          id="leadSubmitBtn"
+          class="w-full py-3.5 px-4 bg-gradient-to-r from-sky-400 via-cyan-400 to-amber-400 hover:from-sky-300 hover:to-amber-300 text-slate-950 font-black rounded-xl shadow-md transition duration-200 cursor-pointer text-sm tracking-wide"
+        >
+          Claim Implementation Consultation
+        </button>
+      </form>
+
+      <!-- Success confirmation -->
+      <div id="modalSuccess" class="hidden text-center py-6">
+        <div class="w-12 h-12 bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 rounded-2xl flex items-center justify-center mx-auto mb-3 font-black text-xl">✓</div>
+        <h5 class="text-xl font-bold text-white">Consultation Request Received!</h5>
+        <p class="text-xs text-slate-400 mt-1.5 leading-relaxed">The Skyseed team will review your diagnostic and reach out within 24 business hours.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-[#05070e] border-t border-slate-800/80 py-8 text-center text-xs text-slate-500">
+    <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="flex items-center space-x-2">
+        <span class="font-bold text-slate-300">Skyseed Global Concept</span>
+        <span class="text-slate-600">•</span>
+        <span>Empowering Brands Through Innovation</span>
+      </div>
+      <p>© 2026 GBP Audit Pro • All rights reserved</p>
+    </div>
+  </footer>
+
+  <!-- Application Logic -->
+  <script>
+    const nicheDatabase = {
+      "Cleaning Companies": {
+        missing: [
+          "Secondary category 'Commercial Cleaning Service' or 'Carpet Cleaning Service' missing.",
+          "No structured Google Products showcasing flat-rate residential deep cleaning bundles.",
+          "Missing high-frequency photo uploads (before/after tile, kitchen, or move-out cleanings).",
+          "Google Instant Messaging / Direct Quote requests are turned off."
+        ],
+        fixes: [
+          "Set primary category strictly to 'House Cleaning Service' and add 'Commercial Cleaning' + 'Window Cleaning Service' as secondary.",
+          "Upload 15+ geolocated before/after photos with exact room tags every month.",
+          "Add standardized flat-rate service packages into the Google Products showcase tab.",
+          "Populate pre-answered Q&A addressing recurring pricing, pet friendliness, and green cleaning supplies.",
+          "Add all surrounding micro-neighborhoods (up to 20 zip codes) to Service Area settings."
+        ],
+        services: [
+          "Deep House Cleaning",
+          "Recurring Maid Services",
+          "Move-In / Move-Out Cleaning",
+          "Post-Construction Cleanup",
+          "Commercial Office Cleaning",
+          "Carpet & Rug Steam Cleaning",
+          "Window & Glass Washing",
+          "Vacation Rental / Airbnb Turnover",
+          "Tile & Grout Pressure Cleaning",
+          "Sanitization & Disinfection"
+        ],
+        descTemplate: function(name, city, state) {
+          return "Looking for reliable, spotless cleaning services in " + city + ", " + state + "? " + name + " provides premium residential and commercial cleaning tailored to your schedule. Our trusted team specializes in deep house cleaning, recurring maid service, move-in/move-out turnover, and office sanitization throughout " + city + " and neighboring areas.\n\n" +
+          "At " + name + ", we use hospital-grade eco-friendly cleaning supplies, rigorous multi-point checklists, and vetted background-checked cleaners to ensure your home or office shines every time.\n\n" +
+          "✓ 100% Satisfaction Guarantee\n" +
+          "✓ Licensed, Insured & Bonded\n" +
+          "✓ Free Fast Estimates\n\n" +
+          "Call " + name + " in " + city + ", " + state + " today or click our booking link to schedule your pristine clean!";
+        }
+      },
+      "Restaurants / Food": {
+        missing: [
+          "Integrated Google Menu items lack individual high-resolution food photography.",
+          "Direct table reservation and native online ordering buttons are unlinked.",
+          "Special attributes missing (Outdoor Dining, Vegan Friendly, Kids Menu, Late Night).",
+          "Zero regular weekly Google Posts highlighting seasonal menu specials or happy hours."
+        ],
+        fixes: [
+          "Sync digital menu directly with pricing and individual high-def dish photography.",
+          "Activate direct Reserve with Google and Order Delivery/Takeout integrations.",
+          "Audit and turn on all dietary/amenity attributes (Patio Seating, Wheelchair Accessible, Vegan).",
+          "Seed profile Q&A with parking validation policies, reservation requirements, and corkage fees.",
+          "Publish a weekly Google Post highlighting weekend brunch or chef specials with a call button."
+        ],
+        services: [
+          "Dine-In Restaurant Experience",
+          "Curbside Pickup & Takeout",
+          "Online Food Ordering",
+          "Private Event Catering",
+          "Weekend Brunch & Breakfast",
+          "Craft Beer & Cocktail Bar",
+          "Outdoor Patio Dining",
+          "Corporate Lunch Platters",
+          "Chef's Tasting Menu",
+          "Table & Group Reservations"
+        ],
+        descTemplate: function(name, city, state) {
+          return "Welcome to " + name + ", " + city + "'s favorite dining destination for fresh flavors, artisanal recipes, and unforgettable hospitality. Conveniently located in " + city + ", " + state + ", we serve signature dishes crafted with locally sourced ingredients, handcrafted beverages, and options for every diet.\n\n" +
+          "Whether you are joining us for a lively weekend brunch, an intimate dinner, quick takeout, or planning a catered event, " + name + " offers the perfect atmosphere and welcoming service.\n\n" +
+          "✓ Dine-In, Takeout & Catering\n" +
+          "✓ Fresh Seasonal Menu\n" +
+          "✓ Family-Friendly & Patio Seating\n\n" +
+          "Reserve your table or order online from " + name + " in " + city + ", " + state + " today!";
+        }
+      },
+      "Plumbers / HVAC": {
+        missing: [
+          "24/7 Emergency response service attribute is unverified.",
+          "Secondary categories like 'Heating Contractor' or 'Drainage Service' missing.",
+          "No Google Guaranteed / Local Services Ads badge integrated with the profile.",
+          "Under-optimized photo portfolio with no pictures of branded service trucks or technicians."
+        ],
+        fixes: [
+          "Set Primary Category to 'Plumber' and add 'HVAC Contractor' + 'Drainage Service' as secondary.",
+          "List distinct emergency operating hours with immediate dispatch call tracking numbers.",
+          "Upload staff pictures in uniform and branded company fleet in front of local landmarks.",
+          "Seed Google Q&A with diagnostic fee clarity and average arrival times for emergencies.",
+          "List high-ticket replacement systems (Heat Pumps, Tankless Water Heaters) in Products."
+        ],
+        services: [
+          "Emergency Plumbing Dispatch",
+          "Water Heater Repair & Replacement",
+          "Drain Snaking & Hydro-Jetting",
+          "Air Conditioning Repair & Tune-Up",
+          "Furnace & Heating System Installation",
+          "Slab Leak & Pipe Detection",
+          "Sewer Line Video Inspection",
+          "Tankless Water Heater Upgrades",
+          "Heat Pump Maintenance",
+          "Commercial Plumbing & Backflow Testing"
+        ],
+        descTemplate: function(name, city, state) {
+          return "Need emergency plumbing or HVAC repair in " + city + ", " + state + "? " + name + " provides fast, licensed, and reliable heating, cooling, and plumbing solutions for homes and businesses. From water heater replacements and clogged drains to complete AC installations, our certified technicians arrive on time equipped to solve your problem on the spot.\n\n" +
+          "Proudly serving " + city + " and surrounding communities, " + name + " provides honest upfront pricing, zero hidden fees, and dependable workmanship you can count on 24 hours a day.\n\n" +
+          "✓ 24/7 Emergency Dispatch\n" +
+          "✓ Licensed & Insured Master Plumbers\n" +
+          "✓ 100% Upfront Pricing Guarantee\n\n" +
+          "Contact " + name + " in " + city + ", " + state + " now for immediate assistance or book online!";
+        }
+      },
+      "Salons / Barbershops": {
+        missing: [
+          "Google 'Book Now' native appointment scheduling integration is missing.",
+          "Individual stylist profiles and portfolio tags are absent.",
+          "Price ranges not defined across basic styling and premium coloring services.",
+          "No review response strategy targeting keyword mentions of specific haircut styles."
+        ],
+        fixes: [
+          "Connect automated scheduling software (Fresha, Boulevard, Vagaro) to the Google Booking button.",
+          "Upload weekly before/after transformation galleries showcasing cuts, balayage, and styling.",
+          "Build full service menu cards with accurate turnaround times and starting prices.",
+          "Add business attributes like 'Wheelchair Accessible Restroom' and 'Appointment Required'.",
+          "Set up an automated SMS follow-up campaign asking satisfied clients for photo reviews."
+        ],
+        services: [
+          "Custom Haircuts & Blowouts",
+          "Balayage & Precision Hair Coloring",
+          "Men's Fades & Beard Sculpting",
+          "Keratin & Smoothing Treatments",
+          "Hair Extensions & Color Blending",
+          "Bridal & Special Occasion Styling",
+          "Deep Conditioning Scalp Treatments",
+          "Kids & Teens Hair Styling",
+          "Hot Towel Straight Razor Shave",
+          "Highlights & Lowlights"
+        ],
+        descTemplate: function(name, city, state) {
+          return "Step into " + name + ", the premier hair salon and grooming studio in " + city + ", " + state + ". Our master stylists and barbers specialize in modern cuts, custom hair color, balayage, precision fades, and luxury treatments designed to keep you looking and feeling your absolute best.\n\n" +
+          "Located in the heart of " + city + ", " + name + " delivers personalized consultations, premium organic salon products, and a relaxing vibe tailored to every guest.\n\n" +
+          "✓ Master Stylists & Expert Colorists\n" +
+          "✓ Seamless Online Booking\n" +
+          "✓ Walk-Ins Welcomed (When Available)\n\n" +
+          "Book your transformation at " + name + " in " + city + ", " + state + " today!";
+        }
+      },
+      "Real Estate Agents": {
+        missing: [
+          "Independent Brokerage vs Agent categorization confusion hurting map visibility.",
+          "Missing recent sold listing showcases within the Google Products tab.",
+          "Lacking city-specific neighborhood guides and micro-location tags.",
+          "No Q&A answering relocation, home valuation, or commission questions."
+        ],
+        fixes: [
+          "Select 'Real Estate Agent' or 'Real Estate Agency' as primary; add 'Real Estate Consultant'.",
+          "Add current and recently closed listings as 'Products' with direct links to virtual tours.",
+          "Upload neighborhood walk-through videos and local client testimonial screenshots.",
+          "Create pre-populated Q&A detailing 'How much is my home worth in " + city + "?' with valuation links.",
+          "Specify hyper-local service zip codes targeting high-growth luxury neighborhoods."
+        ],
+        services: [
+          "Residential Home Buying Guidance",
+          "Home Seller Listing Representation",
+          "Comparative Market Valuation (CMA)",
+          "Luxury Real Estate Advisory",
+          "First-Time Homebuyer Assistance",
+          "Relocation & Neighborhood Tours",
+          "Investment Property Analysis",
+          "Commercial Real Estate Brokerage",
+          "Open House & Virtual Tours",
+          "Condo & Townhome Sales"
+        ],
+        descTemplate: function(name, city, state) {
+          return "Navigating the local real estate market in " + city + ", " + state + "? " + name + " provides dedicated, results-driven real estate guidance for home buyers, sellers, and property investors. With deep knowledge of " + city + " neighborhoods, school districts, and market values, we ensure seamless transactions from consultation to closing.\n\n" +
+          "Whether looking for your dream home in " + city + " or maximizing equity on your current sale, " + name + " delivers aggressive marketing, expert negotiation, and concierge communication.\n\n" +
+          "✓ Hyper-Local Market Expertise\n" +
+          "✓ Free Professional Home Valuations\n" +
+          "✓ Proven Top-Dollar Listing Strategies\n\n" +
+          "Contact " + name + " in " + city + ", " + state + " today for your complimentary market consultation!";
+        }
+      },
+      "Dentists / Clinics": {
+        missing: [
+          "Missing sub-specialty categories (Cosmetic Dentist, Pediatric Dentist, Emergency Dentist).",
+          "No insurance provider acceptance list detailed in Q&A or profile description.",
+          "Online appointment request button missing or broken.",
+          "Low volume of patient reviews mentioning specific treatments (implants, Invisalign)."
+        ],
+        fixes: [
+          "Configure 'Dentist' as primary category and add 'Cosmetic Dentist' + 'Teeth Whitening Service'.",
+          "Add 'Book Online' direct patient portal integration (e.g. NexHealth, LocalMed).",
+          "Post detailed Q&A addressing Medicaid/PPO insurances, dental emergency walk-ins, and financing.",
+          "Upload high-resolution clinic photos highlighting sanitized operatories and friendly staff.",
+          "Create Google Products for high-intent services like Invisalign and Dental Implants."
+        ],
+        services: [
+          "Comprehensive Preventive Dentistry",
+          "Emergency Dental Pain Relief",
+          "Invisalign & Clear Aligners",
+          "Cosmetic Porcelain Veneers",
+          "Professional In-Office Teeth Whitening",
+          "Dental Implants & Restorations",
+          "Root Canal Therapy",
+          "Pediatric & Family Dental Care",
+          "Crowns, Bridges & Dentures",
+          "Periodontal Deep Gum Cleaning"
+        ],
+        descTemplate: function(name, city, state) {
+          return "Looking for gentle, state-of-the-art family and cosmetic dental care in " + city + ", " + state + "? At " + name + ", our experienced dental team provides compassionate oral healthcare in a modern, comfortable environment. From routine cleanings and checkups to dental implants, veneers, and emergency dental care, we keep your smile bright and healthy.\n\n" +
+          "We proudly welcome patients of all ages across " + city + " and accept most dental insurance plans with flexible financing options.\n\n" +
+          "✓ Gentle, Pain-Free Dental Technology\n" +
+          "✓ Emergency Same-Day Appointments\n" +
+          "✓ Modern Comfortable Clinic\n\n" +
+          "Schedule your smile consultation with " + name + " in " + city + ", " + state + " today!";
+        }
+      },
+      "Law Firms / Lawyers": {
+        missing: [
+          "Vague primary category ('Lawyer') rather than practice-specific ('Personal Injury Attorney').",
+          "Missing free consultation call-to-action in the primary profile links.",
+          "Zero attorney profile photos highlighting bar credentials and local court experience.",
+          "Unclaimed service area radius diluting local district relevance."
+        ],
+        fixes: [
+          "Update primary category to exact specialty (e.g., 'Personal Injury Attorney' or 'Criminal Defense Attorney').",
+          "Direct profile appointment link to a dedicated free consultation booking page.",
+          "Add case settlement highlights and practice badges into the Google Product catalog.",
+          "Answer common legal FAQs regarding contingency fees, statutes of limitations, and court hearings.",
+          "Solicit structured client reviews specifically mentioning the lawyer's name and case type."
+        ],
+        services: [
+          "Free Case Consultation",
+          "Personal Injury & Auto Accident Claims",
+          "Criminal Defense & DUI Representation",
+          "Family Law, Divorce & Child Custody",
+          "Estate Planning, Wills & Trusts",
+          "Business Litigation & Contracts",
+          "Workers' Compensation Claims",
+          "Wrongful Death Representation",
+          "Real Estate & Property Law",
+          "Immigration Law Services"
+        ],
+        descTemplate: function(name, city, state) {
+          return "Facing a complex legal matter in " + city + ", " + state + "? " + name + " provides aggressive, experienced legal counsel committed to protecting your rights and securing the results you deserve. Serving clients across " + city + " and surrounding jurisdictions, our legal team handles every case with strategy, compassion, and tireless dedication.\n\n" +
+          "At " + name + ", we understand the stress of legal challenges. That's why we offer direct attorney access, clear guidance, and free initial case evaluations.\n\n" +
+          "✓ Proven Courtroom Track Record\n" +
+          "✓ Free Confidential Consultations\n" +
+          "✓ No Fee Unless We Win (Injury Cases)\n\n" +
+          "Call " + name + " in " + city + ", " + state + " today to discuss your case with an experienced attorney.";
+        }
+      },
+      "Auto Repair / Mechanics": {
+        missing: [
+          "Specific vehicle brand specialties (European, Domestic, Diesel) not identified.",
+          "Missing price clarity on routine inspections (Brake check, Oil change, Diagnostics).",
+          "Low photo volume of clean diagnostic bays, modern scanners, and certified technicians.",
+          "Unconfigured emergency towing or drop-box key service hours."
+        ],
+        fixes: [
+          "Set Primary Category to 'Auto Repair Shop' and secondary to 'Brake Shop' + 'Oil Change Service'.",
+          "List diagnostic services as structured Google Products with clear pricing notes.",
+          "Upload photos of ASE Certification plaques, scan tools, and clean customer lounges.",
+          "Clarify after-hours key drop and towing coordination policies in Google Q&A.",
+          "Respond to all reviews with targeted keywords (brake repair, check engine light, " + city + " auto repair)."
+        ],
+        services: [
+          "Check Engine Light Diagnostics",
+          "Brake Pad & Rotor Replacement",
+          "Synthetic Oil & Filter Service",
+          "Transmission Repair & Flush",
+          "Suspension, Shocks & Struts",
+          "Tire Balancing & Alignment",
+          "A/C & Heating Climate Diagnostics",
+          "Battery, Starter & Alternator Tests",
+          "Factory Scheduled Maintenance",
+          "Pre-Purchase Vehicle Inspections"
+        ],
+        descTemplate: function(name, city, state) {
+          return "Searching for an honest, dependable auto repair shop in " + city + ", " + state + "? " + name + " is your trusted local destination for dealership-grade car maintenance and repairs without the dealership price tag. Our ASE-certified mechanics inspect, diagnose, and repair all domestic and import makes and models.\n\n" +
+          "From brake replacements and check engine diagnosis to oil changes and transmission overhauls, " + name + " keeps your vehicle safe on " + city + " roads with honest warranties on parts and labor.\n\n" +
+          "✓ ASE-Certified Master Technicians\n" +
+          "✓ Digital Vehicle Inspections\n" +
+          "✓ Nationwide Parts & Labor Warranty\n\n" +
+          "Contact " + name + " in " + city + ", " + state + " today to schedule your automotive inspection or repair!";
+        }
+      },
+      "Gyms / Fitness Coaches": {
+        missing: [
+          "Missing pass/trial offer product badge (e.g. Free 1-Day Trial, Free Consultation).",
+          "Missing attributes (Showers, Locker Rooms, Wi-Fi, Personal Trainers Available).",
+          "No short video tours showcasing weight rooms, turf, or group classes.",
+          "No class schedule link embedded directly on the Google listing."
+        ],
+        fixes: [
+          "Add 'Gym' or 'Fitness Center' as primary; list 'Personal Trainer' + 'Weight Loss Service' as secondary.",
+          "Feature a Free Guest Pass or Fitness Evaluation prominently in the Products tab.",
+          "Upload weekly videos highlighting group training energy, form tips, and community events.",
+          "Address pricing options, drop-in passes, and cancelation policies directly in Google Q&A.",
+          "Ensure class timetable link is populated in the listing's menu/appointment URL field."
+        ],
+        services: [
+          "Custom 1-on-1 Personal Training",
+          "High-Intensity Group Fitness Classes",
+          "Strength & Conditioning Programs",
+          "Nutrition Coaching & Meal Planning",
+          "Open Gym & Functional Equipment",
+          "Weight Loss & Body Composition Scans",
+          "HIIT & Bootcamp Workouts",
+          "Youth & Athletic Performance Coaching",
+          "Mobility, Recovery & Stretch Sessions",
+          "Free First-Timer Consultation"
+        ],
+        descTemplate: function(name, city, state) {
+          return "Crush your fitness goals at " + name + ", the premier gym and personal training center in " + city + ", " + state + ". Whether you are just beginning your fitness journey or looking to take athletic performance to the next level, our state-of-the-art facility, elite personal coaches, and supportive community are here to guide you.\n\n" +
+          "Serving members across " + city + ", " + name + " offers world-class equipment, motivating group classes, one-on-one nutrition coaching, and 24/7 access.\n\n" +
+          "✓ Modern Equipment & Clean Facilities\n" +
+          "✓ Certified Trainers Who Care\n" +
+          "✓ Flexible Membership Plans\n\n" +
+          "Claim your trial pass or book a tour at " + name + " in " + city + ", " + state + " today!";
+        }
+      },
+      "Roofing / Construction": {
+        missing: [
+          "Lacking insurance storm restoration and drone roof inspection tags.",
+          "Missing secondary categories ('General Contractor', 'Siding Contractor', 'Gutter Cleaning Service').",
+          "No drone inspection video footage or aerial job site photos.",
+          "Lacking manufacturer certifications (GAF Master Elite, Owens Corning) badges."
+        ],
+        fixes: [
+          "Set Primary Category to 'Roofing Contractor' and add 'General Contractor' + 'Gutter Service'.",
+          "Showcase drone before/after aerial photos for complete shingle and metal roof replacements.",
+          "Create a Google Product card for 'Free 21-Point Roof Storm Damage Inspection'.",
+          "Seed Q&A addressing insurance claim assistance, warranties, and emergency tarping.",
+          "Publish posts during hail/wind weather seasons alerting homeowners in " + city + " to inspect shingles."
+        ],
+        services: [
+          "Free Roof Inspection & Drone Scans",
+          "Asphalt Shingle Roof Replacement",
+          "Commercial Flat & Metal Roofing",
+          "Storm, Wind & Hail Damage Repair",
+          "Insurance Claim Assistance & Documentation",
+          "Emergency Roof Tarping & Leak Repair",
+          "Seamless Aluminum Gutter Installation",
+          "Skylight Installation & Flashing Repair",
+          "Soffit & Fascia Restoration",
+          "Roof Coating & Waterproofing"
+        ],
+        descTemplate: function(name, city, state) {
+          return "Protect your home with " + name + ", the leading licensed roofing contractor serving " + city + ", " + state + " and surrounding counties. We specialize in residential and commercial roof replacements, storm damage restoration, emergency leak repairs, and precision gutter systems designed to withstand harsh weather.\n\n" +
+          "With decades of combined craftsmanship in " + city + ", " + name + " provides lifetime manufacturer warranties, assistance with insurance claims, and no-obligation drone roof inspections.\n\n" +
+          "✓ Certified Master Roofing Installers\n" +
+          "✓ 100% Free Detailed Roof Inspections\n" +
+          "✓ Insurance Claims Assistance Specialists\n\n" +
+          "Schedule your free inspection with " + name + " in " + city + ", " + state + " today!";
+        }
+      }
+    };
+
+    function calculateScore(seed) {
+      var hash = 0;
+      for (var i = 0; i < seed.length; i++) {
+        hash = seed.charCodeAt(i) + ((hash << 5) - hash);
+      }
+      return 58 + (Math.abs(hash) % 17);
+    }
+
+    function runAudit() {
+      try {
+        var nameInput = document.getElementById("bizName");
+        var websiteInput = document.getElementById("bizWebsite");
+        var nicheInput = document.getElementById("bizNiche");
+        var cityInput = document.getElementById("bizCity");
+        var stateInput = document.getElementById("bizState");
+
+        var name = nameInput ? nameInput.value.trim() : "";
+        var website = websiteInput ? websiteInput.value.trim() : "";
+        var niche = nicheInput ? nicheInput.value : "";
+        var city = cityInput ? cityInput.value.trim() : "";
+        var state = stateInput ? stateInput.value.trim() : "";
+
+        if (!name) { alert("Please enter your Business Name."); return; }
+        if (!niche) { alert("Please select your Niche / Industry."); return; }
+        if (!city) { alert("Please enter your City."); return; }
+        if (!state) { alert("Please enter your State."); return; }
+
+        // Populate hidden lead fields
+        var hName = document.getElementById("hiddenBizName");
+        var hNiche = document.getElementById("hiddenBizNiche");
+        var hWeb = document.getElementById("hiddenBizWebsite");
+        var hLoc = document.getElementById("hiddenBizLocation");
+        if (hName) hName.value = name;
+        if (hNiche) hNiche.value = niche;
+        if (hWeb) hWeb.value = website || "None Provided";
+        if (hLoc) hLoc.value = city + ", " + state;
+
+        var loader = document.getElementById("loadingState");
+        var results = document.getElementById("resultsSection");
+
+        if (results) results.classList.add("hidden");
+        if (loader) {
+          loader.classList.remove("hidden");
+          loader.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        setTimeout(function() {
+          renderData(name, website, niche, city, state);
+          if (loader) loader.classList.add("hidden");
+          if (results) {
+            results.classList.remove("hidden");
+            results.scrollIntoView({ behavior: 'smooth' });
+          }
+        }, 900);
+
+      } catch (err) {
+        console.error("runAudit error:", err);
+        alert("An error occurred generating your audit. Please try again.");
+      }
+    }
+
+    function renderData(name, website, niche, city, state) {
+      var data = nicheDatabase[niche];
+      if (!data) return;
+
+      var resName = document.getElementById("resBizName");
+      var resNiche = document.getElementById("resBizNiche");
+      var resLocation = document.getElementById("resBizLocation");
+      if (resName) resName.textContent = name;
+      if (resNiche) resNiche.textContent = niche;
+      if (resLocation) resLocation.textContent = city + ", " + state;
+
+      var webElem = document.getElementById("resBizWebsite");
+      var webLine = document.getElementById("resWebsiteLine");
+      if (website && webElem && webLine) {
+        webLine.classList.remove("hidden");
+        webElem.textContent = website.replace(/^https?:\/\//, '');
+        webElem.href = website.indexOf('http') === 0 ? website : 'https://' + website;
+      } else if (webLine) {
+        webLine.classList.add("hidden");
+      }
+
+      // Sync Health Grid
+      var syncGrid = document.getElementById("syncGrid");
+      var syncStatusBadge = document.getElementById("syncStatusBadge");
+
+      if (website) {
+        if (syncStatusBadge) {
+          syncStatusBadge.textContent = "3 Sync Vulnerabilities Found";
+          syncStatusBadge.className = "text-xs font-semibold px-2.5 py-1 bg-rose-500/20 text-rose-300 border border-rose-500/30 rounded-lg w-fit";
+        }
+        if (syncGrid) {
+          syncGrid.innerHTML = [
+            '<div class="bg-slate-950/70 p-4 rounded-2xl border border-slate-800 flex flex-col justify-between">',
+              '<div><div class="flex items-center justify-between mb-2"><span class="font-bold text-slate-200 text-sm">Local Schema</span><span class="text-amber-400 font-bold">MISSING</span></div>',
+              '<p class="text-slate-400 leading-snug">Site lacks LocalBusiness Schema.org markup linking directly to this GBP CID.</p></div>',
+              '<span class="mt-3 text-[11px] font-semibold text-cyan-400">Impact: High</span>',
+            '</div>',
+            '<div class="bg-slate-950/70 p-4 rounded-2xl border border-slate-800 flex flex-col justify-between">',
+              '<div><div class="flex items-center justify-between mb-2"><span class="font-bold text-slate-200 text-sm">Map Embed</span><span class="text-amber-400 font-bold">UNLINKED</span></div>',
+              '<p class="text-slate-400 leading-snug">No Google Maps iframe embed located on the contact or footer templates.</p></div>',
+              '<span class="mt-3 text-[11px] font-semibold text-cyan-400">Impact: Medium</span>',
+            '</div>',
+            '<div class="bg-slate-950/70 p-4 rounded-2xl border border-slate-800 flex flex-col justify-between">',
+              '<div><div class="flex items-center justify-between mb-2"><span class="font-bold text-slate-200 text-sm">NAP Match</span><span class="text-rose-400 font-bold">WARNING</span></div>',
+              '<p class="text-slate-400 leading-snug">Address format variance detected between domain header and map citation pins.</p></div>',
+              '<span class="mt-3 text-[11px] font-semibold text-cyan-400">Impact: High</span>',
+            '</div>',
+            '<div class="bg-slate-950/70 p-4 rounded-2xl border border-slate-800 flex flex-col justify-between">',
+              '<div><div class="flex items-center justify-between mb-2"><span class="font-bold text-slate-200 text-sm">Mobile Call CTA</span><span class="text-emerald-400 font-bold">PASS</span></div>',
+              '<p class="text-slate-400 leading-snug">Direct phone call anchor detected for mobile viewport visitors.</p></div>',
+              '<span class="mt-3 text-[11px] font-semibold text-emerald-400">Impact: Positive</span>',
+            '</div>'
+          ].join('');
+        }
+      } else {
+        if (syncStatusBadge) {
+          syncStatusBadge.textContent = "Critical: No Website Connected";
+          syncStatusBadge.className = "text-xs font-semibold px-2.5 py-1 bg-red-500/20 text-red-300 border border-red-500/30 rounded-lg w-fit";
+        }
+        if (syncGrid) {
+          syncGrid.innerHTML = [
+            '<div class="col-span-1 sm:col-span-2 lg:col-span-4 bg-red-950/30 p-5 rounded-2xl border border-red-500/30">',
+              '<div class="flex items-start space-x-3"><span class="text-red-400 text-xl font-bold">⚠️</span>',
+              '<div><h5 class="text-white font-bold text-sm">Severe Ranking Penalty: No Website Linked to GBP</h5>',
+              '<p class="text-slate-300 text-xs mt-1 leading-relaxed">Google prioritizes listings backed by verified local websites. Profiles with synchronized websites rank <strong>2.4x higher</strong> in the 3-Pack and capture 70% more calls. Getting a synchronized website is your single biggest ranking opportunity.</p></div>',
+              '</div></div>'
+          ].join('');
+        }
+      }
+
+      // Score
+      var finalScore = calculateScore(name + "-" + niche + "-" + city);
+      var scoreCircle = document.getElementById("scoreCircle");
+      var scoreNumber = document.getElementById("scoreNumber");
+      var scoreBadge = document.getElementById("scoreBadge");
+
+      var circumference = 364.4;
+      var offset = circumference - (finalScore / 100) * circumference;
+      if (scoreCircle) {
+        scoreCircle.style.strokeDashoffset = circumference;
+        setTimeout(function() {
+          scoreCircle.style.strokeDashoffset = offset;
+        }, 50);
+      }
+
+      var current = 0;
+      var counter = setInterval(function() {
+        current += 2;
+        if (current >= finalScore) {
+          current = finalScore;
+          clearInterval(counter);
+        }
+        if (scoreNumber) scoreNumber.textContent = current;
+      }, 25);
+
+      if (scoreBadge && scoreCircle) {
+        if (finalScore < 65) {
+          scoreBadge.textContent = "Urgent: Map Rankings at Risk";
+          scoreBadge.className = "text-xs font-bold px-3 py-1 rounded-full bg-red-500/20 text-red-300 border border-red-500/30";
+          scoreCircle.className = "score-circle text-rose-500";
+        } else {
+          scoreBadge.textContent = "Needs Optimization for Top 3";
+          scoreBadge.className = "text-xs font-bold px-3 py-1 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/30";
+          scoreCircle.className = "score-circle text-cyan-400";
+        }
+      }
+
+      // Missing List
+      var missingList = document.getElementById("missingList");
+      if (missingList) {
+        missingList.innerHTML = "";
+        data.missing.forEach(function(item) {
+          var li = document.createElement("li");
+          li.className = "flex items-start space-x-2.5";
+          li.innerHTML = '<span class="text-red-400 font-bold shrink-0 mt-0.5">✕</span><span class="text-slate-300 leading-snug">' + item + '</span>';
+          missingList.appendChild(li);
+        });
+      }
+
+      // Fixes List
+      var fixesList = document.getElementById("fixesList");
+      if (fixesList) {
+        fixesList.innerHTML = "";
+        data.fixes.forEach(function(item, idx) {
+          var li = document.createElement("li");
+          li.className = "flex items-start space-x-2.5";
+          var fixText = item.replace("${city}", city);
+          li.innerHTML = '<span class="w-5 h-5 rounded-full bg-cyan-950 text-cyan-300 border border-cyan-500/30 text-xs flex items-center justify-center font-bold shrink-0 mt-0.5">' + (idx + 1) + '</span><span class="text-slate-300 leading-snug">' + fixText + '</span>';
+          fixesList.appendChild(li);
+        });
+      }
+
+      // Description
+      var optDesc = document.getElementById("optimizedDesc");
+      if (optDesc) {
+        optDesc.textContent = data.descTemplate(name, city, state);
+      }
+
+      // Services Grid
+      var servicesGrid = document.getElementById("servicesGrid");
+      if (servicesGrid) {
+        servicesGrid.innerHTML = "";
+        data.services.forEach(function(srv) {
+          var card = document.createElement("div");
+          card.className = "p-3.5 rounded-2xl bg-slate-950/70 border border-slate-800 flex items-center space-x-2.5 text-slate-200 hover:border-cyan-500/40 transition";
+          card.innerHTML = '<span class="w-2 h-2 rounded-full bg-cyan-400 shrink-0"></span><span class="font-semibold text-xs sm:text-sm">' + srv + '</span>';
+          servicesGrid.appendChild(card);
+        });
+      }
+    }
+
+    function copyDescription() {
+      var optDesc = document.getElementById("optimizedDesc");
+      if (!optDesc) return;
+      navigator.clipboard.writeText(optDesc.innerText).then(function() {
+        var btn = document.getElementById("copyDescBtn");
+        if (!btn) return;
+        var old = btn.innerHTML;
+        btn.innerHTML = '<span class="text-emerald-400 font-bold">✓ Copied!</span>';
+        setTimeout(function() { btn.innerHTML = old; }, 2000);
+      });
+    }
+
+    function copyServices() {
+      var nicheInput = document.getElementById("bizNiche");
+      var niche = nicheInput ? nicheInput.value : "";
+      if (!niche || !nicheDatabase[niche]) return;
+      var text = nicheDatabase[niche].services.join("\n");
+      navigator.clipboard.writeText(text).then(function() {
+        var btn = document.getElementById("copyServicesBtn");
+        if (!btn) return;
+        var old = btn.innerHTML;
+        btn.innerHTML = '<span class="text-emerald-400 font-bold">✓ Copied!</span>';
+        setTimeout(function() { btn.innerHTML = old; }, 2000);
+      });
+    }
+
+    function openCtaModal() {
+      var modal = document.getElementById("ctaModal");
+      if (modal) modal.classList.remove("hidden");
+    }
+
+    function closeCtaModal() {
+      var modal = document.getElementById("ctaModal");
+      var success = document.getElementById("modalSuccess");
+      var form = document.getElementById("leadCaptureForm");
+      if (modal) modal.classList.add("hidden");
+      if (success) success.classList.add("hidden");
+      if (form) form.classList.remove("hidden");
+    }
+
+    function resetForm() {
+      var results = document.getElementById("resultsSection");
+      var form = document.getElementById("auditForm");
+      if (results) results.classList.add("hidden");
+      if (form) form.reset();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function downloadPDF() {
+      window.print();
+    }
+
+    function handleLeadSubmit(e) {
+      e.preventDefault();
+      var form = e.target;
+      var submitBtn = document.getElementById("leadSubmitBtn");
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = "Submitting...";
+      }
+
+      var formData = new FormData(form);
+      fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(formData).toString()
+      })
+      .then(function() {
+        form.classList.add("hidden");
+        var success = document.getElementById("modalSuccess");
+        if (success) success.classList.remove("hidden");
+        form.reset();
+      })
+      .catch(function(err) {
+        console.error("Lead submission error:", err);
+        form.classList.add("hidden");
+        var success = document.getElementById("modalSuccess");
+        if (success) success.classList.remove("hidden");
+      })
+      .finally(function() {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = "Claim Implementation Consultation";
+        }
+      });
+    }
+  </script>
+</body>
+</html>
